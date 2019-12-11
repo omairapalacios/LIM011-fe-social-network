@@ -7,7 +7,7 @@ export default () => {
 </form>
 <div id="container"></div>
 <ul>
-    <li>Fb</li>
+  <i class="fab fa-facebook"></i>
     <li>Gmail</li>
   </ul>
 <div>
