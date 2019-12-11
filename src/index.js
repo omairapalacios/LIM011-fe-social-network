@@ -1,3 +1,9 @@
-import { example } from './example.js';
+import { changeView } from './view-controller/router.js';
 
-example();
+const init = () => {
+    changeView(window.location.hash);
+}
+
+document.getElementById('options').addEventListener('click', init);
+
+init();
