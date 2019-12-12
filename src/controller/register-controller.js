@@ -1,11 +1,12 @@
-export const registerUserEmail = (email, password) => {
-  firebase.auth().createUserWithEmailAndPassword(email, password).catch((error) => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(errorCode);
-    console.log(errorMessage);
+import registerUserEmail from '../model/register-model.js';
+import registerView from '../view/register-view';
 
-    // ...
+export default () => {
+  registerView();
+  const btnRegister = document.querySelector('button');
+  btnRegister.addEventListener('click', () => {
+    const email = document.querySelector('#email').value;
+    const password = document.querySelector('#password').value;
+    registerUserEmail(email, password);
   });
 };
