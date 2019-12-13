@@ -1,4 +1,5 @@
 import { components } from '../view/index.js';
+import registerController from './register-controller.js';
 
 export const changeView = (hash) => {
   const container = document.querySelector('#container');
@@ -10,6 +11,7 @@ export const changeView = (hash) => {
       break;
     case '#/register':
       container.appendChild(components.register());
+      registerController();
       break;
     default:
       break;
