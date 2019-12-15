@@ -19,15 +19,3 @@ export const signInUserEmail = (email, password) => {
       console.log(errorMessage);
     });
 };
-
-export const signOutPage = () => {
-  firebase
-    .auth()
-    .signOut()
-    .then(() => {
-      console.log('sesion cerrada');
-      window.location.hash = '#/';
-    }).catch((error) => {
-      console.log(error);
-    });
-};

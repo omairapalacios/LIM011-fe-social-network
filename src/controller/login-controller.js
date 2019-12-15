@@ -1,4 +1,4 @@
-import { signInUserEmail, signOutPage } from '../model/login-model.js';
+import { signInUserEmail } from '../model/login-model.js';
 
 export const signInEmailEvent = () => {
   const btnLogin = document.querySelector('#btn-login');
@@ -7,11 +7,5 @@ export const signInEmailEvent = () => {
     const email = document.querySelector('#email-login');
     const password = document.querySelector('#password-login');
     signInUserEmail(email.value, password.value);
-  });
-};
-export const singOutEmailEvent = () => {
-  const btnLogin = document.querySelector('#btn-signout');
-  btnLogin.addEventListener('click', () => {
-    signOutPage();
   });
 };
