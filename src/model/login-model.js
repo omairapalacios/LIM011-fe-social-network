@@ -1,11 +1,33 @@
-export const loginUserEmail = (email, password) => {
-  firebase.auth().signInWithEmailAndPassword(email, password).then(() => {
-    console.log(firebase.auth().currentUser.uid);
-  }).catch((error) => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(errorCode);
-    console.log(errorMessage);
-  });
+export const signInUserEmail = (email, password) => {
+  firebase
+    .auth()
+    .signInWithEmailAndPassword(email, password)
+    .then((result) => {
+      if (result.user.emailVerified) {
+        console.log(firebase.auth().currentUser.uid);
+        const message = `Bienvenido ${result.user.displayname}`;
+        console.log(message);
+        window.location.hash = '#/home';
+      } else {
+        console.log('Por favor realiza la verificación en tu correo');
+      }
+    }).catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorCode);
+      console.log(errorMessage);
+    });
+};
+
+export const signOutPage = () => {
+  firebase
+    .auth()
+    .signOut()
+    .then(() => {
+      console.log('sesion cerrada');
+      window.location.hash = '#/';
+    }).catch((error) => {
+      console.log(error);
+    });
 };

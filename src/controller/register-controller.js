@@ -7,8 +7,10 @@ export default () => {
     event.preventDefault();
     const email = document.querySelector('#email-register');
     const password = document.querySelector('#password-register');
-    registerUserEmail(email.value, password.value);
+    const username = document.querySelector('#username');
+    registerUserEmail(email.value, password.value, username.value);
     email.value = '';
     password.value = '';
+    username.value = '';
   });
 };

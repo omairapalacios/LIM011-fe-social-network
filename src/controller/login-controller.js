@@ -1,12 +1,17 @@
-import { loginUserEmail } from '../model/login-model.js';
+import { signInUserEmail, signOutPage } from '../model/login-model.js';
 
-export default () => {
+export const signInEmailEvent = () => {
   const btnLogin = document.querySelector('#btn-login');
   btnLogin.addEventListener('click', (event) => {
     event.preventDefault();
     const email = document.querySelector('#email-login');
     const password = document.querySelector('#password-login');
-    loginUserEmail(email.value, password.value);
-    
+    signInUserEmail(email.value, password.value);
+  });
+};
+export const singOutEmailEvent = () => {
+  const btnLogin = document.querySelector('#btn-signout');
+  btnLogin.addEventListener('click', () => {
+    signOutPage();
   });
 };
