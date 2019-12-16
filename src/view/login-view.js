@@ -8,8 +8,8 @@ export default () => {
     <button id="btn-login" class="btn-general" type="submit">INGRESAR</button>
   </form>
   <p>ó ingresa con :</p>
-    <a>Facebook</a>
-    <a>Gmail</a>
+  <button id="btn-facebook" class="btn-social-icon" type="submit" ><img src="../img/facebook.png" alt="facebook"></button>
+  <button id="btn-google" class="btn-social-icon" type="submit"><img src="../img/google.png" alt="gmail"></button>
   <p>¿No tienes una cuenta?<a href="#/register">Regístrate</a></p>`;
   const divELem = document.createElement('div');
   divELem.innerHTML = loginView;
