@@ -1,7 +1,7 @@
-import { example } from '../src/example.js';
+import { signInUserEmail } from '../src/model/auth-users.js';
 
-describe('example', () => {
+describe('test to  signInUserEmail function', () => {
   it('debería ser una función', () => {
-    expect(typeof example).toBe('function');
+    expect(typeof signInUserEmail).toBe('function');
   });
 });

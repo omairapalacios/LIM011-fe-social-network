@@ -1,4 +1,4 @@
-import { components } from './components.js';
+import { components } from '../utils/utils-view.js';
 import registerController from '../controller/register-controller.js';
 import { signInEmailEvent } from '../controller/login-controller.js';
 
