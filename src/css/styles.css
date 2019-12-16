@@ -1,0 +1,21 @@
+* {
+  margin:0;
+  padding:0;
+}
+
+main {
+  display: flex;
+}
+.btn-social-icon {
+  border-radius: 50%;
+  background: transparent;
+  width: 40px;
+  height: 40px;
+  border: 0px;
+  outline: none;
+}
+
+.btn-social-icon:hover {
+  box-shadow: 1px;
+  transform: translateY(-0.5px);
+}
