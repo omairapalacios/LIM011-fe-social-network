@@ -1,5 +1,7 @@
-import {register} from '../view/register.js'
+import viewRegister from './register-view.js';
+import viewLogin from './login-view.js';
 
-export const componentes = {
-    register: register
-}
+export const components = {
+  register: viewRegister,
+  login: viewLogin,
+};

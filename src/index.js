@@ -1,9 +1,7 @@
-import { changeView } from './view-controller/router.js';
+import { changeView } from './controller/router.js';
 
 const init = () => {
-    changeView(window.location.hash);
-}
-
-document.getElementById('options').addEventListener('click', init);
-
-init();
+  changeView(window.location.hash);
+  window.addEventListener('hashchange', () => (changeView(window.location.hash)));
+};
+window.addEventListener('load', init);
