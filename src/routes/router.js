@@ -17,6 +17,7 @@ export const changeView = (hash) => {
       registerController();
       break;
     case '#/home':
+      container.appendChild(components.header());
       container.appendChild(components.home());
       break;
     case '#/signOut':

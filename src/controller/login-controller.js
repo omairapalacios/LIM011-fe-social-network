@@ -1,6 +1,5 @@
 import { signInUserEmail, signInUserGoogle, signInUserFacebook } from '../model/auth-users.js';
 
-
 export const signInEmailEvent = () => {
   const btnLogin = document.querySelector('#btn-login');
   btnLogin.addEventListener('click', (event) => {
@@ -61,7 +60,7 @@ export const signInEmailEvent = () => {
         const user = result.user;
         console.log(token, user);
       }).catch((error) => {
-      // Handle Errors here.
+        // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
