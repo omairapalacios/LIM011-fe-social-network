@@ -2,20 +2,86 @@
   margin:0;
   padding:0;
 }
-
 main {
   display: flex;
+  flex-direction: column;
 }
 .btn-social-icon {
   border-radius: 50%;
   background: transparent;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
+  margin: 8px 5px;
   border: 0px;
   outline: none;
 }
-
+.btn-social-icon img {
+  width: 35px;
+  height: 35px;
+}
 .btn-social-icon:hover {
   box-shadow: 1px;
   transform: translateY(-0.5px);
+}
+.logo img {
+  margin: 30px 0px 18px 0px;
+  width: 275px;
+  height: 155px;
+}
+.logo {
+  text-align: center;
+}
+
+.form-login, .form-register {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Nunito', sans-serif;
+  font-weight: lighter;
+  font-size: 14px;
+  color: #011a2fe3;
+  align-items: center;
+}
+.input-container {
+  text-align: center;
+  margin: 18px 0px 5px 0px;
+}
+.form-login input, .form-register input{
+  width: 72%;
+  height: 30px;
+  margin: 5px;
+  border-radius: 20px;
+  text-align: center;
+  border: 1px solid #aab1b7;
+  outline: none;  
+}
+
+.form-login p a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  color: #011a2fe3; 
+}
+.form-login p a:hover {
+  color: #fbe968b5;
+}
+.btn-general {
+  width: 50%;
+  height: 30px;
+  border-radius: 20px;
+  border: transparent;
+  background: #fbe968b5;
+  margin-bottom: 20px;
+  outline: none;
+  font-weight: bold;
+  font-size: 12px;
+  color: #011a2fe3; 
+}
+.btn-general:active, .btn-general:hover {
+  background: #47a2ff40;
+}
+
+.btn-social-net {
+  display: flex;
+  margin: 9px;
+  justify-content: center;
 }

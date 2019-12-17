@@ -14,4 +14,5 @@ const configInitial = () => {
   };
   firebase.initializeApp(firebaseConfig);
 };
-configInitial();
+
+window.addEventListener('load', configInitial);

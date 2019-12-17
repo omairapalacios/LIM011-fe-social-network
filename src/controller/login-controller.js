@@ -1,31 +1,32 @@
 import { signInUserEmail, signInUserGoogle, signInUserFacebook } from '../model/auth-users.js';
 
 
+export const signInEmailEventListener = (event) => {
+  event.preventDefault();
+
+  const btnLogin = event.target;
+
+  const email = btnLogin.clouses('form').querySelector('input[type=email]');
+  const password = document.querySelector('#password-login');
+
+  signInUserEmail(email.value, password.value)
+    .then((result) => {
+      if (result.user.emailVerified) {
+        window.location.hash = '#/home';
+      } else {
+        firebase.auth.signOut();
+        console.log('Por favor realiza la verificación en tu correo');
+      }
+    }).catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorCode);
+      console.log(errorMessage);
+    });
+};
+
 export const signInEmailEvent = () => {
-  const btnLogin = document.querySelector('#btn-login');
-  btnLogin.addEventListener('click', (event) => {
-    event.preventDefault();
-    const email = document.querySelector('#email-login');
-    const password = document.querySelector('#password-login');
-
-    signInUserEmail(email.value, password.value)
-      .then((result) => {
-        if (result.user.emailVerified) {
-          window.location.hash = '#/home';
-        } else {
-          firebase.auth.signOut();
-          console.log('Por favor realiza la verificación en tu correo');
-        }
-      }).catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode);
-        console.log(errorMessage);
-      });
-  });
-
-
   const btnGoogle = document.querySelector('#btn-google');
   btnGoogle.addEventListener('click', () => {
     signInUserGoogle()
