@@ -13,11 +13,9 @@ export default () => {
         result.user.updateProfile({
           displayName: username,
         });
-
         const redirectLogin = {
           url: 'http://localhost:5000/',
         };
-
         result.user.sendEmailVerification(redirectLogin).catch((error) => {
           console.error(error);
         });
@@ -26,10 +24,15 @@ export default () => {
         alert('Para continuar por favor revisa tu correo el electronico y valida');
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode);
-        console.log(errorMessage);
+        // const msgErrorPassword = document.querySelector('#error-password');
+        const msgErrorEmail = document.querySelector('#error-password');
+
+        const errorPassword = error.code;
+        // const errorEmail = error.message;
+
+        if (errorPassword === 'auth/weak-password') {
+          msgErrorEmail.innerHTML = 'Contraseña débil';
+        }
       });
     email.value = '';
     password.value = '';

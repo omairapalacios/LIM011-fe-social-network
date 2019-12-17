@@ -1,3 +1,5 @@
+import { signInEmailEventListener } from '../controller/login-controller.js';
+
 export default () => {
   const loginView = `
   <form class="form-login" action="">
@@ -16,5 +18,7 @@ export default () => {
     </form>`;
   const divELem = document.createElement('div');
   divELem.innerHTML = loginView;
+  const btnLogin = divELem.querySelector('#btn-login');
+  btnLogin.addEventListener('click', signInEmailEventListener);
   return divELem;
 };
