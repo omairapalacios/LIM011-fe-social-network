@@ -14,7 +14,7 @@ export const changeView = (hash) => {
     case '#/register':
       container.appendChild(components.register());
       break;
-    case '#home':
+    case '#/home':
       container.appendChild(components.home());
       break;
     default:
