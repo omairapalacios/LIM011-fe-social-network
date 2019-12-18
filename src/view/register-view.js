@@ -1,4 +1,6 @@
 
+import registerUserEmailEvent from '../controller/register-controller.js';
+
 export default () => {
   const registerView = `
   <form class="form-register" action="">
@@ -15,5 +17,8 @@ export default () => {
   const divElem = document.createElement('div');
   divElem.className = 'viewRegister';
   divElem.innerHTML = registerView;
+
+  const btnRegister = divElem.querySelector('#btn-register');
+  btnRegister.addEventListener('click', registerUserEmailEvent);
   return divElem;
 };

@@ -28,3 +28,8 @@ export const registerUserEmail = (email, password) => {
   console.log(typeof (result));
   return result;
 };
+
+export const signOut = () => {
+  const result = firebase.auth().signOut();
+  return result;
+};

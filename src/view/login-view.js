@@ -1,4 +1,4 @@
-import { signInEmailEventListener } from '../controller/login-controller.js';
+import { signInEmailEvent, signInGoogleEvent, signInFacebookEvent } from '../controller/login-controller.js';
 
 export default () => {
   const loginView = `
@@ -15,10 +15,18 @@ export default () => {
       <button id="btn-google" class="btn-social-icon" type="submit"><img src="../img/google.png" alt="gmail"></button>
     </div>
     <p>¿No tienes una cuenta? <a href="#/register">Regístrate</a></p>
-    </form>`;
+  </form>`;
   const divELem = document.createElement('div');
   divELem.innerHTML = loginView;
+
   const btnLogin = divELem.querySelector('#btn-login');
-  btnLogin.addEventListener('click', signInEmailEventListener);
+  btnLogin.addEventListener('click', signInEmailEvent);
+
+  const btnGoogle = divELem.querySelector('#btn-google');
+  btnGoogle.addEventListener('click', signInGoogleEvent);
+
+  const btnFacebook = divELem.querySelector('#btn-google');
+  btnFacebook.addEventListener('click', signInFacebookEvent);
+
   return divELem;
 };
