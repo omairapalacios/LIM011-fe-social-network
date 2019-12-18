@@ -1,14 +1,36 @@
-import { registerUserEmail } from '../model/register-model.js';
+import { registerUserEmail } from '../model/auth-user.js';
 
-export default () => {
-  const btnRegister = document.getElementById('btn-register');
-  console.log(btnRegister);
-  btnRegister.addEventListener('click', (event) => {
-    event.preventDefault();
-    const email = document.querySelector('#email-register');
-    const password = document.querySelector('#password-register');
-    registerUserEmail(email.value, password.value);
-    email.value = '';
-    password.value = '';
-  });
+export default (event) => {
+  event.preventDefault();
+  const btnRegister = event.target;
+  const email = btnRegister.closet('form').querySelector('input[type=email]');
+  const password = btnRegister.closet('form').querySelector('input[type=password]');
+  const message = btnRegister.closeet('form').querySelector('label');
+
+  registerUserEmail(email.value, password.value)
+    .then((result) => {
+      const redirectLogin = {
+        url: 'http://localhost:5000/',
+      };
+      result.user.sendEmailVerification(redirectLogin).catch((error) => {
+        console.error(error);
+      });
+
+      firebase.auth().signOut();
+      console.log('Para continuar por favor revisa tu correo el electronico y valida');
+    })
+    .catch((error) => {
+      const errorPassword = error.code;
+      const errorEmail = error.message;
+      if (errorPassword === 'auth/weak-password') {
+        message.innerHTML = 'La contraseña ingresada es debil, ingrese 6 o más caracteres';
+        password.value = '';
+      } else if (errorEmail === 'auth/email-already-in-use') {
+        email.value = '';
+        message.innerHTML = ' El correo ingresado ya se encuentra registrado';
+      } else if (errorEmail === 'auth/invalid-email') {
+        email.value = '';
+        message.innerHTML = 'el correo ingresado no es valido';
+      }
+    });
 };
