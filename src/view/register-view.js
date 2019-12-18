@@ -7,7 +7,7 @@ export default () => {
     <p> Bienvenid@</p>
     <input id = "username" type = "text" placeholder ="Nombre de usuario">
     <label id="error-password" for=""></label>
-    <input id = "email-register" type = "text" placeholder = "Correo Electrónico">
+    <input id = "email-register" type = "email" placeholder = "Correo Electrónico">
     <label id="error-email" for=""></label>
     <input id="password-register" type="password" placeholder="Contraseña">
     <button id = "btn-register" class = "btn-general" type = "submit"> REGISTRARME </button>

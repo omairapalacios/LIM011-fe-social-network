@@ -17,7 +17,7 @@ export default () => {
   <p class="select"> </p>
 </div>
 <a id="btn-user">usuario</a>
-<a id="user> el usuario esta aqui </a>
+<a id="user"> CONECTADO </a>
 `;
   formElem.innerHTML = homeView;
   // MANEJO DE DOM (eventos)
