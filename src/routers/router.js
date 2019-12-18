@@ -1,8 +1,10 @@
-import { components } from '../utils/utils-view.js';
-
+import { components } from '../utils/util-view.js';
+// el parametro hasta el contenido de la URL
 export const changeView = (hash) => {
+  // nos trae el window.location.hash del main para agruparla con cada una de las vistas
   const container = document.querySelector('#container');
   container.innerHTML = '';
+  // RECUERDA QUE EL SWITCH evalua una expresion en este caso el HASH
   switch (hash) {
     case '':
     case '#/':
@@ -16,6 +18,6 @@ export const changeView = (hash) => {
       container.appendChild(components.home());
       break;
     default:
-      break;
+      container.appendChild(components.login());
   }
 };

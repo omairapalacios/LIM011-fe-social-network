@@ -1,32 +1,32 @@
-import { signInEmailEvent, signInGoogleEvent, signInFacebookEvent } from '../controller/login-controller.js';
+import { signInEmailEvent, signGoogleEvent, signFacebookEvent } from '../controller/login-controller.js';
 
+/* eslint-disable max-len */
 export default () => {
+  // REQUIRED: es un atributo booleano-- especifica que el elmento debe completarse antes de enviar el formulario
+  // TIPO SUBMIT: SIRVE PARA ENVIAR EL FORMULARIO una vez se ha rellenado todos los campos, recuerda que por defecto
+  // el boton sera ENVIAR equivale al idioma que tienes, podemos modificar el texto mediante el atributo VALUE
+  const divForm = document.createElement('form');
+  divForm.className = 'form-login';
   const loginView = `
-  <form class="form-login" action="">
-    <h3>Bienvenidx</h3>
-    <div class="input-container">
-      <input type="email" id="email-login" placeholder="Correo Electronico" required>
-      <input type="password" id="password-login" placeholder="Contraseña" required>
-    </div>
-    <button id="btn-login" class="btn-general" type="submit">INGRESAR</button>
-    <p>ó bien ingresa con...</p>
-    <div class="btn-social-net">
-      <button id="btn-facebook" class="btn-social-icon" type="submit" ><img src="../img/facebook.png" alt="facebook"></button>
-      <button id="btn-google" class="btn-social-icon" type="submit"><img src="../img/google.png" alt="gmail"></button>
-    </div>
-    <p>¿No tienes una cuenta? <a href="#/register">Regístrate</a></p>
-  </form>`;
-  const divELem = document.createElement('div');
-  divELem.innerHTML = loginView;
+    <p> BIENVENID@S </p>
+    <p> Si ya tienes una cuenta </p>
 
-  const btnLogin = divELem.querySelector('#btn-login');
+    <input type="email" id= "email-login"  placeholder ="Correo Electrónico" required>
+    <input type = "password" id ="password-login" placeholder ="Contraseña" required>
+    <button id="btn-login" class= "btn-general type ="submit"> INGRESAR</button>
+    <p> Ingresa con : </p>
+    <button id="btn-facebook" class="btn-social-icon" type ="submit" > <img src="../img/facebook.png" alt="facebook"></button>
+    <button id="btn-google"  class="btn-social-icon" type ="submit"><img src="../img/google.png"> </button>
+    <p>¿No tienes una cuenta?<a href="#/register">Registrate </a></p>
+    `;
+  divForm.innerHTML = loginView;
+  // MANEJO DE DOM (eventos)
+  const btnLogin = divForm.querySelector('#btn-login');
   btnLogin.addEventListener('click', signInEmailEvent);
+  const btnFacebook = divForm.querySelector('#btn-facebook');
+  btnFacebook.addEventListener('click', signFacebookEvent);
+  const btnGoogle = divForm.querySelector('#btn-google');
+  btnGoogle.addEventListener('click', signGoogleEvent);
 
-  const btnGoogle = divELem.querySelector('#btn-google');
-  btnGoogle.addEventListener('click', signInGoogleEvent);
-
-  const btnFacebook = divELem.querySelector('#btn-facebook');
-  btnFacebook.addEventListener('click', signInFacebookEvent);
-
-  return divELem;
+  return divForm;
 };

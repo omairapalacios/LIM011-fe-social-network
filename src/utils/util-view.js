@@ -6,4 +6,5 @@ export const components = {
   register: viewRegister,
   login: viewLogin,
   home: viewHome,
+
 };

@@ -1,8 +1,9 @@
-import { init } from './routes/index.js';
+import { init } from './routers/index.js';
 
 const configInitial = () => {
   init();
   const firebaseConfig = {
+
     apiKey: 'AIzaSyBzjNMWg4J7_a319uC-76A5NigM_f_JN9o',
     authDomain: 'my-first-blog-fb.firebaseapp.com',
     databaseURL: 'https://my-first-blog-fb.firebaseio.com',
@@ -14,5 +15,5 @@ const configInitial = () => {
   };
   firebase.initializeApp(firebaseConfig);
 };
-
+// el load representa la recarga cada ves que haya una recarda se ejecuta o inicia la funciòn INIT
 window.addEventListener('load', configInitial);
