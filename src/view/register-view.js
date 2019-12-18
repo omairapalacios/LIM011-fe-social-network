@@ -14,7 +14,7 @@ export default () => {
      `;
   formElement.innerHTML = registerView;
   // MANEJO DE DOM (eventos)
-  const btnRegister = formElement.querySelector('#btn-register');
+  const btnRegister = formElement.querySelector('button');
   // eslint-disable-next-line no-undef
   btnRegister.addEventListener('click', registerUserEmailEvent);
   return formElement;

@@ -1,4 +1,4 @@
-import { signOutSesion} from '../controller/login-controller.js'
+import { signOutSesion, accesEvent } from '../controller/login-controller.js';
 
 export default () => {
   const formElem = document.createElement('form');
@@ -10,13 +10,22 @@ export default () => {
   <li><a id="btn-close">Sign out</a></li>
   </ul>
 </nav>
+<div class="container-user">
+<img class="color-img" src="../img/">
+<div class="email-user">
+  <img class="img-perfil" src=''/>
+  <p class="select"> </p>
+</div>
 <a id="btn-user">usuario</a>
-<a id="usuario">mostrar usuario aqui</a>`;
+<a id="user> el usuario esta aqui </a>
+`;
   formElem.innerHTML = homeView;
   // MANEJO DE DOM (eventos)
 
   // btnSignOut.addEventListener('click');
-  const btnuser = formElem.querySelector('#btn-user');
+  const btnuser = formElem.querySelector('#btn-close');
   btnuser.addEventListener('click', signOutSesion);
+  const btnAcces = formElem.querySelector('#btn-user');
+  btnAcces.addEventListener('click', accesEvent);
   return formElem;
 };

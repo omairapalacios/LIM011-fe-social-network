@@ -1,5 +1,5 @@
 import {
-  signInUserEmail, signInUserFacebook, signInUserGoogle, signOut,
+  signInUserEmail, signInUserFacebook, signInUserGoogle, signOut, accesUser,
 } from '../model/auth-user.js';
 
 export const signInEmailEvent = (event) => {
@@ -8,11 +8,11 @@ export const signInEmailEvent = (event) => {
 // pertenece al evento no ocurrirá
   event.preventDefault();
   // implemetada para darle una delegación al evento
-  //const btnLogin = event.target;
-  const email = document.querySelector('#email-login');
-  const password = document.querySelector('#password-login');
-  //const email = btnLogin.closest('form').querySelector('input[type=email]');
-  //const password = btnLogin.closest('form').querySelector('input[type=password]');
+  const btnLogin = event.target;
+  // const email = document.querySelector('#email-login');
+  // const password = document.querySelector('#password-login');
+  const email = btnLogin.closest('form').querySelector('input[type=email]');
+  const password = btnLogin.closest('form').querySelector('input[type=password]');
   signInUserEmail(email.value, password.value)
     .then((result) => {
       if (result.user.emailVerified) {
@@ -77,5 +77,17 @@ export const signOutSesion = (event) => {
     }).catch((error) => {
       const errorCode = error.code;
       console.log(errorCode);
+    });
+};
+export const accesEvent = () => {
+  const nameuser = document.querySelector('#user');
+  accesUser(nameuser.value)
+    .then((user) => {
+      if (user) {
+        const emails = user.email;
+        console.log('usuario', emails);
+      } else {
+        console.log('error');
+      }
     });
 };

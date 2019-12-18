@@ -5,7 +5,7 @@ export default () => {
   // REQUIRED: es un atributo booleano-- especifica que el elmento debe completarse antes de enviar el formulario
   // TIPO SUBMIT: SIRVE PARA ENVIAR EL FORMULARIO una vez se ha rellenado todos los campos, recuerda que por defecto
   // el boton sera ENVIAR equivale al idioma que tienes, podemos modificar el texto mediante el atributo VALUE
-  const divForm = document.createElement('div');
+  const divForm = document.createElement('form');
   divForm.className = 'form-login';
   const loginView = `
     <p> BIENVENID@S </p>

@@ -1,11 +1,11 @@
-import { registerUserEmail} from '../model/auth-user.js';
+import { registerUserEmail } from '../model/auth-user.js';
 
 export default (event) => {
   event.preventDefault();
-  //const btnRegister = event.target;
-  const email = document.querySelector('#email-register');
-  const password = document.querySelector('#password-register');
-  // const username = document.querySelector('#username');
+  const btnRegister = event.target;
+  const email = btnRegister.closet('form').querySelector('input[type=email]');
+  const password = btnRegister.closet('form').querySelector('input[type=password]');
+  const message = btnRegister.closeet('form').querySelector('label');
 
   registerUserEmail(email.value, password.value)
     .then((result) => {
@@ -20,14 +20,17 @@ export default (event) => {
       console.log('Para continuar por favor revisa tu correo el electronico y valida');
     })
     .catch((error) => {
-      // const msgErrorPassword = document.querySelector('#error-password');
-      const msgErrorEmail = document.querySelector('#error-password');
-
       const errorPassword = error.code;
-      // const errorEmail = error.message;
-
+      const errorEmail = error.message;
       if (errorPassword === 'auth/weak-password') {
-        msgErrorEmail.innerHTML = 'Contraseña débil';
+        message.innerHTML = 'La contraseña ingresada es debil, ingrese 6 o más caracteres';
+        password.value = '';
+      } else if (errorEmail === 'auth/email-already-in-use') {
+        email.value = '';
+        message.innerHTML = ' El correo ingresado ya se encuentra registrado';
+      } else if (errorEmail === 'auth/invalid-email') {
+        email.value = '';
+        message.innerHTML = 'el correo ingresado no es valido';
       }
     });
 };
