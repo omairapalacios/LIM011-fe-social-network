@@ -1,3 +1,5 @@
+import { signOutSesion } from '../controller/login-controller.js';
+
 export default () => {
   const headerView = `
   <div class="menu">
@@ -6,9 +8,14 @@ export default () => {
   <img src="./img/logo.png" alt="" class="logo">
   <div class="log-out">
     <img src="" alt="">
-    <span>Cerrar Sesión</span>
+    <span id="log-out">Cerrar Sesión</span>
   </div>`;
   const headerELem = document.createElement('header');
   headerELem.innerHTML = headerView;
+
+  // btnSignOut.addEventListener('click');
+  const btnLogout = headerELem.querySelector('#log-out');
+  btnLogout.addEventListener('click', signOutSesion);
+
   return headerELem;
 };

@@ -1,37 +1,24 @@
-import { components } from '../utils/utils-view.js';
-import registerController from '../controller/register-controller.js';
-import { signInEmailEvent } from '../controller/login-controller.js';
-
+import { components } from '../utils/util-view.js';
+// el parametro hasta el contenido de la URL
 export const changeView = (hash) => {
+  // nos trae el window.location.hash del main para agruparla con cada una de las vistas
   const container = document.querySelector('#container');
   container.innerHTML = '';
+  // RECUERDA QUE EL SWITCH evalua una expresion en este caso el HASH
   switch (hash) {
     case '':
     case '#/':
     case '#/login':
       container.appendChild(components.login());
-      signInEmailEvent();
       break;
     case '#/register':
       container.appendChild(components.register());
-      registerController();
       break;
     case '#/home':
       container.appendChild(components.header());
       container.appendChild(components.home());
       break;
-    case '#/signOut':
-      firebase
-        .auth()
-        .signOut()
-        .then(() => {
-          console.log('sesion cerrada');
-        }).catch((error) => {
-          console.log(error);
-        });
-      break;
     default:
       container.appendChild(components.login());
-      break;
   }
 };

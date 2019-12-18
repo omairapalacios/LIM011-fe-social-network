@@ -33,5 +33,6 @@ export default () => {
 `;
   const mainELem = document.createElement('main');
   mainELem.innerHTML = homeView;
+
   return mainELem;
 };
