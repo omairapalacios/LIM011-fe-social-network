@@ -3,14 +3,8 @@ import {
 } from '../model/auth-user.js';
 
 export const signInEmailEvent = (event) => {
-// el metodo preventDefault() cancela el evento si es cancelable,
-// lo que significa que la accion predeterminada que
-// pertenece al evento no ocurrirá
   event.preventDefault();
-  // implemetada para darle una delegación al evento
   const btnLogin = event.target;
-  // const email = document.querySelector('#email-login');
-  // const password = document.querySelector('#password-login');
   const email = btnLogin.closest('form').querySelector('input[type=email]');
   const password = btnLogin.closest('form').querySelector('input[type=password]');
   signInUserEmail(email.value, password.value)
@@ -44,7 +38,6 @@ export const signFacebookEvent = (event) => {
       const email = error.email;
       // The firebase.auth.AuthCredential type that was used.
       const credential = error.credential;
-
       console.log(email, credential);
     });
 };

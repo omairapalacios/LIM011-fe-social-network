@@ -4,6 +4,8 @@ import { registerUserEmail } from '../model/auth-user.js';
 export default (event) => {
   event.preventDefault();
   const btnRegister = event.target;
+  console.log(btnRegister);
+  console.log(btnRegister.closest('form'));
   const email = btnRegister.closest('form').querySelector('input[type=email]');
   const password = btnRegister.closest('form').querySelector('input[type=password]');
   const message = btnRegister.closest('form').querySelector('label');

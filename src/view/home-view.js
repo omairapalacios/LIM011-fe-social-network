@@ -20,9 +20,6 @@ export default () => {
 <a id="user> el usuario esta aqui </a>
 `;
   formElem.innerHTML = homeView;
-  // MANEJO DE DOM (eventos)
-
-  // btnSignOut.addEventListener('click');
   const btnuser = formElem.querySelector('#btn-close');
   btnuser.addEventListener('click', signOutSesion);
   const btnAcces = formElem.querySelector('#btn-user');
