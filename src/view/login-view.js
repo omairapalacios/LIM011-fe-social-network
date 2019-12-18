@@ -25,7 +25,7 @@ export default () => {
   const btnGoogle = divELem.querySelector('#btn-google');
   btnGoogle.addEventListener('click', signInGoogleEvent);
 
-  const btnFacebook = divELem.querySelector('#btn-google');
+  const btnFacebook = divELem.querySelector('#btn-facebook');
   btnFacebook.addEventListener('click', signInFacebookEvent);
 
   return divELem;

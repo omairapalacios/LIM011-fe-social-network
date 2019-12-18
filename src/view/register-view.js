@@ -6,19 +6,18 @@ export default () => {
   <form class="form-register" action="">
     <h3>Bienvenidx</h3>
     <div class="input-container">
-      <input id="username" type="text" placeholder="Nombre de usuario">
-      <label id="error-password" for=""></label>
-      <input id="email-register" type="email" placeholder="Correo Electronico">
-      <label id="error-email" for=""></label>
-      <input id="password-register" type="password" placeholder="Contraseña">
+      <input type="text" placeholder="Nombre de usuario">
+      <input type="email" placeholder="Correo Electronico">
+      <label for=""></label>
+      <input type="password" placeholder="Contraseña">
     </div>
-    <button id="btn-register" class="btn-general" type="submit">REGISTRARME</button>
+    <button class="btn-general" type="submit">REGISTRARME</button>
   </form>`;
   const divElem = document.createElement('div');
   divElem.className = 'viewRegister';
   divElem.innerHTML = registerView;
 
-  const btnRegister = divElem.querySelector('#btn-register');
+  const btnRegister = divElem.querySelector('button');
   btnRegister.addEventListener('click', registerUserEmailEvent);
   return divElem;
 };
