@@ -49,7 +49,7 @@ export const signFacebookEvent = (event) => {
     });
 };
 
-export const signGoobleEvent = (event) => {
+export const signGoogleEvent = (event) => {
   event.preventDefault();
   signInUserGoogle()
     .then((result) => {
