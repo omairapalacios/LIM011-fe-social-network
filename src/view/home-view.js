@@ -5,8 +5,8 @@ export default () => {
       <div class="user-profile">
         <img src="" alt="" class="user-photo">
         <div class="detail-user">
-          <span class="user-name">Fulana Suarez</span>
-          <p class="ocupation">Developer Jr.</p>
+          <span class="user-name">Nora Suarez</span>
+          <p class="ocupation">Administradora</p>
         </div>
       </div>
     </section>

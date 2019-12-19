@@ -1,10 +1,6 @@
 import { signInEmailEvent, signGoogleEvent, signFacebookEvent } from '../controller/login-controller.js';
 
-/* eslint-disable max-len */
 export default () => {
-  // REQUIRED: es un atributo booleano-- especifica que el elmento debe completarse antes de enviar el formulario
-  // TIPO SUBMIT: SIRVE PARA ENVIAR EL FORMULARIO una vez se ha rellenado todos los campos, recuerda que por defecto
-  // el boton sera ENVIAR equivale al idioma que tienes, podemos modificar el texto mediante el atributo VALUE
   const loginView = `
     <section class="section-logo">
       <img src="./img/logo.png" alt="logo">
@@ -14,6 +10,10 @@ export default () => {
       <input type="email" id="email-login" placeholder="Email" required>
       <input type="password" id="password-login" placeholder="Password" required>
       <button id="btn-login" class="btn-general" type="submit">Log in</button>
+      <span class='errors' id='error-email'></span>
+      <span class='errors' id='error-message'></span>
+      <span class='errors' id='error-password'></span>
+      <span class='errors' id='error-email'></span>
     </form>
       <p>O bien ingresa con...</p>
       <a id="btn-facebook" class="btn-social-icon" type="submit" ><img src="../img/facebook.png" alt="facebook"></a>

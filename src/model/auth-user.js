@@ -29,7 +29,3 @@ export const signOut = () => {
   const result = firebase.auth().signOut();
   return result;
 };
-export const accesUser = () => {
-  const user = firebase.auth().currentUser;
-  return user;
-};

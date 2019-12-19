@@ -8,7 +8,7 @@ export default () => {
   <img src="./img/logo.png" alt="" class="logo">
   <div class="log-out">
     <img src="" alt="">
-    <span id="log-out">Cerrar Sesión</span>
+    <a id="log-out">Cerrar Sesión</a>
   </div>`;
   const headerELem = document.createElement('header');
   headerELem.innerHTML = headerView;

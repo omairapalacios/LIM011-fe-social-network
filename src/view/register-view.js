@@ -9,18 +9,17 @@ export default () => {
     <form>
       <input id="username" type="text" placeholder="Nombre de usuario">      
       <input id="email-register" type="email" placeholder="Correo Electronico">
-      <label id="error-email" for=""></label>
       <input id="password-register" type="password" placeholder="Contraseña">
-      <label id="error-password" for=""></label>
+      <span class='errors' id='error-message'></span>
+      <span class='errors' id='error-password'></span>
+      <span class='errors' id='error-email'></span>
       <button id="btn-register" class="btn-general" type="submit">REGISTRAME</button>
       </form>`;
 
   const mainElem = document.createElement('main');
   mainElem.className = 'viewRegister';
   mainElem.innerHTML = registerView;
-  // MANEJO DE DOM (eventos)
   const btnRegister = mainElem.querySelector('button');
-  // eslint-disable-next-line no-undef
   btnRegister.addEventListener('click', registerUserEmailEvent);
   return mainElem;
 };
