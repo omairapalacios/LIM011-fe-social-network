@@ -1,36 +1,49 @@
+
 import { registerUserEmail } from '../model/auth-user.js';
 
 export default (event) => {
   event.preventDefault();
   const btnRegister = event.target;
-  const email = btnRegister.closet('form').querySelector('input[type=email]');
-  const password = btnRegister.closet('form').querySelector('input[type=password]');
-  const message = btnRegister.closeet('form').querySelector('label');
-
-  registerUserEmail(email.value, password.value)
-    .then((result) => {
-      const redirectLogin = {
-        url: 'http://localhost:5000/',
-      };
-      result.user.sendEmailVerification(redirectLogin).catch((error) => {
-        console.error(error);
+  const email = btnRegister.closest('form').querySelector('input[type=email]');
+  const password = btnRegister.closest('form').querySelector('input[type=password]');
+  const nameuser = btnRegister.closest('form').querySelector('input[type=text]');
+  const msgError = btnRegister.closest('form').querySelector('#error-message');
+  const msgErrorEmail = btnRegister.closest('form').querySelector('#error-email');
+  const msgErrorPassword = btnRegister.closest('form').querySelector('#error-password');
+  if (email.value !== '' && password.value !== '') {
+    registerUserEmail(email.value, password.value)
+      .then((result) => {
+        const redirectLogin = {
+          url: 'http://localhost:5000/',
+        };
+        result.user.sendEmailVerification(redirectLogin).then(() => {
+          console.log('Para continuar por favor revise su correo el electronico y valide');
+          nameuser.value = '';
+          email.value = '';
+          password.value = '';
+        }).catch((error) => {
+          console.error(error);
+        });
+      }).catch((error) => {
+        const errorCode = error.code;
+        if (errorCode === 'auth/weak-password') {
+          msgError.innerHTML = 'La contraseña ingresada es debil, ingrese 6 o más caracteres';
+          password.value = '';
+          password.className = 'error-color';
+        } else if (errorCode === 'auth/email-already-in-use') {
+          email.value = '';
+          email.className = 'error-color';
+          msgError.innerHTML = ' El correo ingresado ya se encuentra registrado';
+        } else if (errorCode === 'auth/invalid-email') {
+          email.value = '';
+          email.className = 'error-color';
+          msgError.innerHTML = 'el correo ingresado no es valido';
+        }
       });
-
-      firebase.auth().signOut();
-      console.log('Para continuar por favor revisa tu correo el electronico y valida');
-    })
-    .catch((error) => {
-      const errorPassword = error.code;
-      const errorEmail = error.message;
-      if (errorPassword === 'auth/weak-password') {
-        message.innerHTML = 'La contraseña ingresada es debil, ingrese 6 o más caracteres';
-        password.value = '';
-      } else if (errorEmail === 'auth/email-already-in-use') {
-        email.value = '';
-        message.innerHTML = ' El correo ingresado ya se encuentra registrado';
-      } else if (errorEmail === 'auth/invalid-email') {
-        email.value = '';
-        message.innerHTML = 'el correo ingresado no es valido';
-      }
-    });
+  } else {
+    email.className = 'error-color';
+    password.className = 'error-color';
+    msgErrorEmail.innerHTML = 'Por favor ingrese un correo electrónico(*)';
+    msgErrorPassword.innerHTML = 'Por favor ingrese una contraseña(*)';
+  }
 };
