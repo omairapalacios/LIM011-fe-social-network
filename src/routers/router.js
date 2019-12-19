@@ -13,6 +13,7 @@ export const changeView = (hash) => {
       container.appendChild(components.register());
       break;
     case '#/home':
+      container.appendChild(components.header());
       container.appendChild(components.home());
       break;
     default:
