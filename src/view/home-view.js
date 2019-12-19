@@ -5,8 +5,8 @@ export default () => {
       <div class="user-profile">
         <img src="" alt="" class="user-photo">
         <div class="detail-user">
-          <span class="user-name">Fulana Suarez</span>
-          <p class="ocupation">Developer Jr.</p>
+          <span class="user-name">Nora Suarez</span>
+          <p class="ocupation">Administradora</p>
         </div>
       </div>
     </section>
@@ -22,7 +22,7 @@ export default () => {
             <a href="http://">x</a>
         </div>
         <div class="detail-post">
-         <textarea name="" id=""></textarea>
+        <textarea name="" id=""></textarea>
         </div>
         <div class="footer-post">
           <a href="http://" class="like-post">like<img src="" alt=""></a>
