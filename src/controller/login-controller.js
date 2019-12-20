@@ -44,7 +44,6 @@ export const signFacebookEvent = (event) => {
       const email = error.email;
       // The firebase.auth.AuthCredential type that was used.
       const credential = error.credential;
-
       console.log(email, credential);
     });
 };
@@ -64,7 +63,6 @@ export const signGoogleEvent = (event) => {
       const email = error.email;
       // The firebase.auth.AuthCredential type that was used.
       const credential = error.credential;
-
       console.log(email, credential);
     });
 };
