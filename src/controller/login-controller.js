@@ -33,7 +33,6 @@ export const signInEmailEvent = (event) => {
         }
       });
   } else {
-    email.className = 'error-color';
     password.className = 'error-color';
     msgErrorEmail.innerHTML = 'Por favor ingrese un correo electrónico(*)';
     msgErrorPassword.innerHTML = 'Por favor ingrese una contraseña(*)';
