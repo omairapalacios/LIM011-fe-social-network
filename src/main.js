@@ -15,6 +15,4 @@ const configInitial = () => {
   };
   firebase.initializeApp(firebaseConfig);
 };
-
-// el load representa la recarga cada ves que haya una recarda se ejecuta o inicia la funciòn INIT
 window.addEventListener('load', configInitial);

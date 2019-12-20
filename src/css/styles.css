@@ -21,10 +21,10 @@ header{
 }
 
 
-header > .log-out{
+/* header > .log-out{
   display: none;
 }
-
+ */
 header > .logo{
   height: 50px;
 }
@@ -49,6 +49,19 @@ form, .viewRegister, .viewLogin{
   padding: 20px;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.errors  {
+  width: 80%;
+  font-size: 8px;
+  color: red;
+}
+.error-color {
+  border: 1px solid red;
+}
 form > input, .viewRegister > input {
   width: 90%;
   margin: 5px 0px;
