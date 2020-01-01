@@ -1,3 +1,4 @@
+
 export const addPost = (textPost) => {
   const result = firebase.firestore().collection('post').add({
     post: textPost,
