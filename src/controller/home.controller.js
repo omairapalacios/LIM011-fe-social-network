@@ -1,7 +1,8 @@
-import { addPost } from '../model/user-post.js';
+import { addPost, getPost } from '../model/user-post.js';
 import { getUserData, currentUser } from '../model/auth-user.js';
+import printPost from '../view/post-view.js';
 
-export const post = (event) => {
+export const addDataPost = (event) => {
   event.preventDefault();
   const btnShare = event.target;
   const newPost = btnShare.closest('.card-new-post').querySelector('textarea');
@@ -23,6 +24,18 @@ export const getUser = () => {
           document.querySelector('#user-email').textContent = user.data().email;
           document.querySelector('#user-photo').src = user.data().photoURL;
         }
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+export const getDataPost = () => {
+  getPost()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((post) => {
+        printPost(post.data());
       });
     })
     .catch((error) => {

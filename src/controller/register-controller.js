@@ -21,7 +21,7 @@ export default (event) => {
           const userId = result.user.uid;
           const userObj = {
             displayName: nameUser.value,
-            photoURL: '',
+            photoURL: 'https://image.flaticon.com/icons/svg/149/149071.svg',
             email: result.user.email,
           };
           addUserData(userId, userObj);
