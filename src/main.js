@@ -4,14 +4,14 @@ const configInitial = () => {
   init();
   const firebaseConfig = {
 
-    apiKey: 'AIzaSyBQhtaC_rN3MsIJTc_tCLTeuJ0_UmnQ5QI',
-    authDomain: 'red-social-27013.firebaseapp.com',
-    databaseURL: 'https://red-social-27013.firebaseio.com',
-    projectId: 'red-social-27013',
-    storageBucket: 'red-social-27013.appspot.com',
-    messagingSenderId: '319114136619',
-    appId: '1:319114136619:web:69f2fba6c2cd9945c46e6e',
-    measurementId: 'G-BFXHVK1WLS',
+    apiKey: 'AIzaSyBzjNMWg4J7_a319uC-76A5NigM_f_JN9o',
+    authDomain: 'my-first-blog-fb.firebaseapp.com',
+    databaseURL: 'https://my-first-blog-fb.firebaseio.com',
+    projectId: 'my-first-blog-fb',
+    storageBucket: 'my-first-blog-fb.appspot.com',
+    messagingSenderId: '87065563047',
+    appId: '1:87065563047:web:e9ca07354efb51ba2ff082',
+    measurementId: 'G-6J4CQYRREH',
   };
   firebase.initializeApp(firebaseConfig);
 };

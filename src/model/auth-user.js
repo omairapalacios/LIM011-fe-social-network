@@ -10,6 +10,8 @@ export const signInUserFacebook = () => {
   const provider = new firebase.auth.FacebookAuthProvider();
   return firebase.auth().signInWithPopup(provider);
 };
+export const userCurrent = () => firebase.auth().currentUser;
+
 export const registerUserEmail = (email, password) => (
   firebase.auth().createUserWithEmailAndPassword(email, password));
 
