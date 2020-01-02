@@ -88,25 +88,24 @@ form button, .viewRegister button{
   display: none;
 }
 
-.user-profile{
+.user-profile {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 
-.user-photo{
+.user-photo {
   height: 100px;
   width: 100px;
-  background-color: #c0c0c0;
   border-radius: 50%;
   margin: 8px;
 }
 
-.detail-user{
+.detail-user {
   padding-left: 8px;
 }
 
-.user-name{
+.user-name {
   font-weight: bold;
 }
 
@@ -170,7 +169,7 @@ form button, .viewRegister button{
   background-color: #FFFFFF;
 }
 
-.header-post{
+.header-post {
   height: 30%;
   width: 100%;
   display: flex;
@@ -180,13 +179,13 @@ form button, .viewRegister button{
   color: #FFFFFF;
 }
 
-.detail-post{
+.detail-post {
   height: 40%;
   width: 100%;
   background-color: #995959;
 }
 
-.footer-post{
+.footer-post {
   height: 30%;
   width: 95%;
   display: flex;
@@ -196,7 +195,7 @@ form button, .viewRegister button{
   background-color: #ececec;
 }
 
-.detail-post > textarea{
+.detail-post > textarea {
   width: 100%;
   height: 100%;
   margin: 0;
