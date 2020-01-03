@@ -1,9 +1,7 @@
-
 import { signOutSesion } from '../controller/login-controller.js';
 
 export default () => {
   const headerView = `
-  <img src='./img/logo.png' alt='' class='logo'>
   <div class='menu'>
   <i class="icon-menu  fas fa-bars "></i>menu
   </div>

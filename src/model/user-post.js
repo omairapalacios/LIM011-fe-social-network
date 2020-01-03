@@ -8,7 +8,6 @@ export const addPost = (textPost) => {
     email: currentUser().email,
     date: new Date(),
   });
-  console.log(addPost());
   return result;
 };
 
