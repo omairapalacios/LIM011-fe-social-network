@@ -1,6 +1,5 @@
-import {
-  addDataPost, getUser, getDataPost,
-} from '../controller/home.controller.js';
+import { getUser, getDataPost } from '../controller/home-controller.js';
+import { addDataPost } from '../controller/post-controller.js';
 
 export default () => {
   const homeView = `

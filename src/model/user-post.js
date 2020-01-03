@@ -12,7 +12,7 @@ export const addPost = (textPost) => {
 };
 
 export const getPost = () => {
-  const result = firebase.firestore().collection('posts').get();
+  const result = firebase.firestore().collection('posts');
   return result;
 };
 
