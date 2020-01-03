@@ -3,12 +3,11 @@ import { signOutSesion } from '../controller/login-controller.js';
 export default () => {
   const headerView = `
   <div class='menu'>
-    <img src='' alt='' class='icon-menu'>menu
+  <i class="icon-menu  fas fa-bars "></i>menu
   </div>
-  <img src='./img/logo.png' alt='' class='logo'>
   <div class='log-out'>
     <img src='' alt=''>
-    <a id='log-out'>Cerrar Sesión</a>
+    <a id='log-out'><i class="fas fa-sign-out-alt"></i></a>
   </div>`;
   const headerELem = document.createElement('header');
   headerELem.innerHTML = headerView;

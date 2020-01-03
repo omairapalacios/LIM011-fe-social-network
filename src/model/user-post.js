@@ -12,13 +12,18 @@ export const addPost = (textPost) => {
 };
 
 export const getPost = () => {
-  const result = firebase.firestore().collection('posts').get();
+  const result = firebase.firestore().collection('posts');
   return result;
 };
 
-export const updatePost = (idPost, textPost) => {
+export const updatePost = (idPost, newTextPost) => {
   const result = firebase.firestore().collection('posts').doc(idPost).update({
-    post: textPost,
+    post: newTextPost,
   });
+  return result;
+};
+
+export const deletePost = (idPost) => {
+  const result = firebase.firestore().collection('posts').doc(idPost).delete();
   return result;
 };
