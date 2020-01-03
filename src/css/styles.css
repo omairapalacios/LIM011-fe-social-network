@@ -1,11 +1,204 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-body{
-    display: flex;
-    flex-direction:column;
-    min-height: 100vh; /*altura definida*/
-   
+html{
+  font-family: 'Poppins', sans-serif;
 }
 
+body{
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(to top, #dfdfdf, #ffffff);
+}
+
+header{
+  height: 50px;
+  background-color: #bebebe;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-shadow: 0px 0px 16px 2px rgb(189, 188, 188);
+}
+
+
+/* header > .log-out{
+  display: none;
+}
+ */
+header > .logo{
+  height: 50px;
+}
+
+main{
+  height: auto;
+  box-sizing: border-box;
+}
+
+section{
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+
+section > img{
+  height: 128px;
+}
+
+form, .viewRegister, .viewLogin{
+  text-align: center;
+  padding: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.errors  {
+  width: 80%;
+  font-size: 8px;
+  color: red;
+}
+.error-color {
+  border: 1px solid red;
+}
+form > input, .viewRegister > input {
+  width: 90%;
+  margin: 5px 0px;
+  padding-left: 10px;
+  height: 35px;
+  border-radius: 16px;
+  border-style: none;
+  border: 1px solid #cecece;
+}
+
+form button, .viewRegister button{
+  background-color: #999999;
+  color: white;
+  border-radius: 16px;
+  margin-top: 10px;
+  height: 40px;
+  width: 60%;
+  border-style: none;
+}
+
+/* home */
+
+.front{
+  display: none;
+}
+
+.user-profile {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.user-photo {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  margin: 8px;
+}
+
+.detail-user {
+  padding-left: 8px;
+}
+
+.user-name {
+  font-weight: bold;
+}
+
+.ocupation{
+  margin: 0px;
+}
+
+/* Contenedor de Posts */
+
+.container-posts{
+  height: 100vh;
+  margin-top: 8px;
+  background-color: #FFFFFF;
+}
+
+.card-new-post{
+  height: 160px;
+  display: block;
+  padding: 5%;
+  margin: 8px;
+  align-items: center;
+  box-sizing: border-box;
+  border: 1px solid #bebebe;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+}
+
+.card-new-post > textarea{
+  width: 100%;
+  height: 80px;
+  resize: none;
+  margin: 0;
+  padding: 8px;
+  border: 1px solid #bebebe;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.upload-picture{
+  float: left;
+}
+
+.share-post > button{
+  float: right;
+  border-radius: 16px;
+  height: 35px;
+  border: none;
+  background-color: #999999;
+  color: #FFFFFF;
+}
+
+/* Posts */
+
+.card-post{
+  height: 160px;
+  display: block;
+  margin: 8px;
+  box-sizing: border-box;
+  border: 1px solid #bebebe;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+}
+
+.header-post {
+  height: 30%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #999999;
+  color: #FFFFFF;
+}
+
+.detail-post {
+  height: 40%;
+  width: 100%;
+  background-color: #995959;
+}
+
+.footer-post {
+  height: 30%;
+  width: 95%;
+  display: flex;
+  padding-left: 5%;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #ececec;
+}
+
+.detail-post > textarea {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: none; 
+}

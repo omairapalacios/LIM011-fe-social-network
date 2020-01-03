@@ -1,7 +1,6 @@
 import { init } from './routers/index.js';
 
 const configInitial = () => {
-  init();
   const firebaseConfig = {
 
     apiKey: 'AIzaSyBzjNMWg4J7_a319uC-76A5NigM_f_JN9o',
@@ -14,5 +13,6 @@ const configInitial = () => {
     measurementId: 'G-6J4CQYRREH',
   };
   firebase.initializeApp(firebaseConfig);
+  init();
 };
 window.addEventListener('load', configInitial);

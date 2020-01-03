@@ -1,12 +1,12 @@
 
-import { registerUserEmail } from '../model/auth-user.js';
+import { registerUserEmail, addUserData } from '../model/auth-user.js';
 
 export default (event) => {
   event.preventDefault();
   const btnRegister = event.target;
   const email = btnRegister.closest('form').querySelector('input[type=email]');
   const password = btnRegister.closest('form').querySelector('input[type=password]');
-  const nameuser = btnRegister.closest('form').querySelector('input[type=text]');
+  const nameUser = btnRegister.closest('form').querySelector('input[type=text]');
   const msgError = btnRegister.closest('form').querySelector('#error-message');
   const msgErrorEmail = btnRegister.closest('form').querySelector('#error-email');
   const msgErrorPassword = btnRegister.closest('form').querySelector('#error-password');
@@ -18,7 +18,15 @@ export default (event) => {
         };
         result.user.sendEmailVerification(redirectLogin).then(() => {
           console.log('Para continuar por favor revise su correo el electronico y valide');
-          nameuser.value = '';
+          const userId = result.user.uid;
+          const userObj = {
+            displayName: nameUser.value,
+            photoURL: 'https://image.flaticon.com/icons/svg/149/149071.svg',
+            email: result.user.email,
+          };
+          addUserData(userId, userObj);
+          window.location.hash = '#/login';
+          nameUser.value = '';
           email.value = '';
           password.value = '';
         }).catch((error) => {

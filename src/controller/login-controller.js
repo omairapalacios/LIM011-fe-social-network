@@ -1,5 +1,5 @@
 import {
-  signInUserEmail, signInUserFacebook, signInUserGoogle, signOut,
+  signInUserEmail, signInUserFacebook, signInUserGoogle, signOut, addUserData,
 } from '../model/auth-user.js';
 
 export const signInEmailEvent = (event) => {
@@ -44,16 +44,19 @@ export const signFacebookEvent = (event) => {
   event.preventDefault();
   signInUserFacebook()
     .then((result) => {
+      const userId = result.user.uid;
+      const userObj = {
+        displayName: result.user.displayName,
+        photoURL: result.user.photoURL,
+        email: result.user.email,
+      };
+      addUserData(userId, userObj);
       window.location.hash = '#/home';
-      const token = result.credential.accessToken;
-      const user = result.user;
-      console.log(token, user);
     }).catch((error) => {
       const errorCode = error.code;
       const erroMessage = error.message;
       console.log(errorCode, erroMessage);
       const email = error.email;
-      // The firebase.auth.AuthCredential type that was used.
       const credential = error.credential;
       console.log(email, credential);
     });
@@ -63,18 +66,18 @@ export const signGoogleEvent = (event) => {
   event.preventDefault();
   signInUserGoogle()
     .then((result) => {
+      const userId = result.user.uid;
+      const userObj = {
+        displayName: result.user.displayName,
+        photoURL: result.user.photoURL,
+        email: result.user.email,
+      };
+      addUserData(userId, userObj);
       window.location.hash = '#/home';
-      const token = result.credential.accessToken;
-      const user = result.user;
-      console.log(token, user);
     }).catch((error) => {
       const errorCode = error.code;
       const erroMessage = error.message;
       console.log(errorCode, erroMessage);
-      const email = error.email;
-      // The firebase.auth.AuthCredential type that was used.
-      const credential = error.credential;
-      console.log(email, credential);
     });
 };
 
@@ -85,6 +88,7 @@ export const signOutSesion = (event) => {
       window.location.hash = '#/login';
     }).catch((error) => {
       const errorCode = error.code;
-      console.log(errorCode);
+      const erroMessage = error.message;
+      console.log(errorCode, erroMessage);
     });
 };
