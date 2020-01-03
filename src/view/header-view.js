@@ -5,16 +5,12 @@ export default () => {
   const headerView = `
   <img src='./img/logo.png' alt='' class='logo'>
   <div class='menu'>
-  <a href='#/home'>HOME</a>
+  <i class="icon-menu  fas fa-bars "></i>menu
   </div>
-  <div class='menu'>
-  <a href='#/profile'>Profile</a>
-  </div>
-  <div class='menu'>
-  <a id='log-out'> Cerrar Sesión </a>
-  </div>
-  `;
-
+  <div class='log-out'>
+    <img src='' alt=''>
+    <a id='log-out'><i class="fas fa-sign-out-alt"></i></a>
+  </div>`;
   const headerELem = document.createElement('header');
   headerELem.innerHTML = headerView;
 
