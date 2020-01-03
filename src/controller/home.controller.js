@@ -32,13 +32,12 @@ export const getUser = () => {
 };
 
 export const getDataPost = () => {
-  getPost()
-    .then((querySnapshot) => {
-      querySnapshot.forEach((post) => {
-        printPost(post.data());
-      });
-    })
-    .catch((error) => {
-      console.log(error);
+  getPost().onSnapshot((querySnapshot) => {
+    querySnapshot.forEach((post) => {
+      printPost(post.data());
     });
+  });
+
+  // export const profile = () =>
+  // }
 };

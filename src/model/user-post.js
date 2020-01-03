@@ -8,11 +8,12 @@ export const addPost = (textPost) => {
     email: currentUser().email,
     date: new Date(),
   });
+  console.log(addPost());
   return result;
 };
 
 export const getPost = () => {
-  const result = firebase.firestore().collection('posts').get();
+  const result = firebase.firestore().collection('posts');
   return result;
 };
 
