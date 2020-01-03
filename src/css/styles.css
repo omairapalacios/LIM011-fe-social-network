@@ -41,6 +41,9 @@ section > img {
   padding: 20px;
 }
 
+#text-post {
+  padding: 10px 0px 0px 5px;
+}
 form, .viewRegister, .viewLogin {
   text-align: center;
   padding: 5px;
@@ -94,6 +97,10 @@ form button, .viewRegister button {
   background: transparent;
 }
 
+.btn-post {
+  border: transparent;
+  background: transparent; 
+}
 
 /* home */
 
@@ -116,6 +123,7 @@ form button, .viewRegister button {
 
 .detail-user {
   padding-left: 8px;
+  font-size: 13px;
 }
 
 .user-name {
