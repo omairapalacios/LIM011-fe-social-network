@@ -1,4 +1,4 @@
-import { addPost, updatePost } from '../model/user-post.js';
+import { addPost, updatePost, deletePost } from '../model/user-post.js';
 
 export const addDataPost = (event) => {
   event.preventDefault();
@@ -14,15 +14,31 @@ export const addDataPost = (event) => {
     });
 };
 
-export const updateDataPost = (event) => {
+export const eventUpdatePost = (event) => {
+  event.preventDefault();
   const btnUpdate = event.target;
-  const idPost = event.target.getAtrribute('id');
-  const textPost = btnUpdate.closest('.card-post').querySelector('.text-post');
-  updatePost(idPost, textPost.value)
-    .then((post) => {
-      console.log('Post correctamente actualizado', post);
+  const postId = btnUpdate.closest('.card-post').id;
+  const newTextPost = btnUpdate.closest('.card-post').querySelector('#text-post');
+  console.log(postId);
+
+  updatePost(postId, newTextPost.value)
+    .then((doc) => {
+      console.log(doc);
     })
     .catch((error) => {
-      console.log('Error al actualizar post');
+      console.log(error);
+    });
+};
+
+export const eventDeletePost = (event) => {
+  event.preventDefault();
+  const btnUpdate = event.target;
+  const postId = btnUpdate.closest('.card-post').id;
+  deletePost(postId)
+    .then((doc) => {
+      console.log('Documento eliminado satisfactoriamente', doc);
+    })
+    .catch((error) => {
+      console.log(error);
     });
 };

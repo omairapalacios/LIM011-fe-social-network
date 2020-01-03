@@ -10,19 +10,14 @@ export default () => {
         <div class='detail-user'>
           <span id='user-name'></span>
           <p id='user-email'></p>
-          <p class='ocupation'>Administradora</p>
         </div>
       </div>
     </section>
     <section id='container-posts' class='container-posts'>
       <div class='card-new-post'>
         <textarea name='' id='' placeholder='¿Qué quieres compartir?'></textarea>
-        <a href='http://' class='upload-picture'>Subir
-          <img src='' alt=''>
-        </a>
-        <a href='http://' class='share-post'>
-          <button type='submit'>Compartir</button>
-        </a>
+        <i class='icon-general far fa-images'></i>
+        <button class='share-post type='submit'>Compartir</button>
       </div>
     </section>
 `;

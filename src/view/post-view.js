@@ -1,30 +1,34 @@
-import { updateDataPost } from '../controller/post-controller.js';
+import { eventUpdatePost, eventDeletePost } from '../controller/post-controller.js';
 
-export default (post) => {
-  console.log(post);
+export default (postId, postData) => {
+  console.log(postData);
+  console.log(postId);
+
   const postView = `
-      <div class='card-post'>
+      <div class='card-post' id='${postId}'>
         <div class='header-post'>
-          <span class="user-post">${post.data().name}</span>
-            <a href='http://'>x</a>
+          <span id="user-post">${postData.name}</span>
+          <a href='http://' class='delete-post'>x</a>
         </div>
         <div class='detail-post'>
-        <textarea name='' class='text-post'>${post.data().post}</textarea>
+        <textarea name='' id='text-post'>${postData.post}</textarea>
         </div>
         <div class='footer-post'>
-          <a href='http://' class='like-post'>like
+          <button class='like-post'>like
             <img src='' alt=''>
-          </a>
-          <a href='http://' class='btn-update' id='${post.id}'>Editar
+          </button>
+          <button class='update-post'>update
           <img src='' alt=''>
-          </a>
+          </button>
         </div>
-
 `;
   const divELem = document.createElement('div');
   divELem.innerHTML = postView;
   document.querySelector('#container-posts').appendChild(divELem);
 
-  const btnUpdate = divELem.querySelector('.btn-update');
-  btnUpdate.addEventListener('click', updateDataPost);
+  const btnUpdate = divELem.querySelector('.update-post');
+  btnUpdate.addEventListener('click', eventUpdatePost);
+
+  const btnDelete = divELem.querySelector('.delete-post');
+  btnDelete.addEventListener('click', eventDeletePost);
 };

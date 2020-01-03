@@ -1,6 +1,5 @@
-
+import { addPost, getPost } from '../model/user-post.js';
 import { getUserData, currentUser } from '../model/auth-user.js';
-import { getPost } from '../model/user-post.js';
 import printPost from '../view/post-view.js';
 
 export const getUser = () => {
@@ -18,12 +17,25 @@ export const getUser = () => {
       console.log(error);
     });
 };
+export const addDataPost = (event) => {
+  event.preventDefault();
+  const btnShare = event.target;
+  const newPost = btnShare.closest('.card-new-post').querySelector('textarea');
+  addPost(newPost.value)
+    .then((docRef) => {
+      window.location.hash = '#/home';
+      console.log('Document written with ID: ', docRef.id);
+    })
+    .catch((error) => {
+      console.error('Error adding document: ', error);
+    });
+};
 
 export const getDataPost = () => {
   getPost()
     .onSnapshot((querySnapshot) => {
       querySnapshot.forEach((post) => {
-        printPost(post);
+        printPost(post.id, post.data());
       });
     });
 };
