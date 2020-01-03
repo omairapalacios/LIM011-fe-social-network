@@ -16,8 +16,8 @@ export default () => {
       <span class='errors' id='error-email'></span>
     </form>
       <p>Ó bien ingresa con...</p>
-      <button id='btn-facebook' class='btn-social-net' type='submit' ><i class="fab fa-facebook"></i></button>
-      <button id='btn-google' class='btn-social-net' type='submit'><i class="fab fa-google"></i>></button>
+      <button id='btn-facebook' class='btn-social-net' type='submit'><img src="./img/icon-facebook.png" alt=""></button>
+      <button id='btn-google' class='btn-social-net' type='submit'><img src="./img/icon-google.png" alt=""></button>
       <p>¿No tienes una cuenta? <a href='#/register'>Regístrate</a></p>`;
 
   const mainElem = document.createElement('main');
