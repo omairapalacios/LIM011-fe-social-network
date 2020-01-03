@@ -1,5 +1,4 @@
 import { currentUser } from './auth-user.js';
-import printPost from '../view/post-view.js';
 
 export const addPost = (textPost) => {
   const result = firebase.firestore().collection('posts').add({
@@ -13,11 +12,7 @@ export const addPost = (textPost) => {
 };
 
 export const getPost = () => {
-  const result = firebase.firestore().collection('posts').onSnapshot((querySnapshot) => {
-    querySnapshot.forEach((post) => {
-      printPost(post.id, post.data());
-    });
-  })
+  const result = firebase.firestore().collection('posts');
   return result;
 };
 

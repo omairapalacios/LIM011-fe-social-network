@@ -5,7 +5,8 @@ export default () => {
     <section class='section-logo'>
       <img src='./img/logo.png' alt='logo'>
     </section>
-    <p>Bienvenidx</p>
+    <p>Bienvenidx!</p>
+    <p>Sé parte de esta red, promociona y encuentra talento</p>
     <form>
       <input id='username' type='text' placeholder='Nombre de usuario'>      
       <input id='email-register' type='email' placeholder='Correo Electronico'>

@@ -1,10 +1,6 @@
-import {eventUpdatePost, eventDeletePost,
-} from '../controller/home.controller.js';
+import { eventUpdatePost, eventDeletePost } from '../controller/post-controller.js';
 
 export default (postId, postData) => {
-  console.log(postData);
-  console.log(postId);
-
   const postView = `
       <div class='card-post' id='${postId}'>
         <div class='header-post'>

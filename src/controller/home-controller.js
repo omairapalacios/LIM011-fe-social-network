@@ -1,9 +1,6 @@
-import { addPost, getPost, updatePost, deletePost } from '../model/user-post.js';
+import { addPost, getPost } from '../model/user-post.js';
 import { getUserData, currentUser } from '../model/auth-user.js';
-
-export const getDataPost = () => {
-  getPost();
-};
+import printPost from '../view/post-view.js';
 
 export const getUser = () => {
   getUserData()
@@ -20,7 +17,6 @@ export const getUser = () => {
       console.log(error);
     });
 };
-
 export const addDataPost = (event) => {
   event.preventDefault();
   const btnShare = event.target;
@@ -35,31 +31,11 @@ export const addDataPost = (event) => {
     });
 };
 
-export const eventUpdatePost = (event) => {
-  event.preventDefault();
-  const btnUpdate = event.target;
-  const postId = btnUpdate.closest('.card-post').id;
-  const newTextPost = btnUpdate.closest('.card-post').querySelector('#text-post');
-  console.log(postId);
-
-  updatePost(postId, newTextPost.value)
-    .then((doc) => {
-      console.log(doc);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
-
-export const eventDeletePost = (event) => {
-  event.preventDefault();
-  const btnUpdate = event.target;
-  const postId = btnUpdate.closest('.card-post').id;
-  deletePost(postId)
-    .then((doc) => {
-      console.log(doc);
-    })
-    .catch((error) => {
-      console.log(error);
+export const getDataPost = () => {
+  getPost()
+    .onSnapshot((querySnapshot) => {
+      querySnapshot.forEach((post) => {
+        printPost(post.id, post.data());
+      });
     });
 };
