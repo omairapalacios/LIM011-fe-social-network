@@ -1,225 +1,231 @@
+/* General */
+
 html {
   font-family: 'Poppins', sans-serif;
 }
 
 body {
   margin: 0;
-  padding: 0;
-  background: #FFFFFF;
- /*  background: linear-gradient(to top, #dfdfdf, #191a01); */
+  padding: 0;/* 
+  background: rgb(236, 195, 195); */
+  
 }
 
-header {
-  height: 50px;
-  background-color:#091b4c;
-  width: 100%;
+main{
   display: flex;
-  color: #FFFFFF;
-  justify-content: flex-start;
-  align-items: center;
-  box-shadow: 0px 0px 16px 2px rgb(189, 188, 188);
-}
-
-header > .logo {
-  height: 50px;
-  width: 50px;
-}
-
-main {
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
   height: auto;
-  box-sizing: border-box;
 }
 
-section {
-  width: 100%;
-  display: block;
-  text-align: center;
-}
+/* Header */
 
-section > img {
-  height: 190px;
-  padding: 20px;
-}
-
-#text-post {
-  padding: 10px 0px 0px 5px;
-}
-form, .viewRegister, .viewLogin {
-  text-align: center;
-  padding: 5px;
-  font-size: 15px;
-}
-a {
-  text-decoration: none;
-}
-i {
-  color: #FFFFFF;
-}
-.icon-general {
-  color: #091b4c;
-}
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.errors  {
-  width: 80%;
-  font-size: 8px;
-  color: red;
-}
-.error-color {
-  border: 1px solid red;
-}
-form > input, .viewRegister > input {
-  width: 90%;
-  margin: 5px 0px;
-  padding-left: 10px;
-  height: 33px;
-  border-radius: 16px;
-  border-style: none;
-  border: 1px solid #cecece;
-}
-
-form button, .viewRegister button {
-  background-color:#ff9800;
-  color: white;
-  border-radius: 16px;
-  margin-top: 10px;
-  height: 35px;
-  width: 60%;
-  border-style: none;
-}
-
-.btn-social-net {
-  border-radius: 50%;
-  border: transparent;
-  background: transparent;
-}
-
-.btn-post {
-  border: transparent;
-  background: transparent; 
-}
-
-/* home */
-
-.front{
-  display: none;
-}
-
-.user-profile {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-#user-photo {
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  margin: 3px;
-}
-
-.detail-user {
-  padding-left: 8px;
-  font-size: 13px;
-}
-
-.user-name {
-  font-weight: bold;
-}
-
-.ocupation{
-  margin: 0px;
-}
-
-/* Contenedor de Posts */
-
-.container-posts{
-  height: 100vh;
-  margin-top: 8px;
-  background-color: #FFFFFF;
-}
-
-.card-new-post{
-  height: 160px;
-  display: block;
-  padding: 5%;
-  margin: 8px;
-  align-items: center;
-  box-sizing: border-box;
-  border: 1px solid #bebebe;
-  border-radius: 4px;
-  background-color: #FFFFFF;
-}
-
-.card-new-post > textarea{
-  width: 100%;
+header{
   height: 80px;
-  resize: none;
-  margin: 0;
-  padding: 8px;
-  border: 1px solid #bebebe;
-  box-sizing: border-box;
-  border-radius: 4px;
-}
-
-.upload-picture{
-  float: left;
-}
-
-.share-post > button{
-  float: right;
-  border-radius: 16px;
-  height: 35px;
-  border: none;
-  background-color: #999999;
-  color: #FFFFFF;
-}
-
-/* Posts */
-
-.card-post{
-  height: 160px;
-  display: block;
-  margin: 8px;
-  box-sizing: border-box;
-  border: 1px solid #bebebe;
-  border-radius: 4px;
-  background-color: #FFFFFF;
-}
-
-.header-post {
-  height: 30%;
   width: 100%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background-color: #ff9800;
-  color: #FFFFFF;
+  background-color: #29dddd;
 }
 
-.detail-post {
-  height: 40%;
-  width: 100%;
-  background-color: #995959;
+.menu{
+
 }
 
-.footer-post {
-  height: 30%;
-  width: 95%;
+.icon-menu{
+  height: 80px;
+}
+
+.header-logo{
+
+}
+
+.icon-logo{
+  height: 80px;
+}
+
+.log-out{
+
+}
+
+.icon-log-out{
+  height: 80px;
+}
+
+/* Login */
+
+.section-banner{
+  width: 50%;
+  height: 100vh;
+  background-image: linear-gradient(to right, #ffb758, #ffffff);
+}
+
+.container-banner{
+  height: 100vh;
   display: flex;
-  padding-left: 5%;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-banner > p{
+  font-size: 26px;
+}
+
+.section-main{
+  width: 50%;
+  text-align: center;
+  height: 100vh;
+}
+
+.container-logo{
+
+}
+
+.icon-logo-main{
+  height: 160px;
+}
+
+.section-main > p{ 
+  font-size: 18px;
+}
+
+form{
+  height: auto;
+  width: 100%;
+}
+
+input{
+  width: 90%;
+  height: 40px;
+  border-radius: 16px;
+  margin: 8px 0px;
+  border: 1px solid #bebebe;
+  outline: none;
+  padding-left: 4px;
+}
+
+.btn{
+  background-color:#ff9800;
+  color: white;
+  border-radius: 16px;
+  margin-top: 8px;
+  height: 40px;
+  width: 60%;
+  border-style: none;
+}
+
+/* Home */
+
+.profile{
+  width: 30%;
+  height: auto;
+  box-sizing: border-box;
+  margin-right: 20px;
+  margin-top: 48px;
+}
+
+.container-posts{
+  width: 40%;
+  height: auto;
+  box-sizing: border-box;
+  margin-top: 48px;
+}
+
+.front{
+  background-color: #bebebe;
+  height: 90px;
+}
+
+.user-profile{
+  height: auto;
+  width: 100%;
+  display: flex;
   justify-content: flex-start;
   align-items: center;
-  background-color: #ececec;
 }
 
-.detail-post > textarea {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  border: none; 
+.user-photo{
+  width: 30%;
+  border-radius: 70%;
 }
+
+.detail-user{
+  width: 60%;
+  height: 100px;
+}
+
+.card-new-post{
+  height: auto;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 8px;
+  border: 1px solid #888888;
+  border-radius: 8px;
+}
+
+.card-new-post > textarea{
+  height: 88px;
+  width: calc(100% - 16px);
+  border: 1px solid #888888;
+  border-radius: 8px;
+}
+
+.detail-post > textarea{
+  height: 88px;
+  width: 100%;
+  border: 0px;
+}
+
+.footer-new-post{
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-post > .share-post{
+  width: 20%;
+  height: 30px;
+}
+
+/* Post */
+
+.card-post{
+  display: inline-block;
+  height: auto;
+  width: 100%;
+  margin-bottom: 16px;
+  border: 1px solid #888888;
+  border-radius: 8px;
+}
+
+.header-post{
+  width: 100%;
+  height: 44px;
+  display: flex;
+  padding: 0px 8px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #bebebe;
+  box-sizing: border-box;
+}
+
+.detail-post{
+  height: auto;
+  width: 100%;
+}
+
+.card-post > .footer-post{
+  height: auto;
+  width: 100%;
+  display: block;
+  float: left;
+  background-color: #bebebe;
+}
+
+.footer-post > .like-post, .footer-post > .update-post{
+  width: 10%;
+}
+

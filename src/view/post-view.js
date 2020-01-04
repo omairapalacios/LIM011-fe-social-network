@@ -2,13 +2,12 @@ import { eventUpdatePost, eventDeletePost } from '../controller/post-controller.
 
 export default (postId, postData) => {
   const postView = `
-      <div class='card-post' id='${postId}'>
         <div class='header-post'>
           <span id="user-post">${postData.name}</span>
           <a href='http://' class='delete-post'>x</a>
         </div>
         <div class='detail-post'>
-        <textarea name='' id='text-post'>${postData.post}</textarea>
+          <textarea name='' id='text-post'>${postData.post}</textarea>
         </div>
         <div class='footer-post'>
           <button class='like-post btn-post'>
@@ -17,9 +16,10 @@ export default (postId, postData) => {
           <button class='update-post btn-post'>
           <i class="fas fa-edit class=icon-social icon-general"></i>
           </button>
-        </div>
 `;
   const divELem = document.createElement('div');
+  divELem.setAttribute('class', 'card-post');
+  divELem.setAttribute('id', postId);
   divELem.innerHTML = postView;
   document.querySelector('#container-posts').appendChild(divELem);
 
