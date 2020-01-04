@@ -16,6 +16,11 @@ export const changeView = (hash) => {
       container.appendChild(components.header());
       container.appendChild(components.home());
       break;
+    case '#/profile':
+      container.appendChild(components.header());
+      container.appendChild(components.profile());
+      break;
+
     default:
       container.appendChild(components.login());
   }
