@@ -29,31 +29,13 @@ header{
   align-items: center;
   background-color: #29dddd;
 }
-
-.menu{
-
-}
-
 .icon-menu{
   height: 80px;
 }
-
-.header-logo{
-
-}
-
-.icon-logo{
-  height: 80px;
-}
-
-.log-out{
-
-}
-
+.icon-logo{ height: 80px; }
 .icon-log-out{
   height: 80px;
 }
-
 /* Login */
 
 .section-banner{
@@ -78,15 +60,9 @@ header{
   text-align: center;
   height: 100vh;
 }
-
-.container-logo{
-
-}
-
 .icon-logo-main{
   height: 160px;
 }
-
 .section-main > p{ 
   font-size: 18px;
 }

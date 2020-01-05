@@ -14,6 +14,8 @@ export const registerUserEmail = (email, password) => (
 
 export const signOut = () => firebase.auth().signOut();
 
+//------
+
 export const addUserData = (userId, userObj) => {
   const result = firebase.firestore().collection('users').doc(userId).set(userObj);
   return result;
