@@ -16,6 +16,7 @@ export default (postId, likes, postData) => {
           <button class='update-post btn-post'>
           <i class="fas fa-edit class=icon-social icon-general"></i>
           </button>
+        </div>
 `;
   const divELem = document.createElement('div');
   divELem.setAttribute('class', 'card-post');
