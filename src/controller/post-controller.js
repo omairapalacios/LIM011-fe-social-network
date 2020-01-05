@@ -26,7 +26,6 @@ export const eventUpdatePost = (event) => {
   const postId = btnUpdate.closest('.card-post').id;
   const newTextPost = btnUpdate.closest('.card-post').querySelector('#text-post');
   console.log(postId);
-
   updatePost(postId, newTextPost.value)
     .then((doc) => {
       console.log(doc);
