@@ -130,6 +130,11 @@ a{
     border-style: none;
   }
 
+  .btn-social-net {
+    background: transparent;
+    border: transparent;
+  }
+
   /* Home */
 
   .profile{
