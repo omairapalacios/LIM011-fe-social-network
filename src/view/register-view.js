@@ -1,9 +1,11 @@
-import registerUserEmailEvent from '../controller/register-controller.js';
+import registerUserEmailEvent, { passwordShow } from '../controller/register-controller.js';
 
 export default () => {
   const registerView = `
     <section class='section-banner'>
-      <p> Sé parte de esta red, promociona y encuentra talento </p>
+      <div class='container-banner'>
+        <p> Sé parte de esta red, promociona y encuentra talento </p>
+      </div>
     </section>
     <section class='section-main'>
       <div class='container-logo'>
@@ -11,9 +13,12 @@ export default () => {
       </div>
       <p>Bienvenidx!</p>
       <form>
-        <input id='username' type='text' placeholder='Nombre de usuario'>      
-        <input id='email-register' type='email' placeholder='Correo Electronico'>
-        <input id='password-register' type='password' placeholder='Contraseña'>
+        <input id='username' type='text' class='input-text' placeholder='Nombre de usuario'>      
+        <input id='email-register' type='email' class='input-text'  placeholder='Correo Electronico'>
+        <div class='pass-eye'> 
+          <input type='password' class='input-password' id='password-register' placeholder='Password' required>
+          <img src="https://img.icons8.com/material-rounded/24/000000/visible.png" id="btn-eye" class="eye-class">
+        </div>
         <span class='errors' id='error-message'></span>
         <span class='errors' id='error-password'></span>
         <span class='errors' id='error-email'></span>
@@ -26,5 +31,7 @@ export default () => {
   mainElem.innerHTML = registerView;
   const btnRegister = mainElem.querySelector('button');
   btnRegister.addEventListener('click', registerUserEmailEvent);
+  const showPass = mainElem.querySelector('#btn-eye');
+  showPass.addEventListener('click', passwordShow);
   return mainElem;
 };

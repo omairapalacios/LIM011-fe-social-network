@@ -92,3 +92,12 @@ export const signOutSesion = (event) => {
       console.log(errorCode, erroMessage);
     });
 };
+
+export const passwordShow = () => {
+  const tipo = document.querySelector('#password-login');
+  if (tipo.type === 'password') {
+    tipo.type = 'text';
+  } else {
+    tipo.type = 'password';
+  }
+};
