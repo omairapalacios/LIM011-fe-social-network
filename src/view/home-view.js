@@ -13,14 +13,16 @@ export default () => {
         </div>
       </div>
     </section>
-    <section id='container-posts' class='container-posts'>
+    <section id='container-posts-general' class='container-posts-general'>
       <div class='card-new-post'>
         <textarea name='' id='' placeholder='¿Hola, qué quieres compartir hoy?'></textarea>
         <div class='footer-new-post'>
           <i class='icon-general far fa-images'></i>
-          <button class='share-post type='submit'>COMPARTIR</button>
+          <button class='btn-share share-post type='submit'>COMPARTIR</button>
         </div>
+       </div>
       </div>
+      <section id='container-posts' class='container-posts'>
     </section>
 `;
   const mainELem = document.createElement('main');

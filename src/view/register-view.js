@@ -3,7 +3,9 @@ import registerUserEmailEvent from '../controller/register-controller.js';
 export default () => {
   const registerView = `
     <section class='section-banner'>
-      <p> Sé parte de esta red, promociona y encuentra talento </p>
+      <div class='container-banner'>
+        <p> Sé parte de esta red, promociona y encuentra talento </p>
+      </div>
     </section>
     <section class='section-main'>
       <div class='container-logo'>
