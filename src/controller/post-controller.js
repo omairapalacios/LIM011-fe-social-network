@@ -1,4 +1,6 @@
-import { addPost, updatePost, deletePost } from '../model/user-post.js';
+import {
+  addPost, updatePost, deletePost, countLikes,
+} from '../model/user-post.js';
 
 export const addDataPost = (event) => {
   event.preventDefault();
@@ -37,6 +39,19 @@ export const eventDeletePost = (event) => {
   deletePost(postId)
     .then((doc) => {
       console.log('Documento eliminado satisfactoriamente', doc);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+export const eventCountLikes = (event) => {
+  event.preventDefault();
+  const btnLike = event.target;
+  const idPost = btnLike.closest('.card-post').id;
+  countLikes(idPost)
+    .then((doc) => {
+      console.log(doc);
     })
     .catch((error) => {
       console.log(error);

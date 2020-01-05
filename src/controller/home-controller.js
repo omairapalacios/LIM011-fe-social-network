@@ -35,7 +35,13 @@ export const getDataPost = () => {
   getPost()
     .onSnapshot((querySnapshot) => {
       querySnapshot.forEach((post) => {
-        printPost(post.id, post.data());
+        if (post.data().numlikes > 0) {
+          const likes = (post.data().numlikes).toString();
+          printPost(post.id, likes, post.data());
+        } else {
+          const likes = '';
+          printPost(post.id, likes, post.data());
+        }
       });
     });
 };

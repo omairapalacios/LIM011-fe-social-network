@@ -1,6 +1,6 @@
-import { eventUpdatePost, eventDeletePost } from '../controller/post-controller.js';
+import { eventUpdatePost, eventDeletePost, eventCountLikes } from '../controller/post-controller.js';
 
-export default (postId, postData) => {
+export default (postId, likes, postData) => {
   const postView = `
         <div class='header-post'>
           <span id="user-post">${postData.name}</span>
@@ -12,9 +12,10 @@ export default (postId, postData) => {
         <div class='footer-post'>
           <button class='like-post btn-post'>
           <i class="fas fa-heart icon-general"></i>
+          <p>${likes}</p>
           </button>
           <button class='update-post btn-post'>
-          <i class="fas fa-edit class=icon-social icon-general"></i>
+          <i class='fas fa-edit icon-general'></i>
           </button>
 `;
   const divELem = document.createElement('div');
@@ -28,4 +29,7 @@ export default (postId, postData) => {
 
   const btnDelete = divELem.querySelector('.delete-post');
   btnDelete.addEventListener('click', eventDeletePost);
+
+  const btnLike = divELem.querySelector('.like-post');
+  btnLike.addEventListener('click', eventCountLikes);
 };

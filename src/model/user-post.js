@@ -7,6 +7,7 @@ export const addPost = (textPost) => {
     name: currentUser().displayName,
     email: currentUser().email,
     date: new Date(),
+    numlikes: 0,
   });
   return result;
 };
@@ -25,5 +26,13 @@ export const updatePost = (idPost, newTextPost) => {
 
 export const deletePost = (idPost) => {
   const result = firebase.firestore().collection('posts').doc(idPost).delete();
+  return result;
+};
+
+export const countLikes = (idPost) => {
+  const incrementLikes = firebase.firestore.FieldValue.increment(1);
+  const result = firebase.firestore().collection('posts').doc(idPost).update({
+    numlikes: incrementLikes,
+  });
   return result;
 };
