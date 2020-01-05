@@ -17,6 +17,9 @@ export default (postId, likes, postData) => {
           <button class='update-post btn-post'>
           <i class='fas fa-edit icon-general'></i>
           </button>
+          <button class='comment-post btn-post'>
+          <i class='fas fa-comment icon-general'></i>
+          </button>
 `;
   const divELem = document.createElement('div');
   divELem.setAttribute('class', 'card-post');
@@ -32,4 +35,7 @@ export default (postId, likes, postData) => {
 
   const btnLike = divELem.querySelector('.like-post');
   btnLike.addEventListener('click', eventCountLikes);
+
+  const btnComment = divELem.querySelector('.comment-post');
+  btnComment.addEventListener('click', eventCountLikes);
 };
