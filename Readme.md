@@ -12,6 +12,7 @@ Aquí algunas ideas para inspirarte:
 - Salud
 - Energías Renovables
 
+
 Las **caraterísticas técnicas** de tu aplicación serán las siguientes:
 - Debe ser una Single-Page Application [SPA](https://dzone.com/articles/how-single-page-web-applications-actually-work) ([versión traducida](https://dzone.com/articles/how-single-page-web-applications-actually-work))
 - Debe ser diseñada con un enfoque [mobile first](https://darwindigital.com/mobile-first-versus-responsive-web-design/) ([versión traducida](https://translate.google.com/translate?hl=&sl=auto&tl=es&u=https%3A%2F%2Fdarwindigital.com%2Fmobile-first-versus-responsive-web-design))
