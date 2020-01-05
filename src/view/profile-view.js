@@ -12,7 +12,7 @@ export default () => {
               <input type="text" class='input-text' id="u-name">
             <label>Email</label>
               <input type="text"  class='input-text' id="u-email">
-            <label>Ocupación</label>
+            <label>Ocupación: COMPRADOR-VENDEDOR</label>
               <input type="text" class='input-text' id="u-ocupation">
             <div class="container-button">
               <input type="submit" class='btn button-save' id="button-save" value="Guardar">
