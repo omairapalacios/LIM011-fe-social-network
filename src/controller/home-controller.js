@@ -1,4 +1,4 @@
-import { addPost, getPost } from '../model/user-post.js';
+import { getPost } from '../model/user-post.js';
 import { getUserData, currentUser } from '../model/auth-user.js';
 import printPost from '../view/post-view.js';
 
@@ -10,6 +10,7 @@ export const getUser = () => {
           document.querySelector('#user-name').textContent = user.data().displayName;
           document.querySelector('#user-email').textContent = user.data().email;
           document.querySelector('#user-photo').src = user.data().photoURL;
+          document.querySelector('#user-type').textContent = user.data().typeUser;
         }
       });
     })
@@ -17,25 +18,22 @@ export const getUser = () => {
       console.log(error);
     });
 };
-export const addDataPost = (event) => {
-  event.preventDefault();
-  const btnShare = event.target;
-  const newPost = btnShare.closest('.card-new-post').querySelector('textarea');
-  addPost(newPost.value)
-    .then((docRef) => {
-      window.location.hash = '#/home';
-      console.log('Document written with ID: ', docRef.id);
-    })
-    .catch((error) => {
-      console.error('Error adding document: ', error);
-    });
-};
 
 export const getDataPost = () => {
   getPost()
     .onSnapshot((querySnapshot) => {
+      document.querySelector('#container-posts').innerHTML = '';
       querySnapshot.forEach((post) => {
-        printPost(post.id, post.data());
+        console.log(post.data());
+        if (post.data().type === '1' || (post.data().idUser === currentUser().uid && post.data().type === '0')) {
+          if (post.data().numlikes > 0) {
+            const likes = (post.data().numlikes).toString();
+            printPost(post.data().idUser, post.id, likes, post.data().type, post.data());
+          } else {
+            const likes = 0;
+            printPost(post.data().idUser, post.id, likes, post.data().type, post.data());
+          }
+        }
       });
     });
 };

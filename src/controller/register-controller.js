@@ -23,7 +23,6 @@ export default (event) => {
             displayName: nameUser.value,
             photoURL: 'https://image.flaticon.com/icons/svg/149/149071.svg',
             email: result.user.email,
-            typeUser: '',
           };
           addUserData(userId, userObj);
           window.location.hash = '#/login';
@@ -54,5 +53,14 @@ export default (event) => {
     password.className = 'error-color';
     msgErrorEmail.innerHTML = 'Por favor ingrese un correo electrónico(*)';
     msgErrorPassword.innerHTML = 'Por favor ingrese una contraseña(*)';
+  }
+};
+
+export const passwordShow = () => {
+  const tipo = document.querySelector('#password-register');
+  if (tipo.type === 'password') {
+    tipo.type = 'text';
+  } else {
+    tipo.type = 'password';
   }
 };
