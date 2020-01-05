@@ -25,10 +25,10 @@ a{
     display: block;
     width: 100%;
     box-sizing: border-box;
-    background-image: url('../img/cushion.jpg');
+    /* background-image: url('../img/cushion.jpg');
     background-position-x: right;
     background-position-y: inherit;
-    background-size: inherit;
+    background-size: inherit; */
   }
 
   /* Header */
@@ -238,9 +238,11 @@ a{
     background-color:#ff9800;
     color: white;
     border-radius: 16px;
-    height: 36px;
+    height: 18px;
     border-style: none;
     outline: none;
+    cursor: pointer;
+    font-size: 14px;
   }
 
   /* Post */
@@ -278,21 +280,36 @@ a{
     width: 100% ;
     display: flex;
     align-items: center;
+    justify-content: space-around;
     background-color: #bebebe;
     border-radius: 0px 0px 4px 4px;
     border: 1px solid #bebebe;
     box-sizing: border-box;
   }
 
-  .btn-post {
+  .footer-post > .like-post{
     width: 28px;
-    height: 28px;
+    height: 100%;
     border-radius: 50%;
     border-style: none;
     text-align: center;
-    padding: 0px;
     background-color: transparent;
+    outline: none;
+    cursor: pointer;
+    margin: 0px 8px;
   }  
+
+  .footer-post > .update-post{
+    width: 28px;
+    height: 100%;
+    border-radius: 50%;
+    border-style: none;
+    text-align: center;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+    margin-left: 8px;
+  }
 
   .pass-eye{
     display: inline-flex;
@@ -325,7 +342,7 @@ a{
   }
 
   .update-post i{
-    color: #091f80;    
+    color: #091f80;
   }
 
   .main-profile{
@@ -359,6 +376,47 @@ a{
     text-align: center;
   }
 
+  .span-like{
+    font-size: 18px;
+    color: black;
+    padding-left: 4px;
+  }
+
+  .muro, .profile-header, .muro > a, .profile-header > a{
+    height: 54px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    cursor: pointer;
+  }
+
+  .muro:hover, .profile-header:hover{
+    background-color: #061555;
+  }
+
+  select{
+    border-radius: 4px;
+    background-color: #091f80;
+    color: #ffffff;
+    border: 0px;
+  }
+
+  .btn-save-change{
+    border-radius: 4px;
+    background-color: #091f80;
+    color: #ffffff;
+    border: 0px;
+    height: 18px;
+    font-size: 12px;
+    padding: 0px 4px;
+    cursor: pointer;
+  }
+
+  .hidden{ 
+    display: none;
+  }
+
 }
 
 
@@ -378,14 +436,15 @@ a{
   .section-banner{
     display: block;
     width: 60%;
+
   }
 
   .container-banner{
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: baseline;
     text-align: center;
+    align-items: center;
   }
 
   .container-banner > p{
