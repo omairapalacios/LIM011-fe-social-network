@@ -18,6 +18,10 @@ export default () => {
         <textarea name='' id='' placeholder='¿Hola, qué quieres compartir hoy?'></textarea>
         <div class='footer-new-post'>
           <i class='icon-general far fa-images'></i>
+          <select name="" id="type-new-post" class="type-new-post">
+            <option value="1">Público</option>
+            <option value="0">Privado</option>
+          </select>
           <button class='btn-share share-post type='submit'>COMPARTIR</button>
         </div>
        </div>

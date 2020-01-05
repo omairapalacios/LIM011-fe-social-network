@@ -4,8 +4,8 @@ export default () => {
   const registerView = `
     <section class='section-banner'>
       <div class='container-banner'>
-        <p> Sé parte de esta red, promociona y encuentra talento </p>
-      </div>
+        <p> Sé parte de esta red,<span class='c-green'> promociona y encuentra</span> <span >talento.</span>  </p>
+      </div> 
     </section>
     <section class='section-main'>
       <div class='container-logo'>

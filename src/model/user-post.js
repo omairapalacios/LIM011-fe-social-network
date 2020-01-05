@@ -1,12 +1,13 @@
 import { currentUser } from './auth-user.js';
 
-export const addPost = (textPost) => {
+export const addPost = (textPost, typePost) => {
   const result = firebase.firestore().collection('posts').add({
     post: textPost,
     idUser: currentUser().uid,
     name: currentUser().displayName,
     email: currentUser().email,
     date: new Date(),
+    type: typePost,
   });
   return result;
 };
@@ -32,6 +33,13 @@ export const countLikes = (idPost) => {
   const incrementLikes = firebase.firestore.FieldValue.increment(1);
   const result = firebase.firestore().collection('posts').doc(idPost).update({
     numlikes: incrementLikes,
+  });
+  return result;
+};
+
+export const updateTypePost = (idPost, typePost) => {
+  const result = firebase.firestore().collection('posts').doc(idPost).update({
+    type: typePost,
   });
   return result;
 };

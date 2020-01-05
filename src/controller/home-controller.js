@@ -23,12 +23,15 @@ export const getDataPost = () => {
     .onSnapshot((querySnapshot) => {
       document.querySelector('#container-posts').innerHTML = '';
       querySnapshot.forEach((post) => {
-        if (post.data().numlikes > 0) {
-          const likes = (post.data().numlikes).toString();
-          printPost(post.id, likes, post.data());
-        } else {
-          const likes = 0;
-          printPost(post.id, likes, post.data());
+        console.log(post.data());
+        if (post.data().type === '1' || (post.data().idUser === currentUser().uid && post.data().type === '0')) {
+          if (post.data().numlikes > 0) {
+            const likes = (post.data().numlikes).toString();
+            printPost(post.data().idUser, post.id, likes, post.data().type, post.data());
+          } else {
+            const likes = 0;
+            printPost(post.data().idUser, post.id, likes, post.data().type, post.data());
+          }
         }
       });
     });
