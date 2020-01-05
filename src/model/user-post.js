@@ -12,7 +12,7 @@ export const addPost = (textPost) => {
 };
 
 export const getPost = () => {
-  const result = firebase.firestore().collection('posts');
+  const result = firebase.firestore().collection('posts').orderBy('date', 'desc');
   return result;
 };
 
@@ -25,5 +25,13 @@ export const updatePost = (idPost, newTextPost) => {
 
 export const deletePost = (idPost) => {
   const result = firebase.firestore().collection('posts').doc(idPost).delete();
+  return result;
+};
+
+export const countLikes = (idPost) => {
+  const incrementLikes = firebase.firestore.FieldValue.increment(1);
+  const result = firebase.firestore().collection('posts').doc(idPost).update({
+    numlikes: incrementLikes,
+  });
   return result;
 };

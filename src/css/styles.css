@@ -279,15 +279,29 @@ a{
     box-sizing: border-box;
   }
 
-  .footer-post > .like-post, .footer-post > .update-post{
+  .footer-post > .like-post{
     width: 28px;
     height: 28px;
     border-radius: 50%;
     border-style: none;
     text-align: center;
-    padding: 0px;
     background-color: transparent;
+    outline: none;
+    cursor: pointer;
+    margin: 0px 8px;
   }  
+
+  .footer-post > .update-post{
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border-style: none;
+    text-align: center;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+    margin-left: 8px;
+  }
 
   .pass-eye{
     display: inline-flex;
@@ -320,7 +334,7 @@ a{
   }
 
   .update-post i{
-    color: #091f80;    
+    color: #091f80;
   }
 
   .main-profile{
@@ -352,6 +366,25 @@ a{
 
   .button-save{
     text-align: center;
+  }
+
+  .span-like{
+    font-size: 18px;
+    color: black;
+    padding-left: 4px;
+  }
+
+  .muro, .profile-header, .muro > a, .profile-header > a{
+    height: 54px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    cursor: pointer;
+  }
+
+  .muro:hover, .profile-header:hover{
+    background-color: #061555;
   }
 
 }
