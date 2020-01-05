@@ -1,4 +1,9 @@
-import { signInEmailEvent, signGoogleEvent, signFacebookEvent } from '../controller/login-controller.js';
+import {
+  signInEmailEvent,
+  signGoogleEvent,
+  signFacebookEvent,
+  passwordShow,
+} from '../controller/login-controller.js';
 
 export default () => {
   const loginView = `
@@ -13,8 +18,11 @@ export default () => {
       </div>      
       <form action='' class='form'>
         <p>¡Bienvenidx!</p>
-        <input type='email' id='email-login' placeholder='Email' required>
-        <input type='password' id='password-login' placeholder='Password' required>
+        <input type='email' id='email-login' class='input-text' placeholder='Email' required>
+        <div class='pass-eye'> 
+          <input type='password' id='password-login' class='input-password' placeholder='Password' required>
+          <img src="https://img.icons8.com/material-rounded/24/000000/visible.png" id="btn-eye" class="eye-class">
+        </div>
         <button id='btn-login' class='btn btn-general' type='submit'>INGRESAR</button>
         <span class='errors' id='error-email'></span>
         <span class='errors' id='error-message'></span>
@@ -38,6 +46,8 @@ export default () => {
   btnFacebook.addEventListener('click', signFacebookEvent);
   const btnGoogle = mainElem.querySelector('#btn-google');
   btnGoogle.addEventListener('click', signGoogleEvent);
+  const showPass = mainElem.querySelector('#btn-eye');
+  showPass.addEventListener('click', passwordShow);
 
   return mainElem;
 };

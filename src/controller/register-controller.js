@@ -55,3 +55,12 @@ export default (event) => {
     msgErrorPassword.innerHTML = 'Por favor ingrese una contraseña(*)';
   }
 };
+
+export const passwordShow = () => {
+  const tipo = document.querySelector('#password-register');
+  if (tipo.type === 'password') {
+    tipo.type = 'text';
+  } else {
+    tipo.type = 'password';
+  }
+};

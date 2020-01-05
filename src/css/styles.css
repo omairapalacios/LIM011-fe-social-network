@@ -7,7 +7,6 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: cornflowerblue;
 }
 
 .c-green{
@@ -41,10 +40,14 @@ a{
     justify-content: space-between;
     align-items: center;
     padding: 0px 16px;
-    background-color: rgb(9, 31, 128);
+    background-color: #091f80;
     box-sizing: border-box;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
- 
+    box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000030;
+    color: #ffffff;
+  }
+
+  .muro > a, .profile-header > a{
+    color: #ffffff;
   }
 
   .menu{
@@ -107,14 +110,14 @@ a{
     width: 100%;
   }
 
-  input{
+  .input-text{
     width: 90%;
     height: 40px;
     border-radius: 16px;
     margin: 8px 0px;
     border: 1px solid #bebebe;
     outline: none;
-    padding-left: 4px;
+    padding-left: 8px;
   }
 
   .btn{
@@ -285,6 +288,72 @@ a{
     padding: 0px;
     background-color: transparent;
   }  
+
+  .pass-eye{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 40px;
+    border-radius: 16px;
+    margin: 8px 0px;
+    border: 1px solid #bebebe;
+    outline: none;
+    padding-left: 4px;
+  }
+
+  .eye-class{
+    padding-right: 8px;
+  }
+
+  .input-password{
+    width: 100%;
+    border: 0px;
+    height: 36px;
+    border-radius: 16px;
+    outline: none;
+    padding-left: 4px;
+  }
+
+  .like-post i{
+    color: #ff0000;
+  }
+
+  .update-post i{
+    color: #091f80;    
+  }
+
+  .main-profile{
+    padding: 26px;
+    height: calc(100vh - 106px);
+  }
+
+  .form-profile{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .form-profile label{
+    width: 100%;
+    text-align: left;
+  }
+
+  .container-update-profile{
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 26px;
+    text-align: center;
+  }
+
+  .container-button{
+    width: 100%;
+  }
+
+  .button-save{
+    text-align: center;
+  }
+
 }
 
 
@@ -295,12 +364,15 @@ a{
     justify-content: center;
   }
 
+  
+
   /* Header */
 
   /* Login */
 
   .section-banner{
     display: block;
+    width: 60%;
   }
 
   .container-banner{
