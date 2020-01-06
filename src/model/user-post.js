@@ -7,6 +7,7 @@ export const addPost = (textPost, typePost) => {
     name: currentUser().displayName,
     email: currentUser().email,
     date: new Date(),
+    numlikes: 0,
     type: typePost,
   });
   return result;
@@ -41,5 +42,15 @@ export const updateTypePost = (idPost, typePost) => {
   const result = firebase.firestore().collection('posts').doc(idPost).update({
     type: typePost,
   });
+  return result;
+};
+
+export const addComment = (objComment) => {
+  const result = firebase.firestore().collection('comments').add(objComment);
+  return result;
+};
+
+export const getComments = (idPost) => {
+  const result = firebase.firestore().collection('comments').where('idPostComment', '==', idPost);
   return result;
 };

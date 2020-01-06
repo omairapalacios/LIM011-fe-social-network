@@ -19,6 +19,10 @@ a{
   cursor: pointer;
 }
 
+p {
+  font-size: 12px;
+  color: #061555;
+}
 @media (min-width: 320px){
   main{
     height: calc(100% - 54px);
@@ -48,29 +52,6 @@ a{
 
   .muro > a, .profile-header > a{
     color: #ffffff;
-  }
-
-  .menu{
-
-  }
-
-  .icon-menu{
-    
-  }
-
-  .header-logo{
-
-  }
-
-  .icon-logo{
-    height: 80px;
-  }
-
-  .log-out{
-
-  }
-
-  .icon-log-out{
   }
 
   /* Login */
@@ -128,6 +109,11 @@ a{
     height: 40px;
     width: 60%;
     border-style: none;
+  }
+
+  .btn-social-net {
+    background: transparent;
+    border: transparent;
   }
 
   /* Home */
@@ -198,10 +184,9 @@ a{
     padding: 16px;
     margin-bottom: 8px;
     border: 1px solid #bebebe;
-    border-radius: 4px;
   }
 
-  .card-new-post > textarea{
+  .card-new-post > textarea {
     height: 88px;
     width: calc(100% - 4px);
     border: 1px solid #bebebe;
@@ -211,7 +196,7 @@ a{
     resize: none;
   }
 
-  .detail-post > textarea{
+  .detail-post > textarea {
     height: calc(100% - 8px);
     width: calc(100% - 4px);
     border: 0px;
@@ -219,6 +204,27 @@ a{
     padding: 8px 0px 0px 4px;
     outline: none;
     resize: none;
+  }
+  .comment {
+    display: flex;
+  }
+  .detail-comment {
+    width: calc(100% - 4px);
+    padding: 6px 0px 0px 4px;
+    resize: none;
+    justify-content: center;
+  }
+
+  .detail-comment > textarea {
+    height: 34px;
+    width: calc(100% - 10px); 
+    resize: none;
+    padding: 15px 0px 0px 5px;
+    border-radius: 10px;
+  }
+
+  .add-comment {
+    padding: 23px 8px 0px 0px;
   }
 
   .footer-new-post{
@@ -260,8 +266,6 @@ a{
     align-items: center;
     background-color: #bebebe;
     box-sizing: border-box;
-    border-radius: 4px 4px 0px 0px;
-    border: 1px solid #bebebe;
     box-sizing: border-box;
   }
 
@@ -277,8 +281,6 @@ a{
     align-items: center;
     justify-content: space-around;
     background-color: #bebebe;
-    border-radius: 0px 0px 4px 4px;
-    border: 1px solid #bebebe;
     box-sizing: border-box;
   }
 
@@ -294,7 +296,7 @@ a{
     margin: 0px 8px;
   }  
 
-  .footer-post > .update-post{
+  .footer-post > .update-post, .footer-post > .comment-post, .add-comment {
     width: 28px;
     height: 100%;
     border-radius: 50%;
@@ -304,6 +306,7 @@ a{
     outline: none;
     cursor: pointer;
     margin-left: 8px;
+    color: #091f80 ;
   }
 
   .pass-eye{
@@ -334,10 +337,6 @@ a{
 
   .like-post i{
     color: #ff0000;
-  }
-
-  .update-post i{
-    color: #091f80;
   }
 
   .main-profile{
@@ -453,11 +452,6 @@ a{
     height: 100vh;
     background-color: #ffffff;
   }
-
-  .container-logo{
-
-  }
-
   .icon-logo-main{
     height: 160px;
   }
@@ -541,37 +535,6 @@ a{
     border-radius: 8px;  
   }
 
-  .card-new-post > textarea{
-  }
-
-  .detail-post > textarea{
-  }
-
-  .footer-new-post{
-  }
-
-  .footer-post > .share-post{
-  }
-
-  /* Post */
-
-  .card-post{
-  }
-
-  .header-post{
-  }
-
-  .detail-post{
-  }
-
-  .card-post > .footer-post{
-  }
-
-  .footer-post > .like-post, .footer-post > .update-post{
-   
-  }  
-}
-
 ::-webkit-scrollbar {
   width: 4px;
 }
@@ -586,4 +549,5 @@ a{
 
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
 }

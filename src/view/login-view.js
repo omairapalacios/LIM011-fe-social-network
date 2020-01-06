@@ -9,7 +9,7 @@ export default () => {
   const loginView = `
     <section class='section-banner'>
       <div class='container-banner'>
-       <p> Sé parte de esta red,<span class='c-green'> promociona y encuentra</span> <span >talento.</span>  </p>
+        <p> Sé parte de esta red,<span class='c-green'> promociona y encuentra</span> <span >talento.</span>  </p>
       </div>      
     </section>
     <section class='section-main'>
@@ -28,12 +28,11 @@ export default () => {
         <span class='errors' id='error-message'></span>
         <span class='errors' id='error-password'></span>
         <span class='errors' id='error-email'></span>
-        <p>O bien ingresa con...</p>
-        <a id='btn-facebook' class='btn-social-net' type='submit' ><img class='btn-social-icon' src='../img/facebook.png' alt='facebook'></a>
-        <a id='btn-google' class='btn-social-net' type='submit'><img class='btn-social-icon' src='../img/google.png' alt='gmail'></a>
-        <p>¿No tienes una cuenta? <a href='#/register' class='c-green'>Regístrate</a></p>
-      </form>
-    </section>`;
+        <p>Ó bien ingresa con...</p>
+      <button id='btn-facebook' class='btn-social-net' type='submit'><img src="./img/icon-facebook.png" alt=""></button>
+      <button id='btn-google' class='btn-social-net' type='submit'><img src="./img/icon-google.png" alt=""></button>
+      <p>¿No tienes una cuenta? <a href='#/register'>Regístrate</a></p>
+      </form>`;
 
   const mainElem = document.createElement('main');
   mainElem.className = 'viewLogin';
