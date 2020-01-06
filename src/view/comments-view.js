@@ -1,10 +1,11 @@
 export default (comment) => {
   console.log(comment.user);
   const commentView = `
-          <div class='detail-comment'>
-            <span class='name-user'>${comment.user} :</span>
-            <textarea name='' id=''>${comment.textComment}</textarea>
-          </div>  
+        <span class='name-user'>${comment.user} :</span>
+          <div class='detail-new-comment'> 
+            <textarea class='text-comment' name='' id=''>${comment.textComment}</textarea>
+          </div> 
+          
         </div>
 `;
   const divELem = document.createElement('div');

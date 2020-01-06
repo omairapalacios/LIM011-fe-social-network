@@ -17,13 +17,12 @@ nav#superior ul a {
   padding: .3em 0;
   text-align: center;
   color: rgb(228, 236, 236);
-  background: rgb(118, 120, 239);
-  
- 
+  background: #091f80 ;
 }
 
 nav#superior ul a:hover {
-  background: #83706c;
+  background: #f3d677;
+  color: #555;
 }
 
 .c-green{
@@ -65,44 +64,18 @@ p {
   button#menu:focus + nav#superior {
     display: block;
   }
- 
+
 
   header{
     height: 100%;
     width: 100%;
     background-color: #091f80;
- 
+
   }
   
   .muro > a, .profile-header > a{
     color: #ffffff;
   }
- 
-  .menu{
-
-  }
-
-  .icon-menu{
-    
-  }
-
-  .header-logo{
-
-  }
-
-  .icon-logo{
-    height: 80px;
-  }
-
-  .log-out{
-
-  }
-
-  .icon-log-out{
-  }
-
-  /* Login */
-
   .section-banner{
     display: none;  
   
@@ -156,6 +129,11 @@ p {
     height: 40px;
     width: 60%;
     border-style: none;
+  }
+
+  .btn-social-net {
+    background: transparent;
+    border:transparent;
   }
 
   /* Home */
@@ -232,19 +210,13 @@ p {
     width: auto;
     padding: 16px;
     margin-bottom: 8px;
-<<<<<<< HEAD
     border: 1px solid #969494;
-=======
-    border: 1px solid #bebebe;
-    border-radius: 4px;
->>>>>>> df2c81ff12a4e3dcf4549d71671ab905c34947ab
   }
 
   .card-new-post > textarea{
     height: 88px;
     width: calc(100% - 4px);
     border: 1px solid #969494;
-    border-radius: 4px;
     padding: 8px 0px 0px 4px;
     outline: none;
     resize: none;
@@ -259,7 +231,42 @@ p {
     outline: none;
     resize: none;
   }
+  .comment {
+    display: flex;
+  }
 
+  .detail-comment {
+    display: flex;
+    width: calc(100% - 4px);
+    padding: 6px 0px 0px 4px;
+    resize: none;
+    justify-content: center;
+  }
+
+  .detail-comment > textarea {
+    height: 34px;
+    width: calc(100% - 10px); 
+    resize: none;
+    padding: 15px 0px 0px 5px;
+    border-radius: 10px;
+  }
+
+  .detail-new-comment > textarea {
+    height: 34px;
+    width: calc(100% - 60px); 
+    resize: none;
+    padding: 15px 0px 0px 5px;
+    border-radius: 10px;
+  }
+  .comment {
+    display: flex;
+  }
+
+
+
+  .add-comment {
+    padding: 23px 8px 0px 0px;
+  }
   .footer-new-post{
     height: auto;
     display: flex;
@@ -299,7 +306,6 @@ p {
     align-items: center;
     background-color: #d6d6d6;
     box-sizing: border-box;
-    border-radius: 4px 4px 0px 0px;
     border: 1px solid #bebebe;
     box-sizing: border-box;
   }
@@ -412,7 +418,7 @@ p {
   }
 
   .span-like{
-    font-size: 18px;
+    font-size: 14px;
     color: black;
     padding-left: 4px;
   }
@@ -454,7 +460,6 @@ p {
 
 }
 
-
 @media (min-width: 768px){
 
   button#menu {
@@ -464,21 +469,23 @@ nav#superior {
   display: block;
 }
 nav#superior ul {
+    width: 100%;
     display: flex;
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-
+nav#superior ul li:nth-child(3) {
+  display: flex;
+  justify-content: flex-end;
+}
 
   main{
     height: calc(100% - 54px);
     display: flex;
     justify-content: center;
   }
-
-  
 
   /* Header */
 
@@ -590,7 +597,6 @@ nav#superior ul {
     color: black;
     padding-left: 4px;
   }
-
   .muro, .profile-header, .muro > a, .profile-header > a{
     height: 54px;
     display: flex;
@@ -786,4 +792,11 @@ nav#superior ul {
   p {
     font-size: 17px;
   }
+
+  .icon-general {
+    font-size: 17px;
+  }
+}
+.hide {
+  display: none;
 }

@@ -11,7 +11,7 @@ export default (userId, postId, likes, typePost, postData) => {
   const postView = `
         <div class='header-post'>
           <span id="${userId}" class='user-post name-user'>${postData.name}</span>
-          <a href='http://' class='delete-post'>x</a>
+          <a href='http://' class='delete-post'><i class="fas fa-trash"></i></a>
         </div>
         <div class='detail-post'>
           <textarea name='' id='text-post' disabled>${postData.post}</textarea>
