@@ -45,15 +45,12 @@ export const updateTypePost = (idPost, typePost) => {
   return result;
 };
 
-export const addComment = (idPost, comment) => {
-  const result = firebase.firestore().collection('comments').add({
-    idPostComment: idPost,
-    textComment: comment,
-  });
+export const addComment = (objComment) => {
+  const result = firebase.firestore().collection('comments').add(objComment);
   return result;
 };
 
-export const getComments = () => {
-  const result = firebase.firestore().collection('comments');
+export const getComments = (idPost) => {
+  const result = firebase.firestore().collection('comments').where('idPostComment', '==', idPost);
   return result;
 };

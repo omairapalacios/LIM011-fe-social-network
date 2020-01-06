@@ -18,6 +18,17 @@ export const getUser = () => {
     });
 };
 
+const getDataComments = (idPost) => {
+  getComments(idPost)
+    .onSnapshot((querySnapshotComment) => {
+      querySnapshotComment.forEach((comment) => {
+        if (idPost === comment.data().idPostComment) {
+          printComments(comment.data());
+        }
+      });
+    });
+};
+
 export const getDataPost = () => {
   getPost()
     .onSnapshot((querySnapshot) => {
@@ -32,17 +43,7 @@ export const getDataPost = () => {
             printPost(post.data().idUser, post.id, likes, post.data().type, post.data());
           }
         }
-      });
-    });
-};
-
-export const getDataComments = () => {
-  getComments()
-    .onSnapshot((querySnapshot) => {
-      // document.querySelector('#container-comments').innerHTML = '';
-      querySnapshot.forEach((comment) => {
-        console.log(comment);
-        printComments(comment.id, comment.data());
+        getDataComments(post.id);
       });
     });
 };

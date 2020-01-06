@@ -1,4 +1,4 @@
-import { getUser, getDataPost , getDataComments } from '../controller/home-controller.js';
+import { getUser, getDataPost } from '../controller/home-controller.js';
 import { addDataPost } from '../controller/post-controller.js';
 
 export default () => {
@@ -26,13 +26,13 @@ export default () => {
       </div>
       </div>
       <section id='container-posts' class='container-posts'>
+      </section>
     </section>
 `;
   const mainELem = document.createElement('main');
   mainELem.innerHTML = homeView;
   getDataPost();
   getUser();
-  getDataComments();
   const btnShare = mainELem.querySelector('button');
   btnShare.addEventListener('click', addDataPost);
   return mainELem;

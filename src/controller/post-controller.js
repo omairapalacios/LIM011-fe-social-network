@@ -83,7 +83,12 @@ export const eventAddComment = (event) => {
   const btnAddComment = event.target;
   const postId = btnAddComment.closest('.card-post').id;
   const comment = btnAddComment.closest('.card-post').querySelector('#text-comment');
-  addComment(postId, comment.value)
+  const objComment = {
+    idPostComment: postId,
+    textComment: comment.value,
+    user: currentUser().displayName,
+  };
+  addComment(objComment)
     .then((doc) => {
       console.log('comentario agregado exitosamente', doc);
     })
