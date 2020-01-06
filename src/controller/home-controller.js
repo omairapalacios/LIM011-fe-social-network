@@ -1,6 +1,7 @@
-import { addPost, getPost } from '../model/user-post.js';
+import { getPost, getComments } from '../model/user-post.js';
 import { getUserData, currentUser } from '../model/auth-user.js';
 import printPost from '../view/post-view.js';
+import printComments from '../view/comments-view.js';
 
 export const getUser = () => {
   getUserData()
@@ -8,7 +9,6 @@ export const getUser = () => {
       querySnapshot.forEach((user) => {
         if (user.id === currentUser().uid) {
           document.querySelector('#user-name').textContent = user.data().displayName;
-          document.querySelector('#user-email').textContent = user.data().email;
           document.querySelector('#user-photo').src = user.data().photoURL;
         }
       });
@@ -17,25 +17,41 @@ export const getUser = () => {
       console.log(error);
     });
 };
-export const addDataPost = (event) => {
-  event.preventDefault();
-  const btnShare = event.target;
-  const newPost = btnShare.closest('.card-new-post').querySelector('textarea');
-  addPost(newPost.value)
-    .then((docRef) => {
-      window.location.hash = '#/home';
-      console.log('Document written with ID: ', docRef.id);
-    })
-    .catch((error) => {
-      console.error('Error adding document: ', error);
+
+const getDataComments = (idPost) => {
+  getComments(idPost)
+    .onSnapshot((querySnapshotComment) => {
+      querySnapshotComment.forEach((comment) => {
+        printComments(comment.data());
+      });
     });
 };
 
 export const getDataPost = () => {
   getPost()
     .onSnapshot((querySnapshot) => {
+      document.querySelector('#container-posts').innerHTML = '';
       querySnapshot.forEach((post) => {
-        printPost(post.id, post.data());
+        if (post.data().numlikes > 0) {
+          const likes = (post.data().numlikes).toString();
+          printPost(post.data().idUser, post.id, likes, post.data().type, post.data());
+          getDataComments(post.id);
+        } else {
+          const likes = '';
+          printPost(post.data().idUser, post.id, likes, post.data().type, post.data());
+        }
+        // }
+        // eslint-disable-next-line max-len
+        // if (post.data().type === '1' || (post.data().idUser === currentUser().uid && post.data().type === '0')) {
+        //   if (post.data().numlikes > 0) {
+        //     const likes = (post.data().numlikes).toString();
+        //     printPost(post.data().idUser, post.id, likes, post.data().type, post.data());
+        //     getDataComments(post.id);
+        //   } else {
+        //     const likes = '';
+        //     printPost(post.data().idUser, post.id, likes, post.data().type, post.data());
+        //   }
+        // }
       });
     });
 };
