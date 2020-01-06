@@ -517,6 +517,159 @@ nav#superior ul {
     padding-left: 4px;
   }
 
+  .eye-class{
+    padding-right: 8px;
+  }
+
+  .input-password{
+    width: 100%;
+    border: 0px;
+    height: 36px;
+    border-radius: 16px;
+    outline: none;
+    padding-left: 4px;
+  }
+
+  .like-post i{
+    color: #ff0000;
+  }
+
+  .main-profile{
+    padding: 26px;
+    height: calc(100vh - 106px);
+  }
+
+  .form-profile{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .form-profile label{
+    width: 100%;
+    text-align: left;
+  }
+
+  .container-update-profile{
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 26px;
+    text-align: center;
+  }
+
+  .container-button{
+    width: 100%;
+  }
+
+  .button-save{
+    text-align: center;
+  }
+
+  .span-like{
+    font-size: 18px;
+    color: black;
+    padding-left: 4px;
+  }
+
+  .muro, .profile-header, .muro > a, .profile-header > a{
+    height: 54px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    cursor: pointer;
+  }
+
+  .muro:hover, .profile-header:hover{
+    background-color: #061555;
+  }
+
+  select{
+    border-radius: 4px;
+    background-color: #091f80;
+    color: #ffffff;
+    border: 0px;
+  }
+
+  .btn-save-change{
+    border-radius: 4px;
+    background-color: #091f80;
+    color: #ffffff;
+    border: 0px;
+    height: 18px;
+    font-size: 12px;
+    padding: 0px 4px;
+    cursor: pointer;
+  }
+
+  .hidden{ 
+    display: none;
+  }
+
+}
+
+
+@media (min-width: 768px){
+  main{
+    height: calc(100% - 54px);
+    display: flex;
+    justify-content: center;
+  }
+
+  
+
+  /* Header */
+
+  /* Login */
+
+  .section-banner{
+    display: block;
+    width: 60%;
+
+  }
+
+  .container-banner{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  }
+
+  .container-banner > p{
+    font-size: 24px;
+    color: blue;
+  }
+
+  .section-main{
+    width: 40%;
+    text-align: center;
+    height: 100vh;
+    background-color: #ffffff;
+  }
+  .icon-logo-main{
+    height: 160px;
+  }
+
+  .section-main > p{ 
+    font-size: 18px;
+  }
+
+  form{
+    height: auto;
+    width: 100%;
+  }
+
+  input{
+    width: 90%;
+    height: 40px;
+    border-radius: 16px;
+    margin: 8px 0px;
+    border: 1px solid #bebebe;
+    outline: none;
+    padding-left: 4px;
+  }
+
   .btn{
     background-color:#ff9800;
     color: white;
@@ -552,7 +705,7 @@ nav#superior ul {
   }
 
   .front{
-    background-image: url(https://metascopios.files.wordpress.com/2015/02/tenango.jpg);
+    background-color: #bebebe;
     display: block;
     border-radius: 8px 8px 0px 0px;
   }
@@ -577,37 +730,6 @@ nav#superior ul {
     border-radius: 8px;  
   }
 
-  .card-new-post > textarea{
-  }
-
-  .detail-post > textarea{
-  }
-
-  .footer-new-post{
-  }
-
-  .footer-post > .share-post{
-  }
-
-  /* Post */
-
-  .card-post{
-  }
-
-  .header-post{
-  }
-
-  .detail-post{
-  }
-
-  .card-post > .footer-post{
-  }
-
-  .footer-post > .like-post, .footer-post > .update-post{
-   
-  }  
-}
-
 ::-webkit-scrollbar {
   width: 4px;
 }
@@ -622,4 +744,5 @@ nav#superior ul {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
 }

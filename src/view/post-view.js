@@ -4,6 +4,7 @@ import {
   eventCountLikes,
   eventChangeTypePost,
   eventUpdatePost,
+  eventAddComment,
 } from '../controller/post-controller.js';
 
 export default (userId, postId, likes, typePost, postData) => {
@@ -22,12 +23,25 @@ export default (userId, postId, likes, typePost, postData) => {
           <button class='update-post btn-post'>
             <i class="fas fa-edit icon-social icon-general"></i>            
           </button>
+          <button class='comment-post btn-post'>
+          <i class="fas fa-comments icon-social icon-general"></i>         
+          </button>
           <span class='btn-save-change hidden'>Guardar Cambios</span>
           <select name="" id="type-post" class="type-post">
             <option value="1">Público</option>
             <option value="0">Privado</option>
           </select>
         </div>
+        <div class='comment'>
+          <div class='detail-comment'>
+            <textarea name='' id='text-comment' placeholder='Escribe un comentario...'></textarea>
+          </div>  
+          <button class='add-comment btn-post'>
+            <i class="far fa-paper-plane"></i>         
+          </button> 
+        </div>
+        <div class='container-comments'></div>
+      </div>
 `;
 
   const divELem = document.createElement('div');
@@ -44,8 +58,14 @@ export default (userId, postId, likes, typePost, postData) => {
 
   const btnDelete = divELem.querySelector('.delete-post');
   btnDelete.addEventListener('click', eventDeletePost);
-  const btnLike = divELem.querySelector('.like-post');
 
+  /*  const btnShowComments = divELem.querySelector('.show-comments');
+  btnShowComments.addEventListener('click', eventCommentsPost); */
+
+  const btnAddComment = divELem.querySelector('.add-comment');
+  btnAddComment.addEventListener('click', eventAddComment);
+
+  const btnLike = divELem.querySelector('.like-post');
   btnLike.addEventListener('click', eventCountLikes);
 
   const select = divELem.querySelector('#type-post');

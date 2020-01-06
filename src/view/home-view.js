@@ -9,8 +9,6 @@ export default () => {
         <img src='' alt='' id='user-photo' class='user-photo'>
         <div class='detail-user'>
           <span id='user-name'></span>
-          <p id='user-email'></p>
-          <span id='user-type'></span>
         </div>
       </div>
     </section>
@@ -25,9 +23,10 @@ export default () => {
           </select>
           <button class='btn-share share-post type='submit'>COMPARTIR</button>
         </div>
-       </div>
+      </div>
       </div>
       <section id='container-posts' class='container-posts'>
+      </section>
     </section>
 `;
   const mainELem = document.createElement('main');
