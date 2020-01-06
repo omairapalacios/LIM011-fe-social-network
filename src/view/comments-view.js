@@ -2,7 +2,7 @@ export default (comment) => {
   console.log(comment.user);
   const commentView = `
           <div class='detail-comment'>
-            <p>${comment.user} :</p>
+            <span class='name-user'>${comment.user} :</span>
             <textarea name='' id=''>${comment.textComment}</textarea>
           </div>  
         </div>

@@ -26,7 +26,6 @@ p {
 
 .name-user {
   font-size: 12px;
-  font-weight: bolder;
 }
 
 @media (min-width: 320px){
@@ -158,15 +157,22 @@ p {
     height: auto;
     width: 100%;
     display: flex;
+    
     justify-content: flex-start;
     align-items: center;
     align-content: center;
   }
 
+  .user-profile span{
+    font-size: 16px;
+    margin-left: 15px;
+  }
+
   .user-photo{
-    height: 100px;
-    width: 100px;
-    border-radius: 70%;
+    margin-left: 15px;
+    height: 65px;
+    width: 65px;
+    border-radius: 50%;
   }
 
   .detail-user{
@@ -189,13 +195,13 @@ p {
     width: auto;
     padding: 16px;
     margin-bottom: 8px;
-    border: 1px solid #bebebe;
+    border: 1px solid #969494;
   }
 
   .card-new-post > textarea {
     height: 88px;
     width: calc(100% - 4px);
-    border: 1px solid #bebebe;
+    border: 1px solid #969494;
     border-radius: 4px;
     padding: 8px 0px 0px 4px;
     outline: none;
@@ -259,8 +265,8 @@ p {
     height: auto;
     width: calc(100% - 2px);
     margin-bottom: 16px;
-    border: 1px solid #bebebe;
-    border-radius: 4px;
+    border: 1px solid #969494;
+
   }
 
   .header-post{
@@ -270,7 +276,7 @@ p {
     padding: 0px 8px;
     justify-content: space-between;
     align-items: center;
-    background-color: #bebebe;
+    background-color: #d6d6d6;
     box-sizing: border-box;
     box-sizing: border-box;
   }
@@ -286,7 +292,7 @@ p {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-color: #bebebe;
+    background-color: #d6d6d6;
     box-sizing: border-box;
   }
 
@@ -329,7 +335,9 @@ p {
 
   .eye-class{
     padding-right: 8px;
-    color: rgb(88, 85, 85);
+    color: rgb(63, 59, 59);
+    border: transparent;
+    background: transparent;
   }
 
   .input-password{
@@ -427,10 +435,10 @@ p {
     justify-content: center;
   }
 
-  
-
   /* Header */
-
+  .menu i{
+    display: none;
+  }
   /* Login */
 
   .section-banner{
@@ -456,7 +464,10 @@ p {
     font-size: 24px;
     color: black;
   }
-
+  .name-user {
+    font-size: 14px;
+  }
+  
   .section-main{
     width: 40%;
     text-align: center;
@@ -510,7 +521,6 @@ p {
     height: auto;
     padding: 0px;
     margin-top: 36px;
-    border-radius: 8px;
     background-color: transparent;
   }
 
@@ -520,14 +530,19 @@ p {
   }
 
   .front{
-    background-color: #bebebe;
+    background-image: url('../img/banner.jpeg');
+    background-size: contain;
     display: block;
     border-radius: 8px 8px 0px 0px;
   }
 
   .user-profile{
+    width: auto;
     justify-content: center;
     padding: 4px;
+    background-color: #d6d6d6;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
   }
 
   .user-photo{
@@ -570,5 +585,4 @@ p {
   p {
     font-size: 17px;
   }
-
 }
