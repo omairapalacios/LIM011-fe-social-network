@@ -1,6 +1,6 @@
 import { currentUser } from './auth-user.js';
 
-export const addPost = (textPost, typePost) => {
+export const addPost = (textPost, typePost, imgUrl) => {
   const result = firebase.firestore().collection('posts').add({
     post: textPost,
     idUser: currentUser().uid,
@@ -8,6 +8,7 @@ export const addPost = (textPost, typePost) => {
     email: currentUser().email,
     date: new Date(),
     type: typePost,
+    img: imgUrl,
   });
   return result;
 };
