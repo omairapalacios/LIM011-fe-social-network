@@ -3,15 +3,12 @@ import registerUserEmailEvent, { passwordShow } from '../controller/register-con
 export default () => {
   const registerView = `
     <section class='section-banner'>
-      <div class='container-banner'>
-        <p> Sé parte de esta red,<span class='c-green'> promociona y encuentra</span> <span >talento.</span>  </p>
-      </div> 
     </section>
     <section class='section-main'>
       <div class='container-logo'>
         <img src='./img/logo.png' alt='logo' class='icon-logo-main'>
       </div>
-      <p>Bienvenidx!</p>
+      <p> Sé parte de esta red,<span class='c-green'> promociona y encuentra</span> <span >talento.</span> </p>
       <form>
         <input id='username' type='text' class='input-text' placeholder='Nombre de usuario'>      
         <input id='email-register' type='email' class='input-text'  placeholder='Correo Electronico'>
@@ -23,7 +20,8 @@ export default () => {
         <span class='errors' id='error-password'></span>
         <span class='errors' id='error-email'></span>
         <button id='btn-register' class='btn btn-general' type='submit'>REGISTRAME</button>
-      </form>
+        <p>¿Ya tienes una cuenta? <a href='#/login'>Inicia Sesión</a></p>
+        </form>
     </section> `;
 
   const mainElem = document.createElement('main');

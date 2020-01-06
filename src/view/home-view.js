@@ -8,7 +8,7 @@ export default () => {
       <div class='user-profile'>
         <img src='' alt='' id='user-photo' class='user-photo'>
         <div class='detail-user'>
-          <span id='user-name'></span>
+          <span id='user-name' class='name-user'></span>
         </div>
       </div>
     </section>

@@ -9,7 +9,6 @@ export default () => {
   const loginView = `
     <section class='section-banner'>
       <div class='container-banner'>
-        <p> Sé parte de esta red,<span class='c-green'> promociona y encuentra</span> <span >talento.</span>  </p>
       </div>      
     </section>
     <section class='section-main'>
@@ -18,6 +17,7 @@ export default () => {
       </div>      
       <form action='' class='form'>
         <p>¡Bienvenidx!</p>
+        <p> Sé parte de esta red,<span class='c-green'> promociona y encuentra</span> <span >talento.</span>  </p>
         <input type='email' id='email-login' class='input-text' placeholder='Email' required>
         <div class='pass-eye'> 
           <input type='password' id='password-login' class='input-password' placeholder='Password' required>
