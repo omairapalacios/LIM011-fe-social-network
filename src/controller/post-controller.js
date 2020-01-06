@@ -2,6 +2,7 @@ import {
   addPost,
   updatePost,
   deletePost,
+  addComment,
   countLikes,
   updateTypePost,
 } from '../model/user-post.js';
@@ -75,6 +76,20 @@ export const eventDeletePost = (event) => {
         console.log(error);
       });
   }
+};
+
+export const eventAddComment = (event) => {
+  event.preventDefault();
+  const btnAddComment = event.target;
+  const postId = btnAddComment.closest('.card-post').id;
+  const comment = btnAddComment.closest('.card-post').querySelector('#text-comment');
+  addComment(postId, comment.value)
+    .then((doc) => {
+      console.log('comentario agregado exitosamente', doc);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 };
 
 export const eventCountLikes = (event) => {

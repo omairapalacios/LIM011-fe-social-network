@@ -1,4 +1,4 @@
-import { getUser, getDataPost } from '../controller/home-controller.js';
+import { getUser, getDataPost , getDataComments } from '../controller/home-controller.js';
 import { addDataPost } from '../controller/post-controller.js';
 
 export default () => {
@@ -9,7 +9,6 @@ export default () => {
         <img src='' alt='' id='user-photo' class='user-photo'>
         <div class='detail-user'>
           <span id='user-name'></span>
-          <p id='user-email'></p>
         </div>
       </div>
     </section>
@@ -33,6 +32,7 @@ export default () => {
   mainELem.innerHTML = homeView;
   getDataPost();
   getUser();
+  getDataComments();
   const btnShare = mainELem.querySelector('button');
   btnShare.addEventListener('click', addDataPost);
   return mainELem;

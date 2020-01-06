@@ -44,3 +44,16 @@ export const updateTypePost = (idPost, typePost) => {
   });
   return result;
 };
+
+export const addComment = (idPost, comment) => {
+  const result = firebase.firestore().collection('comments').add({
+    idPostComment: idPost,
+    textComment: comment,
+  });
+  return result;
+};
+
+export const getComments = () => {
+  const result = firebase.firestore().collection('comments');
+  return result;
+};
