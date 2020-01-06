@@ -22,9 +22,7 @@ const getDataComments = (idPost) => {
   getComments(idPost)
     .onSnapshot((querySnapshotComment) => {
       querySnapshotComment.forEach((comment) => {
-        if (idPost === comment.data().idPostComment) {
-          printComments(comment.data());
-        }
+        printComments(comment.data());
       });
     });
 };
@@ -38,12 +36,12 @@ export const getDataPost = () => {
           if (post.data().numlikes > 0) {
             const likes = (post.data().numlikes).toString();
             printPost(post.data().idUser, post.id, likes, post.data().type, post.data());
+            getDataComments(post.id);
           } else {
             const likes = '';
             printPost(post.data().idUser, post.id, likes, post.data().type, post.data());
           }
         }
-        getDataComments(post.id);
       });
     });
 };
