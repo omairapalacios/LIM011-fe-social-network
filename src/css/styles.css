@@ -253,10 +253,11 @@ p {
 
   .detail-new-comment > textarea {
     height: 34px;
-    width: calc(100% - 60px); 
+    width: calc(100% - 20px); 
     resize: none;
     padding: 15px 0px 0px 5px;
     border-radius: 10px;
+    margin: 5px;
   }
   .comment {
     display: flex;
@@ -673,6 +674,7 @@ nav#superior ul li:nth-child(3) {
   }
   .name-user {
     font-size: 14px;
+    margin-left: 5px;
   }
   
   .section-main{

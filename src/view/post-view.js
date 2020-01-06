@@ -10,7 +10,7 @@ import {
 export default (userId, postId, likes, typePost, postData) => {
   const postView = `
         <div class='header-post'>
-          <span id="${userId}" class='user-post name-user'>${postData.name}</span>
+          <span id="${userId}" class='user-post name-user'>Publicado por : ${postData.name}</span>
           <a href='http://' class='delete-post'><i class="fas fa-trash"></i></a>
         </div>
         <div class='detail-post'>
