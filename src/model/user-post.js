@@ -13,9 +13,19 @@ export const addPost = (textPost, typePost) => {
   return result;
 };
 
-export const getPost = () => {
-  const result = firebase.firestore().collection('posts').orderBy('date', 'desc');
-  return result;
+export const getPost = (funcionparasacararray) => {
+  firebase.firestore().collection('posts').orderBy('date', 'desc')
+    .onSnapshot((querySnapshot) => {
+      const arr = [];
+      querySnapshot.forEach((doc) => {
+        const obj = {
+          id: doc.id,
+          ...doc.data(),
+        };
+        arr.push(obj);
+      });
+      funcionparasacararray(arr);
+    });
 };
 
 export const updatePost = (idPost, newTextPost) => {

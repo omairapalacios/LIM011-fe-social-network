@@ -20,4 +20,12 @@ export const addUserData = (userId, userObj) => {
 };
 export const currentUser = () => firebase.auth().currentUser;
 
-export const getUserData = () => firebase.firestore().collection('users').get();
+export const getUserData = idUser => firebase.firestore().collection('users').doc(idUser).get();
+
+export const updateProfile = (idProfile, newTextProfileType, newTextProfileName) => {
+  const result = firebase.firestore().collection('users').doc(idProfile).update({
+    name: newTextProfileName,
+    typeUser: newTextProfileType,
+  });
+  return result;
+};

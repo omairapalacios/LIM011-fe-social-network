@@ -1,7 +1,6 @@
-import { getUserData, currentUser } from '../model/auth-user.js';
-import { addProfile } from '../model/profile-user.js';
+import { getUserData, currentUser, updatetypeProfile } from '../model/auth-user.js';
 
-export const getUser = () => {
+export const getUserProfile = () => {
   getUserData()
     .then((querySnapshot) => {
       querySnapshot.forEach((user) => {
@@ -9,6 +8,7 @@ export const getUser = () => {
           document.querySelector('#u-name').value = user.data().displayName;
           document.querySelector('#u-email').value = user.data().email;
           document.querySelector('#u-photo').src = user.data().photoURL;
+          document.querySelector('#u-ocupation').value = user.data().typeUser;
         }
       });
     })
@@ -16,19 +16,10 @@ export const getUser = () => {
       console.log(error);
     });
 };
-
-export const addDataProfile = (event) => {
+export const eventChangeTypeUser = (event) => {
   event.preventDefault();
-  const newProfileName = document.querySelector('#u-name').value;
-  const newProfileEmail = document.querySelector('#u-email').value;
-  const newProfileOcupation = document.querySelector('#u-ocupation').value;
-  const newProfilePhoto = document.querySelector('#u-photo').value;
-  addProfile(newProfileName, newProfileEmail, newProfileOcupation, newProfilePhoto)
-    .then((docRef) => {
-      window.location.hash = '#/profile';
-      console.log('Document written with ID: ', docRef.id);
-    })
-    .catch((error) => {
-      console.error('Error adding document: ', error);
-    });
+  const newnameUser = document.querySelector('#u-name').value;
+  const newtypeUser = document.querySelector('#u-ocupation').value;
+  const newemail = document.querySelector('#u-email').value;
+  updatetypeProfile(newnameUser, newtypeUser, newemail);
 };
