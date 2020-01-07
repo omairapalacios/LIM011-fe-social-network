@@ -1,14 +1,15 @@
-import { getUser, getDataPost } from '../controller/home-controller.js';
 import { addDataPost } from '../controller/post-controller.js';
+import postView from './post-view.js';
 
-export default () => {
+export default (dataPosts, dataUser) => {
   const homeView = `
     <section class='profile'>
       <div class='front'></div>
       <div class='user-profile'>
-        <img src='' alt='' id='user-photo' class='user-photo'>
+        <img src='${dataUser.photoURL}' alt='' id='user-photo' class='user-photo'>
         <div class='detail-user'>
-          <span id='user-name' class='name-user'></span>
+          <span id='user-name' class='name-user'>${dataUser.displayName}</span>
+          <span id='user-type'></span>
         </div>
       </div>
     </section>
@@ -31,8 +32,10 @@ export default () => {
 `;
   const mainELem = document.createElement('main');
   mainELem.innerHTML = homeView;
-  getDataPost();
-  getUser();
+  const container = mainELem.querySelector('#container-posts');
+  dataPosts.forEach((post) => {
+    container.appendChild(postView(post));
+  });
   const btnShare = mainELem.querySelector('button');
   btnShare.addEventListener('click', addDataPost);
   return mainELem;

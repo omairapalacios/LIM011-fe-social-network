@@ -7,10 +7,10 @@ import {
   eventAddComment,
 } from '../controller/post-controller.js';
 
-export default (userId, postId, likes, typePost, postData) => {
+export default (postData) => {
   const postView = `
         <div class='header-post'>
-          <span id="${userId}" class='user-post name-user'>Publicado por : ${postData.name}</span>
+          <span id="${postData.idUser}" class='user-post name-user'>Publicado por : ${postData.name}</span>
           <a href='http://' class='delete-post'><i class="fas fa-trash"></i></a>
         </div>
         <div class='detail-post'>
@@ -18,7 +18,7 @@ export default (userId, postId, likes, typePost, postData) => {
         </div>
         <div class='footer-post'>
           <button class='like-post btn-post'>
-            <i class="fas fa-heart icon-general"><span class='span-like'>${likes}</span></i>
+            <i class="fas fa-heart icon-general"><span class='span-like'>${postData.numlikes}</span></i>
           </button>
           <button class='update-post btn-post'>
             <i class="fas fa-edit icon-social icon-general"></i>            
@@ -40,15 +40,12 @@ export default (userId, postId, likes, typePost, postData) => {
             <i class="far fa-paper-plane"></i>         
           </button> 
         </div>
-        <div class='container-comments'></div>
-      </div>
 `;
 
   const divELem = document.createElement('div');
   divELem.setAttribute('class', 'card-post');
-  divELem.setAttribute('id', postId);
+  divELem.setAttribute('id', postData.id);
   divELem.innerHTML = postView;
-  document.querySelector('#container-posts').appendChild(divELem);
 
   const btnShowPost = divELem.querySelector('.update-post');
   btnShowPost.addEventListener('click', eventShowPostToChange);
@@ -59,9 +56,6 @@ export default (userId, postId, likes, typePost, postData) => {
   const btnDelete = divELem.querySelector('.delete-post');
   btnDelete.addEventListener('click', eventDeletePost);
 
-  /*  const btnShowComments = divELem.querySelector('.show-comments');
-  btnShowComments.addEventListener('click', eventCommentsPost); */
-
   const btnAddComment = divELem.querySelector('.add-comment');
   btnAddComment.addEventListener('click', eventAddComment);
 
@@ -69,6 +63,7 @@ export default (userId, postId, likes, typePost, postData) => {
   btnLike.addEventListener('click', eventCountLikes);
 
   const select = divELem.querySelector('#type-post');
-  select.value = typePost;
+  select.value = postData.type;
   select.addEventListener('change', eventChangeTypePost);
+  return divELem;
 };

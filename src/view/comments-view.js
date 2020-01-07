@@ -12,6 +12,9 @@ export default (comment) => {
   divELem.setAttribute('class', 'new-comment');
   divELem.setAttribute('id', comment.idPost);
   divELem.innerHTML = commentView;
-  document.querySelector('.container-comments').appendChild(divELem);
+  document.querySelectorAll('.card-post').forEach((element) => {
+    element.appendChild(divELem);
+    console.log(element);
+  });
   return divELem;
 };

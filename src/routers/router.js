@@ -1,4 +1,6 @@
 import { components } from '../utils/util-view.js';
+import { getPost } from '../model/user-post.js';
+import { getUserData, currentUser } from '../model/auth-user.js';
 
 export const changeView = (hash) => {
   const container = document.querySelector('#container');
@@ -13,12 +15,25 @@ export const changeView = (hash) => {
       container.appendChild(components.register());
       break;
     case '#/home':
-      container.appendChild(components.header());
-      container.appendChild(components.home());
+    {
+      getUserData(currentUser().uid)
+        .then((response) => {
+          const callback = (dataPost) => {
+            container.innerHTML = '';
+            container.appendChild(components.header());
+            container.appendChild(components.home(dataPost, response.data()));
+          };
+          getPost(callback);
+        });
       break;
+    }
     case '#/profile':
-      container.appendChild(components.header());
-      container.appendChild(components.profile());
+      getUserData(currentUser().uid)
+        .then((response) => {
+          container.innerHTML = '';
+          container.appendChild(components.header());
+          container.appendChild(components.profile(response.data()));
+        });
       break;
     default:
       container.appendChild(components.login());

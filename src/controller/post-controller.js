@@ -92,6 +92,7 @@ export const eventAddComment = (event) => {
     textComment: comment.value,
     user: currentUser().displayName,
   };
+  console.log(postId);
   addComment(objComment)
     .then((doc) => {
       console.log('comentario agregado exitosamente', doc);
