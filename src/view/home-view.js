@@ -1,8 +1,42 @@
-export default () => {
+import { addDataPost } from '../controller/post-controller.js';
+import postView from './post-view.js';
+
+export default (dataPosts, dataUser) => {
   const homeView = `
-  <p>Bienvenidx</p>
-  <a href="#/">Cerrar Sesión</a>`;
-  const divELem = document.createElement('div');
-  divELem.innerHTML = homeView;
-  return divELem;
+    <section class='profile'>
+      <div class='front'></div>
+      <div class='user-profile'>
+        <img src='${dataUser.photoURL}' alt='' id='user-photo' class='user-photo'>
+        <div class='detail-user'>
+          <span id='user-name' class='name-user'>${dataUser.displayName}</span>
+          <span id='user-type'></span>
+        </div>
+      </div>
+    </section>
+    <section id='container-posts-general' class='container-posts-general'>
+      <div class='card-new-post'>
+        <textarea name='' id='' placeholder='¿Hola, qué quieres compartir hoy?'></textarea>
+        <div class='footer-new-post'>
+          <i class='icon-general far fa-images'></i>
+          <select name="" id="type-new-post" class="type-new-post">
+            <option value="1">Público</option>
+            <option value="0">Privado</option>
+          </select>
+          <button class='btn-share share-post type='submit'>COMPARTIR</button>
+        </div>
+      </div>
+      </div>
+      <section id='container-posts' class='container-posts'>
+      </section>
+    </section>
+`;
+  const mainELem = document.createElement('main');
+  mainELem.innerHTML = homeView;
+  const container = mainELem.querySelector('#container-posts');
+  dataPosts.forEach((post) => {
+    container.appendChild(postView(post));
+  });
+  const btnShare = mainELem.querySelector('button');
+  btnShare.addEventListener('click', addDataPost);
+  return mainELem;
 };

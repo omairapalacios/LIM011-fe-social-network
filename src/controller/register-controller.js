@@ -1,41 +1,66 @@
-import { registerUserEmail } from '../model/auth-users.js';
 
-export default () => {
-  const btnRegister = document.getElementById('btn-register');
-  btnRegister.addEventListener('click', (event) => {
-    event.preventDefault();
-    const email = document.querySelector('#email-register');
-    const password = document.querySelector('#password-register');
-    const username = document.querySelector('#username');
+import { registerUserEmail, addUserData } from '../model/auth-user.js';
 
-    registerUserEmail(email.value, password.value, username.value)
+export default (event) => {
+  event.preventDefault();
+  const btnRegister = event.target;
+  const email = btnRegister.closest('form').querySelector('input[type=email]');
+  const password = btnRegister.closest('form').querySelector('input[type=password]');
+  const nameUser = btnRegister.closest('form').querySelector('input[type=text]');
+  const msgError = btnRegister.closest('form').querySelector('#error-message');
+  const msgErrorEmail = btnRegister.closest('form').querySelector('#error-email');
+  const msgErrorPassword = btnRegister.closest('form').querySelector('#error-password');
+  if (email.value !== '' && password.value !== '') {
+    registerUserEmail(email.value, password.value)
       .then((result) => {
-        result.user.updateProfile({
-          displayName: username,
-        });
         const redirectLogin = {
           url: 'http://localhost:5000/',
         };
-        result.user.sendEmailVerification(redirectLogin).catch((error) => {
+        result.user.sendEmailVerification(redirectLogin).then(() => {
+          console.log('Para continuar por favor revise su correo el electronico y valide');
+          const userId = result.user.uid;
+          const userObj = {
+            displayName: nameUser.value,
+            photoURL: 'https://image.flaticon.com/icons/svg/149/149071.svg',
+            email: result.user.email,
+          };
+          addUserData(userId, userObj);
+          window.location.hash = '#/login';
+          nameUser.value = '';
+          email.value = '';
+          password.value = '';
+        }).catch((error) => {
           console.error(error);
         });
-
-        firebase.auth().signOut();
-        alert('Para continuar por favor revisa tu correo el electronico y valida');
-      })
-      .catch((error) => {
-        // const msgErrorPassword = document.querySelector('#error-password');
-        const msgErrorEmail = document.querySelector('#error-password');
-
-        const errorPassword = error.code;
-        // const errorEmail = error.message;
-
-        if (errorPassword === 'auth/weak-password') {
-          msgErrorEmail.innerHTML = 'Contraseña débil';
+      }).catch((error) => {
+        const errorCode = error.code;
+        if (errorCode === 'auth/weak-password') {
+          msgError.innerHTML = 'La contraseña ingresada es debil, ingrese 6 o más caracteres';
+          password.value = '';
+          password.className = 'error-color';
+        } else if (errorCode === 'auth/email-already-in-use') {
+          email.value = '';
+          email.className = 'error-color';
+          msgError.innerHTML = ' El correo ingresado ya se encuentra registrado';
+        } else if (errorCode === 'auth/invalid-email') {
+          email.value = '';
+          email.className = 'error-color';
+          msgError.innerHTML = 'el correo ingresado no es valido';
         }
       });
-    email.value = '';
-    password.value = '';
-    username.value = '';
-  });
+  } else {
+    email.className = 'error-color';
+    password.className = 'error-color';
+    msgErrorEmail.innerHTML = 'Por favor ingrese un correo electrónico(*)';
+    msgErrorPassword.innerHTML = 'Por favor ingrese una contraseña(*)';
+  }
+};
+
+export const passwordShow = () => {
+  const tipo = document.querySelector('#password-register');
+  if (tipo.type === 'password') {
+    tipo.type = 'text';
+  } else {
+    tipo.type = 'password';
+  }
 };

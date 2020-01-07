@@ -1,19 +1,39 @@
+import registerUserEmailEvent, { passwordShow } from '../controller/register-controller.js';
 
 export default () => {
   const registerView = `
-  <form class="form-register" action="">
-    <h3>Bienvenidx</h3>
-    <div class="input-container">
-      <input id="username" type="text" placeholder="Nombre de usuario">
-      <label id="error-password" for=""></label>
-      <input id="email-register" type="email" placeholder="Correo Electronico">
-      <label id="error-email" for=""></label>
-      <input id="password-register" type="password" placeholder="Contraseña">
-    </div>
-    <button id="btn-register" class="btn-general" type="submit">REGISTRARME</button>
-  </form>`;
-  const divElem = document.createElement('div');
-  divElem.className = 'viewRegister';
-  divElem.innerHTML = registerView;
-  return divElem;
+    <section class='section-banner'>
+    </section>
+    <section class='section-main'>
+      <div class='container-logo'>
+        <img src='./img/logo.png' alt='logo' class='icon-logo-main'>
+      </div>
+      <p> Sé parte de esta red,<span class='c-green'> promociona y encuentra</span> <span >talento.</span> </p>
+      <form>
+        <input id='username' type='text' class='input-text' placeholder='Nombre de usuario'>      
+        <input id='email-register' type='email' class='input-text'  placeholder='Correo Electronico'>
+        <div class='pass-eye'> 
+          <input type='password' class='input-password' id='password-register' placeholder='Password' required>
+          <img src="https://img.icons8.com/material-rounded/24/000000/visible.png" id="btn-eye" class="eye-class">
+        </div>
+        <select  id = "typeUser" >
+        <option  value = "seller" > vendedor </option>
+        <option  value = "buyer" > Comprador </ option>
+        </select>
+        <span class='errors' id='error-message'></span>
+        <span class='errors' id='error-password'></span>
+        <span class='errors' id='error-email'></span>
+        <button id='btn-register' class='btn btn-general' type='submit'>REGISTRAME</button>
+        <p>¿Ya tienes una cuenta? <a href='#/login'>Inicia Sesión</a></p>
+        </form>
+    </section> `;
+
+  const mainElem = document.createElement('main');
+  mainElem.className = 'viewRegister';
+  mainElem.innerHTML = registerView;
+  const btnRegister = mainElem.querySelector('button');
+  btnRegister.addEventListener('click', registerUserEmailEvent);
+  const showPass = mainElem.querySelector('#btn-eye');
+  showPass.addEventListener('click', passwordShow);
+  return mainElem;
 };

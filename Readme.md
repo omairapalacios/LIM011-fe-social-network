@@ -12,6 +12,7 @@ Aquí algunas ideas para inspirarte:
 - Salud
 - Energías Renovables
 
+
 Las **caraterísticas técnicas** de tu aplicación serán las siguientes:
 - Debe ser una Single-Page Application [SPA](https://dzone.com/articles/how-single-page-web-applications-actually-work) ([versión traducida](https://dzone.com/articles/how-single-page-web-applications-actually-work))
 - Debe ser diseñada con un enfoque [mobile first](https://darwindigital.com/mobile-first-versus-responsive-web-design/) ([versión traducida](https://translate.google.com/translate?hl=&sl=auto&tl=es&u=https%3A%2F%2Fdarwindigital.com%2Fmobile-first-versus-responsive-web-design))
@@ -147,13 +148,13 @@ anterior en la siguiente sección.
 
 ### HTML y CSS
 
-* [ ] [HTML semántico](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#Semantics_in_HTML)
+* [x] [HTML semántico](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#Semantics_in_HTML)
 * [ ] [CSS `flexbox`](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
-* [ ] Construir tu aplicación respetando el diseño realizado (maquetación).
+* [x] Construir tu aplicación respetando el diseño realizado (maquetación).
 
 ### DOM y Web APIs
 
-* [ ] [Manipulación dinámica del DOM](https://developer.mozilla.org/es/docs/Referencia_DOM_de_Gecko/Introducci%C3%B3n)
+* [x] [Manipulación dinámica del DOM](https://developer.mozilla.org/es/docs/Referencia_DOM_de_Gecko/Introducci%C3%B3n)
 * [ ] [History API](https://developer.mozilla.org/es/docs/DOM/Manipulando_el_historial_del_navegador)
 * [ ] [`localStorage`]
 
@@ -161,7 +162,7 @@ anterior en la siguiente sección.
 
 * [ ] [Uso de callbacks](https://developer.mozilla.org/es/docs/Glossary/Callback_function)
 * [ ] [Consumo de Promesas](https://scotch.io/tutorials/javascript-promises-for-dummies#toc-consuming-promises)
-* [ ] Uso ES modules
+* [x] Uso ES modules
 ([`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
 | [`export`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export))
 
@@ -181,21 +182,21 @@ anterior en la siguiente sección.
 
 ### Colaboración en Github
 
-* [ ] Branches
-* [ ] Pull Requests
-* [ ] Tags
+* [x] Branches
+* [x] Pull Requests
+* [x] Tags
 
 ### Organización en Github
 
-* [ ] Projects
-* [ ] Issues
-* [ ] Labels
-* [ ] Milestones
+* [x] Projects
+* [x] Issues
+* [x] Labels
+* [x] Milestones
 
 ### Buenas prácticas de desarrollo
 
-* [ ] Modularización
-* [ ] Nomenclatura / Semántica
+* [x] Modularización
+* [x] Nomenclatura / Semántica
 * [ ] Linting
 
 ***
