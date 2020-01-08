@@ -1,5 +1,5 @@
 import { addDataPost } from '../controller/post-controller.js';
-import postView from './post-view.js';
+import printPost from './post-view.js';
 
 export default (dataPosts, dataUser) => {
   const homeView = `
@@ -34,7 +34,8 @@ export default (dataPosts, dataUser) => {
   mainELem.innerHTML = homeView;
   const container = mainELem.querySelector('#container-posts');
   dataPosts.forEach((post) => {
-    container.appendChild(postView(post));
+    console.log(post);
+    container.appendChild(printPost(post, comment));
   });
   const btnShare = mainELem.querySelector('button');
   btnShare.addEventListener('click', addDataPost);

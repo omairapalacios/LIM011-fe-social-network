@@ -1,20 +1,16 @@
 export default (comment) => {
-  console.log(comment.user);
+  console.log(comment);
   const commentView = `
-        <span class='name-user'>${comment.user} :</span>
-          <div class='detail-new-comment'> 
-            <textarea class='text-comment' name='' id=''>${comment.textComment}</textarea>
-          </div> 
-          
-        </div>
-`;
-  const divELem = document.createElement('div');
-  divELem.setAttribute('class', 'new-comment');
-  divELem.setAttribute('id', comment.idPost);
-  divELem.innerHTML = commentView;
-  document.querySelectorAll('.card-post').forEach((element) => {
-    element.appendChild(divELem);
-    console.log(element);
-  });
-  return divELem;
+  <div class="container-comment">
+  <textarea id="text-comment" rows="5" placeholder="Ingrese comentario..."></textarea>
+  <button class='add-comment btn-post'>
+    <i class="far fa-paper-plane"></i>
+  </button>
+</div>`;
+
+  const divElemComment = document.createElement('div');
+  divElemComment.setAttribute('class', 'comment');
+  divElemComment.innerHTML = commentView;
+
+  return divElemComment;
 };

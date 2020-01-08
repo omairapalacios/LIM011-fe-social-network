@@ -13,7 +13,7 @@ export const addPost = (textPost, typePost) => {
   return result;
 };
 
-export const getPost = (funcionparasacararray) => {
+export const getPosts = (callback) => {
   firebase.firestore().collection('posts').orderBy('date', 'desc')
     .onSnapshot((querySnapshot) => {
       const arr = [];
@@ -24,7 +24,7 @@ export const getPost = (funcionparasacararray) => {
         };
         arr.push(obj);
       });
-      funcionparasacararray(arr);
+      callback(arr);
     });
 };
 
@@ -60,7 +60,18 @@ export const addComment = (objComment) => {
   return result;
 };
 
-export const getComments = (idPost) => {
-  const result = firebase.firestore().collection('comments').where('idPostComment', '==', idPost);
-  return result;
+export const getComments = (callback) => {
+  firebase.firestore().collection('comments')
+    .onSnapshot((querySnapshot) => {
+      const arr = [];
+      querySnapshot.forEach((doc) => {
+        console.log(doc);
+        const obj = {
+          id: doc.id,
+          ...doc.data(),
+        };
+        arr.push(obj);
+      });
+      callback(arr);
+    });
 };
