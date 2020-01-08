@@ -1,5 +1,5 @@
 import { components } from '../utils/util-view.js';
-import { getPost } from '../model/user-post.js';
+import { getPost, getComments } from '../model/user-post.js';
 import { getUserData, currentUser } from '../model/auth-user.js';
 
 export const changeView = (hash) => {
@@ -24,6 +24,7 @@ export const changeView = (hash) => {
             container.appendChild(components.home(dataPost, response.data()));
           };
           getPost(callback);
+          getComments()
         });
       break;
     }
