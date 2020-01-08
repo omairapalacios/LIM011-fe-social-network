@@ -4,8 +4,6 @@ html {
   font-family: 'Poppins', sans-serif;
 }
 
-
-
 body {
   margin: 0;
   padding: 0;
@@ -770,7 +768,7 @@ nav#superior ul li:nth-child(3) {
   }
 
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
@@ -799,6 +797,8 @@ nav#superior ul li:nth-child(3) {
     font-size: 17px;
   }
 }
+
+
 .hide {
   display: none;
 }
