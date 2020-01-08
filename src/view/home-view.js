@@ -31,9 +31,9 @@ export default (dataPosts, dataUser) => {
     </section>`;
   const mainELem = document.createElement('main');
   mainELem.innerHTML = homeView;
-  const container = mainELem.querySelector('#container-posts');
+  const containerPosts = mainELem.querySelector('#container-posts');
   dataPosts.forEach((post) => {
-    container.appendChild(printPost(post));
+    containerPosts.appendChild(printPost(post));
   });
   const btnShare = mainELem.querySelector('button');
   btnShare.addEventListener('click', addDataPost);

@@ -10,7 +10,6 @@ import {
 import { showComments } from '../controller/comment-controller.js';
 
 export default (postData) => {
-  console.log(postData);
   const postView = `
       <div class='header-post'>
       <span id="${postData.idUser}" class='user-post name-user'>Publicado por : ${postData.name}</span>
@@ -36,13 +35,15 @@ export default (postData) => {
       </select>
     </div>
 
-    <div class="container-new-comment">
+    <div class="container-comment">
+    <div class="new-comment">
       <textarea id="text-comment" rows="5" placeholder="Ingrese comentario..."></textarea>
       <button class='add-comment btn-post'>
         <i class="far fa-paper-plane"></i>
       </button>
     </div>
-    <div class="container-comments"> </div>
+    <div class="comments"> </div>
+    </div>
     
 
 `;
