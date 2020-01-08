@@ -18,6 +18,7 @@ export const addUserData = (userId, userObj) => {
   const result = firebase.firestore().collection('users').doc(userId).set(userObj);
   return result;
 };
+
 export const currentUser = () => firebase.auth().currentUser;
 
 export const getUserData = () => firebase.firestore().collection('users').get();

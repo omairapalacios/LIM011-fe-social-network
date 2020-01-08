@@ -10,7 +10,9 @@ export const addPost = (textPost, typePost) => {
     numlikes: 0,
     type: typePost,
   });
+  console.log(currentUser());
   return result;
+ 
 };
 
 export const getPost = () => {

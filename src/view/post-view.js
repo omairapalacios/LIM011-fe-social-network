@@ -9,6 +9,7 @@ import {
 
 export default (userId, postId, likes, typePost, postData) => {
   const postView = `
+
         <div class='header-post'>
           <span id="${userId}" class='user-post'>${postData.name}</span>
           <a href='http://' class='delete-post'>x</a>
@@ -42,6 +43,8 @@ export default (userId, postId, likes, typePost, postData) => {
         </div>
         <div class='container-comments'></div>
       </div>
+      </div>
+
 `;
 
   const divELem = document.createElement('div');
