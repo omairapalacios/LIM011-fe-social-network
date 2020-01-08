@@ -1,5 +1,5 @@
 import { components } from '../utils/util-view.js';
-import { getPost, getComments } from '../model/user-post.js';
+import { getPosts, getComments } from '../model/user-post.js';
 import { getUserData, currentUser } from '../model/auth-user.js';
 
 export const changeView = (hash) => {
@@ -23,8 +23,16 @@ export const changeView = (hash) => {
             container.appendChild(components.header());
             container.appendChild(components.home(dataPost, response.data()));
           };
-          getPost(callback);
-          getComments()
+          getPosts(callback);
+
+          const callbackc = (dataComment) => {
+            console.log(dataComment);
+            container.innerHTML = '';
+            container.appendChild(components.header());
+            container.appendChild(components.home(dataComment, response.data()));
+          };
+          console.log(getComments(callbackc));
+          getComments(callbackc);
         });
       break;
     }

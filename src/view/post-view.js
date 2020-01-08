@@ -7,63 +7,78 @@ import {
   eventAddComment,
 } from '../controller/post-controller.js';
 
-export default (postData) => {
+import { showComments } from '../controller/comment-controller.js';
+
+export default (postData, commentData) => {
+  console.log(commentData);
   const postView = `
-        <div class='header-post'>
-          <span id="${postData.idUser}" class='user-post name-user'>Publicado por : ${postData.name}</span>
-          <a href='http://' class='delete-post'><i class="fas fa-trash"></i></a>
-        </div>
-        <div class='detail-post'>
-          <textarea name='' id='text-post' disabled>${postData.post}</textarea>
-        </div>
-        <div class='footer-post'>
-          <button class='like-post btn-post'>
-            <i class="fas fa-heart icon-general"><span class='span-like'>${postData.numlikes}</span></i>
-          </button>
-          <button class='update-post btn-post'>
-            <i class="fas fa-edit icon-social icon-general"></i>            
-          </button>
-          <button class='comment-post btn-post'>
-          <i class="fas fa-comments icon-social icon-general"></i>         
-          </button>
-          <span class='btn-save-change hidden'>Guardar Cambios</span>
-          <select name="" id="type-post" class="type-post">
-            <option value="1">Público</option>
-            <option value="0">Privado</option>
-          </select>
-        </div>
-        <div class='comment'>
-          <div class='detail-comment'>
-            <textarea name='' id='text-comment' placeholder='Escribe un comentario...'></textarea>
-          </div>  
-          <button class='add-comment btn-post'>
-            <i class="far fa-paper-plane"></i>         
-          </button> 
-        </div>
+      <div class='header-post'>
+      <span id="${postData.idUser}" class='user-post name-user'>Publicado por : ${postData.name}</span>
+      <a href='http://' class='delete-post'><i class="fas fa-trash"></i></a>
+    </div>
+    <div class='detail-post'>
+      <textarea name='' id='text-post' disabled>${postData.post}</textarea>
+    </div>
+    <div class='footer-post'>
+      <button class='like-post btn-post'>
+        <i class="fas fa-heart icon-general"><span class='span-like'>${postData.numlikes}</span></i>
+      </button>
+      <button class='update-post btn-post'>
+        <i class="fas fa-edit icon-social icon-general"></i>
+      </button>
+      <button class='show-comments btn-post'>
+        <i class="fas fa-comments icon-social icon-general"></i>
+      </button>
+      <span class='btn-save-change hidden'>Guardar Cambios</span>
+      <select name="" id="type-post" class="type-post">
+        <option value="1">Público</option>
+        <option value="0">Privado</option>
+      </select>
+    </div>
+
+    <div class="container-new-comment">
+      <textarea id="text-comment" rows="5" placeholder="Ingrese comentario..."></textarea>
+      <button class='add-comment btn-post'>
+        <i class="far fa-paper-plane"></i>
+      </button>
+    </div>
+    <div class="container-comments"> </div>
+    
+
 `;
+  const divElemPost = document.createElement('div');
+  divElemPost.setAttribute('class', 'card-post');
+  divElemPost.setAttribute('id', postData.id);
+  divElemPost.innerHTML = postView;
 
-  const divELem = document.createElement('div');
-  divELem.setAttribute('class', 'card-post');
-  divELem.setAttribute('id', postData.id);
-  divELem.innerHTML = postView;
+  const btnShowComments = divElemPost.querySelector('.show-comments');
+  btnShowComments.addEventListener('click', showComments);
 
-  const btnShowPost = divELem.querySelector('.update-post');
+  const addComment = divElemPost.querySelector('.add-comment');
+  addComment.addEventListener('click', eventAddComment);
+
+  const btnShowPost = divElemPost.querySelector('.update-post');
   btnShowPost.addEventListener('click', eventShowPostToChange);
 
-  const btnUpdate = divELem.querySelector('.btn-save-change');
+  const btnUpdate = divElemPost.querySelector('.btn-save-change');
   btnUpdate.addEventListener('click', eventUpdatePost);
 
-  const btnDelete = divELem.querySelector('.delete-post');
+  const btnDelete = divElemPost.querySelector('.delete-post');
   btnDelete.addEventListener('click', eventDeletePost);
 
-  const btnAddComment = divELem.querySelector('.add-comment');
-  btnAddComment.addEventListener('click', eventAddComment);
-
-  const btnLike = divELem.querySelector('.like-post');
+  const btnLike = divElemPost.querySelector('.like-post');
   btnLike.addEventListener('click', eventCountLikes);
 
-  const select = divELem.querySelector('#type-post');
+  const select = divElemPost.querySelector('#type-post');
   select.value = postData.type;
   select.addEventListener('change', eventChangeTypePost);
-  return divELem;
+
+
+  const container = document.querySelector('.btn-save');
+  console.log(container);
+  commentData.forEach((comment) => {
+    container.appendChild(showComments(comment));
+  });
+
+  return divElemPost;
 };

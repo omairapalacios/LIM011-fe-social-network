@@ -3,6 +3,7 @@ import viewLogin from '../view/login-view.js';
 import viewHome from '../view/home-view.js';
 import headerView from '../view/header-view.js';
 import profileView from '../view/profile-view.js';
+import postView from '../view/post-view.js';
 
 export const components = {
   register: viewRegister,
@@ -10,4 +11,5 @@ export const components = {
   home: viewHome,
   header: headerView,
   profile: profileView,
+  post: postView,
 };
