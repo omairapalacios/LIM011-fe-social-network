@@ -15,9 +15,19 @@ export const addPost = (textPost, typePost) => {
  
 };
 
-export const getPost = () => {
-  const result = firebase.firestore().collection('posts').orderBy('date', 'desc');
-  return result;
+export const getPosts = (callback) => {
+  firebase.firestore().collection('posts').orderBy('date', 'desc')
+    .onSnapshot((querySnapshot) => {
+      const arr = [];
+      querySnapshot.forEach((doc) => {
+        const obj = {
+          id: doc.id,
+          ...doc.data(),
+        };
+        arr.push(obj);
+      });
+      callback(arr);
+    });
 };
 
 export const updatePost = (idPost, newTextPost) => {
@@ -52,7 +62,18 @@ export const addComment = (objComment) => {
   return result;
 };
 
-export const getComments = (idPost) => {
-  const result = firebase.firestore().collection('comments').where('idPostComment', '==', idPost);
-  return result;
+export const getComments = (callback) => {
+  firebase.firestore().collection('comments')
+    .onSnapshot((querySnapshot) => {
+      const arr = [];
+      querySnapshot.forEach((doc) => {
+        console.log(doc);
+        const obj = {
+          id: doc.id,
+          ...doc.data(),
+        };
+        arr.push(obj);
+      });
+      callback(arr);
+    });
 };

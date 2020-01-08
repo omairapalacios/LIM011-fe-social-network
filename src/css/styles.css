@@ -4,8 +4,6 @@ html {
   font-family: 'Poppins', sans-serif;
 }
 
-
-
 body {
   margin: 0;
   padding: 0;
@@ -17,13 +15,12 @@ nav#superior ul a {
   padding: .3em 0;
   text-align: center;
   color: rgb(228, 236, 236);
-  background: rgb(118, 120, 239);
-  
- 
+  background: #091f80 ;
 }
 
 nav#superior ul a:hover {
-  background: #83706c;
+  background: #f3d677;
+  color: #555;
 }
 
 .c-green{
@@ -36,6 +33,14 @@ a{
   cursor: pointer;
 }
 
+p {
+  font-size: 12px;
+  color: blue;
+}
+
+.name-user {
+  font-size: 12px;
+}
 
 @media (min-width: 320px){
   main{
@@ -57,46 +62,21 @@ a{
   button#menu:focus + nav#superior {
     display: block;
   }
- 
+
 
   header{
     height: 100%;
     width: 100%;
     background-color: #091f80;
- 
+
   }
   
   .muro > a, .profile-header > a{
     color: #ffffff;
   }
- 
-  .menu{
-
-  }
-
-  .icon-menu{
-    
-  }
-
-  .header-logo{
-
-  }
-
-  .icon-logo{
-    height: 80px;
-  }
-
-  .log-out{
-
-  }
-
-  .icon-log-out{
-  }
-
-  /* Login */
-
   .section-banner{
     display: none;  
+  
   }
 
   .section-main{
@@ -108,7 +88,6 @@ a{
     text-align: center;
     align-content: center;
     height: 100vh;
-    background-color: #ffffff;
     padding: 20px;
     box-sizing: border-box;
   }
@@ -131,7 +110,7 @@ a{
   }
 
   .input-text{
-    width: 90%;
+    width: 80%;
     height: 40px;
     border-radius: 16px;
     margin: 8px 0px;
@@ -148,6 +127,11 @@ a{
     height: 40px;
     width: 60%;
     border-style: none;
+  }
+
+  .btn-social-net {
+    background: transparent;
+    border:transparent;
   }
 
   /* Home */
@@ -186,15 +170,22 @@ a{
     height: auto;
     width: 100%;
     display: flex;
+    
     justify-content: flex-start;
     align-items: center;
     align-content: center;
   }
 
+  .user-profile span{
+    font-size: 16px;
+    margin-left: 15px;
+  }
+
   .user-photo{
-    height: 100px;
-    width: 100px;
-    border-radius: 70%;
+    margin-left: 15px;
+    height: 65px;
+    width: 65px;
+    border-radius: 50%;
   }
 
   .detail-user{
@@ -217,15 +208,13 @@ a{
     width: auto;
     padding: 16px;
     margin-bottom: 8px;
-    border: 1px solid #bebebe;
-    border-radius: 4px;
+    border: 1px solid #969494;
   }
 
   .card-new-post > textarea{
     height: 88px;
     width: calc(100% - 4px);
-    border: 1px solid #bebebe;
-    border-radius: 4px;
+    border: 1px solid #969494;
     padding: 8px 0px 0px 4px;
     outline: none;
     resize: none;
@@ -240,7 +229,43 @@ a{
     outline: none;
     resize: none;
   }
+  .comment {
+    display: flex;
+  }
 
+  .detail-comment {
+    display: flex;
+    width: calc(100% - 4px);
+    padding: 6px 0px 0px 4px;
+    resize: none;
+    justify-content: center;
+  }
+
+  .detail-comment > textarea {
+    height: 34px;
+    width: calc(100% - 10px); 
+    resize: none;
+    padding: 15px 0px 0px 5px;
+    border-radius: 10px;
+  }
+
+  .detail-new-comment > textarea {
+    height: 34px;
+    width: calc(100% - 20px); 
+    resize: none;
+    padding: 15px 0px 0px 5px;
+    border-radius: 10px;
+    margin: 5px;
+  }
+  .comment {
+    display: flex;
+  }
+
+
+
+  .add-comment {
+    padding: 23px 8px 0px 0px;
+  }
   .footer-new-post{
     height: auto;
     display: flex;
@@ -267,8 +292,8 @@ a{
     height: auto;
     width: calc(100% - 2px);
     margin-bottom: 16px;
-    border: 1px solid #bebebe;
-    border-radius: 4px;
+    border: 1px solid #969494;
+
   }
 
   .header-post{
@@ -278,9 +303,8 @@ a{
     padding: 0px 8px;
     justify-content: space-between;
     align-items: center;
-    background-color: #bebebe;
+    background-color: #d6d6d6;
     box-sizing: border-box;
-    border-radius: 4px 4px 0px 0px;
     border: 1px solid #bebebe;
     box-sizing: border-box;
   }
@@ -296,9 +320,7 @@ a{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-color: #bebebe;
-    border-radius: 0px 0px 4px 4px;
-    border: 1px solid #bebebe;
+    background-color: #d6d6d6;
     box-sizing: border-box;
   }
 
@@ -314,8 +336,7 @@ a{
     margin: 0px 8px;
   }  
 
-  .footer-post > .update-post{
-    width: 28px;
+  .footer-post > .update-post, .footer-post > .comment-post, .add-comment {
     height: 100%;
     border-radius: 50%;
     border-style: none;
@@ -324,13 +345,14 @@ a{
     outline: none;
     cursor: pointer;
     margin-left: 8px;
+    color: black ;
   }
 
   .pass-eye{
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 90%;
+    width: 80%;
     height: 40px;
     border-radius: 16px;
     margin: 8px 0px;
@@ -341,6 +363,9 @@ a{
 
   .eye-class{
     padding-right: 8px;
+    color: rgb(63, 59, 59);
+    border: transparent;
+    background: transparent;
   }
 
   .input-password{
@@ -392,7 +417,7 @@ a{
   }
 
   .span-like{
-    font-size: 18px;
+    font-size: 14px;
     color: black;
     padding-left: 4px;
   }
@@ -434,7 +459,6 @@ a{
 
 }
 
-
 @media (min-width: 768px){
 
   button#menu {
@@ -444,21 +468,23 @@ nav#superior {
   display: block;
 }
 nav#superior ul {
+    width: 100%;
     display: flex;
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-
+nav#superior ul li:nth-child(3) {
+  display: flex;
+  justify-content: flex-end;
+}
 
   main{
     height: calc(100% - 54px);
     display: flex;
     justify-content: center;
   }
-
-  
 
   /* Header */
 
@@ -566,11 +592,10 @@ nav#superior ul {
   }
 
   .span-like{
-    font-size: 18px;
+    font-size: 15px;
     color: black;
     padding-left: 4px;
   }
-
   .muro, .profile-header, .muro > a, .profile-header > a{
     height: 54px;
     display: flex;
@@ -616,36 +641,44 @@ nav#superior ul {
     justify-content: center;
   }
 
-  
-
   /* Header */
-
+  .menu i{
+    display: none;
+  }
   /* Login */
 
   .section-banner{
     display: block;
     width: 60%;
-
+    background-image: linear-gradient(
+      rgba(183, 129, 6, 0.5),
+      rgba(146, 126, 68, 0.5)
+    ), url(../img/banner.jpeg)
+    
   }
 
   .container-banner{
-    height: 100vh;
-    display: flex;
+    margin: 10%;
+    height: 80%;
     justify-content: center;
     text-align: center;
     align-items: center;
+
   }
 
   .container-banner > p{
     font-size: 24px;
-    color: blue;
+    color: black;
   }
-
+  .name-user {
+    font-size: 14px;
+    margin-left: 5px;
+  }
+  
   .section-main{
     width: 40%;
     text-align: center;
     height: 100vh;
-    background-color: #ffffff;
   }
   .icon-logo-main{
     height: 160px;
@@ -661,7 +694,7 @@ nav#superior ul {
   }
 
   input{
-    width: 90%;
+    width: 100%;
     height: 40px;
     border-radius: 16px;
     margin: 8px 0px;
@@ -695,7 +728,6 @@ nav#superior ul {
     height: auto;
     padding: 0px;
     margin-top: 36px;
-    border-radius: 8px;
     background-color: transparent;
   }
 
@@ -705,14 +737,19 @@ nav#superior ul {
   }
 
   .front{
-    background-color: #bebebe;
+    background-image: url('../img/banner.jpeg');
+    background-size: contain;
     display: block;
     border-radius: 8px 8px 0px 0px;
   }
 
   .user-profile{
+    width: auto;
     justify-content: center;
     padding: 4px;
+    background-color: #d6d6d6;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
   }
 
   .user-photo{
@@ -731,7 +768,7 @@ nav#superior ul {
   }
 
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
@@ -745,4 +782,23 @@ nav#superior ul {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+}
+
+@media (min-width: 1024px) {
+  .btn {
+    width: 30%;
+  }
+
+  p {
+    font-size: 17px;
+  }
+
+  .icon-general {
+    font-size: 17px;
+  }
+}
+
+
+.hide {
+  display: none;
 }

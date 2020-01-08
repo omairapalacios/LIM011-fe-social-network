@@ -21,13 +21,12 @@ export const addUserData = (userId, userObj) => {
 
 export const currentUser = () => firebase.auth().currentUser;
 
-export const getUserData = () => firebase.firestore().collection('users').get();
+export const getUserData = idUser => firebase.firestore().collection('users').doc(idUser).get();
 
-export const updatetypeProfile = (NewNameUser, NewtypeUser, newemail) => {
-  const user = currentUser();
-  firebase.firestore().collection('users').doc(user.uid).update({
-    displayName: NewNameUser,
-    typeUser: NewtypeUser,
-    email: newemail,
+export const updateProfile = (idProfile, newTextProfileType, newTextProfileName) => {
+  const result = firebase.firestore().collection('users').doc(idProfile).update({
+    name: newTextProfileName,
+    typeUser: newTextProfileType,
   });
+  return result;
 };

@@ -68,13 +68,17 @@ export const eventDeletePost = (event) => {
   const postId = btnUpdate.closest('.card-post').id;
   const userId = btnUpdate.closest('.card-post').querySelector('.user-post').id;
   if (currentUser().uid === userId) {
-    deletePost(postId)
-      .then((doc) => {
-        console.log('Documento eliminado satisfactoriamente', doc);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    if (window.confirm('Estas seguro que deseas eliminar este post')) {
+      deletePost(postId)
+        .then((doc) => {
+          console.log('Documento eliminado satisfactoriamente', doc);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  } else {
+    alert('No puedes eliminar este post');
   }
 };
 
@@ -88,6 +92,7 @@ export const eventAddComment = (event) => {
     textComment: comment.value,
     user: currentUser().displayName,
   };
+  console.log(postId);
   addComment(objComment)
     .then((doc) => {
       console.log('comentario agregado exitosamente', doc);
