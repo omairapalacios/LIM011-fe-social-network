@@ -7,6 +7,7 @@ export default (event) => {
   const email = btnRegister.closest('form').querySelector('input[type=email]');
   const password = btnRegister.closest('form').querySelector('input[type=password]');
   const nameUser = btnRegister.closest('form').querySelector('input[type=text]');
+  const typeUser = btnRegister.closest('form').querySelector('#typeUser');
   const msgError = btnRegister.closest('form').querySelector('#error-message');
   const msgErrorEmail = btnRegister.closest('form').querySelector('#error-email');
   const msgErrorPassword = btnRegister.closest('form').querySelector('#error-password');
@@ -23,6 +24,7 @@ export default (event) => {
             displayName: nameUser.value,
             photoURL: 'https://image.flaticon.com/icons/svg/149/149071.svg',
             email: result.user.email,
+            typeUser: typeUser.value,
           };
           addUserData(userId, userObj);
           window.location.hash = '#/login';

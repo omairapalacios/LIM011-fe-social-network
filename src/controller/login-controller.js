@@ -45,10 +45,12 @@ export const signFacebookEvent = (event) => {
   signInUserFacebook()
     .then((result) => {
       const userId = result.user.uid;
+      const userType = 'Por favor edite su perfil...';
       const userObj = {
         displayName: result.user.displayName,
         photoURL: result.user.photoURL,
         email: result.user.email,
+        type: userType,
       };
       addUserData(userId, userObj);
       window.location.hash = '#/home';
@@ -67,10 +69,12 @@ export const signGoogleEvent = (event) => {
   signInUserGoogle()
     .then((result) => {
       const userId = result.user.uid;
+      const userType = 'Por favor edite su perfil...';
       const userObj = {
         displayName: result.user.displayName,
         photoURL: result.user.photoURL,
         email: result.user.email,
+        type: userType,
       };
       addUserData(userId, userObj);
       window.location.hash = '#/home';

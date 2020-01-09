@@ -17,8 +17,8 @@ export default () => {
           <img src="https://img.icons8.com/material-rounded/24/000000/visible.png" id="btn-eye" class="eye-class">
         </div>
         <select  id = "typeUser" >
-        <option  value = "seller" > vendedor </option>
-        <option  value = "buyer" > Comprador </ option>
+        <option  value = "COMPRADOR(A)" > vendedor </option>
+        <option  value = "VENDEDOR(A)" > Comprador </ option>
         </select>
         <span class='errors' id='error-message'></span>
         <span class='errors' id='error-password'></span>
