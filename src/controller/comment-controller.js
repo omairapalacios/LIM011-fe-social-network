@@ -1,4 +1,4 @@
-import { deleteComment } from '../model/user-post.js';
+import { deleteComment, updateComment } from '../model/user-post.js';
 
 export const showComments = (event) => {
   const btnShowComment = event.target;
@@ -11,6 +11,19 @@ export const eventDeleteComment = (event) => {
   deleteComment(idComment)
     .then((doc) => {
       console.log('comentario eliminado', doc);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export const eventUpdateComment = (event) => {
+  const btnUpdateComment = event.target;
+  const idComment = btnUpdateComment.closest('.comment').id;
+  const textComment = btnUpdateComment.closest('.comment').querySelector('textarea');
+  updateComment(idComment, textComment.value)
+    .then((doc) => {
+      console.log('comentario editado', doc);
     })
     .catch((err) => {
       console.log(err);

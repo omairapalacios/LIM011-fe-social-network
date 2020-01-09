@@ -1,5 +1,5 @@
 import
-{ eventDeleteComment } from '../controller/comment-controller.js';
+{ eventDeleteComment, eventUpdateComment } from '../controller/comment-controller.js';
 
 export default (comment) => {
   const commentView = `
@@ -23,5 +23,9 @@ export default (comment) => {
   divElemComment.innerHTML = commentView;
   const btnDeleteComent = divElemComment.querySelector('.delete-comment');
   btnDeleteComent.addEventListener('click', eventDeleteComment);
+
+  const btnUpdateComent = divElemComment.querySelector('.update-comment');
+  btnUpdateComent.addEventListener('click', eventUpdateComment);
+
   return divElemComment;
 };
