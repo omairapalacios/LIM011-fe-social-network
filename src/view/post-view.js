@@ -12,37 +12,37 @@ import { showComments } from '../controller/comment-controller.js';
 export default (postData) => {
   const postView = `
       <div class='header-post'>
-      <span id="${postData.idUser}" class='user-post name-user'>Publicado por : ${postData.name}</span>
-      <a href='http://' class='delete-post'><i class="fas fa-trash"></i></a>
+      <span id='${postData.idUser}' class='user-post name-user'>Publicado por : ${postData.name}</span>
+      <a href='http://' class='delete-post'><i class='fas fa-trash'></i></a>
     </div>
     <div class='detail-post'>
       <textarea name='' id='text-post' disabled>${postData.post}</textarea>
     </div>
     <div class='footer-post'>
       <button class='like-post btn-post'>
-        <i class="fas fa-heart icon-general"><span class='span-like'>${postData.numlikes}</span></i>
+        <i class='fas fa-heart icon-general'><span class='span-like'>${postData.numlikes}</span></i>
       </button>
       <button class='update-post btn-post'>
-        <i class="fas fa-edit icon-social icon-general"></i>
+        <i class='fas fa-edit icon-social icon-general'></i>
       </button>
       <button class='show-comments btn-post'>
-        <i class="fas fa-comments icon-social icon-general"></i>
+        <i class='fas fa-comments icon-social icon-general'></i>
       </button>
       <span class='btn-save-change hidden'>Guardar Cambios</span>
-      <select name="" id="type-post" class="type-post">
-        <option value="1">Público</option>
-        <option value="0">Privado</option>
+      <select name='' id='type-post' class='type-post'>
+        <option value='1'>Público</option>
+        <option value='0'>Privado</option>
       </select>
     </div>
 
-    <div class="container-comment">
-    <div class="new-comment">
-      <textarea id="text-comment" rows="5" placeholder="Ingrese comentario..."></textarea>
+    <div class='container-comment'>
+    <div class='new-comment'>
+      <textarea id='text-comment' rows='5' placeholder='Ingrese comentario...'></textarea>
       <button class='add-comment btn-post'>
-        <i class="far fa-paper-plane"></i>
+        <i class='far fa-paper-plane'></i>
       </button>
     </div>
-    <div class="comments"> </div>
+    <div class='comments ${postData.id}'> </div>
     </div>
     
 
