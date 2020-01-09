@@ -94,14 +94,16 @@ export const eventAddComment = (event) => {
     textComment: comment.value,
     user: currentUser().displayName,
   };
-  addComment(objComment)
-    .then((doc) => {
-      comment.value = '';
-      console.log('comentario agregado exitosamente', doc);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  if (comment.value !== '') {
+    addComment(objComment)
+      .then((doc) => {
+        comment.value = '';
+        console.log('comentario agregado exitosamente', doc);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 };
 
 export const eventCountLikes = (event) => {

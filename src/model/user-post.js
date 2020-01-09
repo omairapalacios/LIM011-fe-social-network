@@ -76,3 +76,7 @@ export const getComments = (idPost, callbackComment) => {
       callbackComment(arr);
     });
 };
+export const deleteComment = (idComment) => {
+  const result = firebase.firestore().collection('comments').doc(idComment).delete();
+  return result;
+};

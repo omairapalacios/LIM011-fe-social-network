@@ -42,7 +42,10 @@ export default (postData) => {
         <i class='far fa-paper-plane'></i>
       </button>
     </div>
-    <div class='comments ${postData.id}'> </div>
+    <div class='comments ${postData.id}'>
+    
+    
+    </div>
     </div>
     
 
@@ -73,7 +76,7 @@ export default (postData) => {
   const select = divElemPost.querySelector('#type-post');
   select.value = postData.type;
   select.addEventListener('change', eventChangeTypePost);
-  // donde muestra solo publico o privado?
+
 
   return divElemPost;
 };
