@@ -28,14 +28,12 @@ export default (dataPosts, dataUser) => {
       </div>
       <section id='container-posts' class='container-posts'>
       </section>
-    </section>
-`;
+    </section>`;
   const mainELem = document.createElement('main');
   mainELem.innerHTML = homeView;
   const container = mainELem.querySelector('#container-posts');
   dataPosts.forEach((post) => {
-    console.log(post);
-    container.appendChild(printPost(post, comment));
+    container.appendChild(printPost(post));
   });
   const btnShare = mainELem.querySelector('button');
   btnShare.addEventListener('click', addDataPost);

@@ -12,7 +12,6 @@ export const addPost = (textPost, typePost) => {
   });
   console.log(currentUser());
   return result;
- 
 };
 
 export const getPosts = (callback) => {
@@ -62,7 +61,10 @@ export const addComment = (objComment) => {
   return result;
 };
 
-export const getComments = (callback) => {
+export const getComments = (idPost) => {
+  firebase.firestore().collection('comments').where('idPostComment', '==', idPost).get();
+};
+  /* export const getComments = (callback) => {
   firebase.firestore().collection('comments')
     .onSnapshot((querySnapshot) => {
       const arr = [];
@@ -76,4 +78,4 @@ export const getComments = (callback) => {
       });
       callback(arr);
     });
-};
+}; */
