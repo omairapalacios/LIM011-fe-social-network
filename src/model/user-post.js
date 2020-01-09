@@ -10,12 +10,23 @@ export const addPost = (textPost, typePost) => {
     numlikes: 0,
     type: typePost,
   });
+  console.log(currentUser());
   return result;
 };
 
-export const getPost = () => {
-  const result = firebase.firestore().collection('posts').orderBy('date', 'desc');
-  return result;
+export const getPosts = (callback) => {
+  firebase.firestore().collection('posts').orderBy('date', 'desc')
+    .onSnapshot((querySnapshot) => {
+      const arr = [];
+      querySnapshot.forEach((doc) => {
+        const obj = {
+          id: doc.id,
+          ...doc.data(),
+        };
+        arr.push(obj);
+      });
+      callback(arr);
+    });
 };
 
 export const updatePost = (idPost, newTextPost) => {
@@ -50,7 +61,22 @@ export const addComment = (objComment) => {
   return result;
 };
 
-export const getComments = (idPost) => {
-  const result = firebase.firestore().collection('comments').where('idPostComment', '==', idPost);
+export const getComments = (idPost, callbackComment) => {
+  firebase.firestore().collection('comments').where('idPostComment', '==', idPost)
+    .onSnapshot((querySnapshot) => {
+      const arr = [];
+      querySnapshot.forEach((doc) => {
+        console.log(doc.data());
+        const obj = {
+          id: doc.id,
+          ...doc.data(),
+        };
+        arr.push(obj);
+      });
+      callbackComment(arr);
+    });
+};
+export const deleteComment = (idComment) => {
+  const result = firebase.firestore().collection('comments').doc(idComment).delete();
   return result;
 };

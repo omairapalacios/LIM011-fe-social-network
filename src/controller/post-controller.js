@@ -23,11 +23,12 @@ export const addDataPost = (event) => {
       console.error('Error adding document: ', error);
     });
 };
-
+  // eventShowPostToChange  ?
 export const eventShowPostToChange = (event) => {
   event.preventDefault();
   const btnShowPost = event.target;
   const newTextPost = btnShowPost.closest('.card-post').querySelector('#text-post');
+  // id?
   const userId = btnShowPost.closest('.card-post').querySelector('.user-post').id;
   const btnSave = btnShowPost.closest('.card-post').querySelector('.btn-save-change');
   const btnContSave = btnShowPost.closest('.card-post').querySelector('.update-post');
@@ -38,7 +39,7 @@ export const eventShowPostToChange = (event) => {
     btnSave.classList.remove('hidden');
   }
 };
-
+// modifica
 export const eventUpdatePost = (event) => {
   event.preventDefault();
   const btnUpdate = event.target;
@@ -68,17 +69,22 @@ export const eventDeletePost = (event) => {
   const postId = btnUpdate.closest('.card-post').id;
   const userId = btnUpdate.closest('.card-post').querySelector('.user-post').id;
   if (currentUser().uid === userId) {
-    deletePost(postId)
-      .then((doc) => {
-        console.log('Documento eliminado satisfactoriamente', doc);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    if (window.confirm('Estas seguro que deseas eliminar este post')) {
+      deletePost(postId)
+        .then((doc) => {
+          console.log('Documento eliminado satisfactoriamente', doc);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  } else {
+    alert('No puedes eliminar este post');
   }
 };
 
 export const eventAddComment = (event) => {
+  // agregar comentario db
   event.preventDefault();
   const btnAddComment = event.target;
   const postId = btnAddComment.closest('.card-post').id;
@@ -88,13 +94,16 @@ export const eventAddComment = (event) => {
     textComment: comment.value,
     user: currentUser().displayName,
   };
-  addComment(objComment)
-    .then((doc) => {
-      console.log('comentario agregado exitosamente', doc);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  if (comment.value !== '') {
+    addComment(objComment)
+      .then((doc) => {
+        comment.value = '';
+        console.log('comentario agregado exitosamente', doc);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 };
 
 export const eventCountLikes = (event) => {
