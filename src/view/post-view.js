@@ -9,8 +9,8 @@ import {
 
 import { showComments } from '../controller/comment-controller.js';
 
-export default (postData, commentData) => {
-  console.log(commentData);
+export default (postData) => {
+  console.log(postData);
   const postView = `
       <div class='header-post'>
       <span id="${postData.idUser}" class='user-post name-user'>Publicado por : ${postData.name}</span>
@@ -73,12 +73,6 @@ export default (postData, commentData) => {
   select.value = postData.type;
   select.addEventListener('change', eventChangeTypePost);
 
-
-  const container = document.querySelector('.btn-save');
-  console.log(container);
-  commentData.forEach((comment) => {
-    container.appendChild(showComments(comment));
-  });
 
   return divElemPost;
 };
