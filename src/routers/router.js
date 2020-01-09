@@ -25,10 +25,8 @@ export const changeView = (hash) => {
             dataPost.forEach((post) => {
               const callbackComment = (dataComment) => {
                 dataComment.forEach((comment) => {
-                  if (comment.idPostComment === post.id) {
-                    const containerComment = document.querySelector('.comments');
-                    containerComment.appendChild(components.comment(comment));
-                  }
+                  const containerComment = document.querySelector(`.${post.id}`);
+                  containerComment.appendChild(components.comment(comment));
                 });
               };
               getComments(post.id, callbackComment);

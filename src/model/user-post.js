@@ -62,7 +62,6 @@ export const addComment = (objComment) => {
 };
 
 export const getComments = (idPost, callbackComment) => {
-  console.log(idPost);
   firebase.firestore().collection('comments').where('idPostComment', '==', idPost)
     .onSnapshot((querySnapshot) => {
       const arr = [];
