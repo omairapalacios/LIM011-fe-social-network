@@ -35,7 +35,7 @@ export default (postData) => {
       </select>
     </div>
 
-    <div class='container-comment'>
+    <div class='container-comment hide'>
     <div class='new-comment'>
       <textarea id='text-comment' rows='5' placeholder='Ingrese comentario...'></textarea>
       <button class='add-comment btn-post'>
