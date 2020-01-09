@@ -73,7 +73,7 @@ export default (postData) => {
   const select = divElemPost.querySelector('#type-post');
   select.value = postData.type;
   select.addEventListener('change', eventChangeTypePost);
-
+  // donde muestra solo publico o privado?
 
   return divElemPost;
 };
