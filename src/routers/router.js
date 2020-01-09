@@ -1,6 +1,6 @@
 import { components } from '../utils/util-view.js';
 import { getUserData, currentUser } from '../model/auth-user.js';
-import { getPosts } from '../model/user-post.js';
+import { getPosts, getComments } from '../model/user-post.js';
 
 export const changeView = (hash) => {
   const container = document.querySelector('#container');
@@ -18,12 +18,21 @@ export const changeView = (hash) => {
     {
       getUserData(currentUser().uid)
         .then((response) => {
-          const callback = (dataPost) => {
+          const callbackPost = (dataPost) => {
             container.innerHTML = '';
             container.appendChild(components.header());
             container.appendChild(components.home(dataPost, response.data()));
+            dataPost.forEach((post) => {
+              const callbackComment = (dataComment) => {
+                dataComment.forEach((comment) => {
+                  const containerComment = document.querySelector(`.${post.id}`);
+                  containerComment.appendChild(components.comment(comment));
+                });
+              };
+              getComments(post.id, callbackComment);
+            });
           };
-          getPosts(callback);
+          getPosts(callbackPost);
         });
       break;
     }

@@ -60,21 +60,18 @@ export const addComment = (objComment) => {
   return result;
 };
 
-export const getComments = (idPost) => {
-  firebase.firestore().collection('comments').where('idPostComment', '==', idPost).get();
-};
-  /* export const getComments = (callback) => {
-  firebase.firestore().collection('comments')
+export const getComments = (idPost, callbackComment) => {
+  firebase.firestore().collection('comments').where('idPostComment', '==', idPost)
     .onSnapshot((querySnapshot) => {
       const arr = [];
       querySnapshot.forEach((doc) => {
-        console.log(doc);
+        console.log(doc.data());
         const obj = {
           id: doc.id,
           ...doc.data(),
         };
         arr.push(obj);
       });
-      callback(arr);
+      callbackComment(arr);
     });
-}; */
+};
