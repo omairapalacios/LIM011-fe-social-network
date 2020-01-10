@@ -2,7 +2,6 @@ import {
   addPost,
   updatePost,
   deletePost,
-  addComment,
   addLikes,
   getUserLike,
   updateTypePost,
@@ -85,35 +84,13 @@ export const eventDeletePost = (event) => {
   }
 };
 
-export const eventAddComment = (event) => {
-  // agregar comentario db
-  event.preventDefault();
-  const btnAddComment = event.target;
-  const postId = btnAddComment.closest('.card-post').id;
-  const comment = btnAddComment.closest('.card-post').querySelector('#text-comment');
-  const objComment = {
-    idPostComment: postId,
-    textComment: comment.value,
-    user: currentUser().displayName,
-  };
-  if (comment.value !== '') {
-    addComment(objComment)
-      .then((doc) => {
-        comment.value = '';
-        console.log('comentario agregado exitosamente', doc);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
-};
-
 export const addAndDeleteLikes = (event) => {
   event.preventDefault();
   const btnLike = event.target;
   const idPost = btnLike.closest('.card-post').id;
   getUserLike(idPost, currentUser().uid)
     .then((likes) => {
+      console.log(likes);
       if (!likes.empty) {
         console.log('el usuario ya no puede dar like');
         likes.forEach((doclike) => {

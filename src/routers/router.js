@@ -1,6 +1,7 @@
 import { components } from '../utils/util-view.js';
 import { getUserData, currentUser } from '../model/auth-user.js';
-import { getPosts, getComments } from '../model/user-post.js';
+import { getPosts } from '../model/user-post.js';
+import { getComments } from '../model/comment-post.js';
 
 export const changeView = (hash) => {
   const container = document.querySelector('#container');

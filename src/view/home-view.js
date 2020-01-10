@@ -1,5 +1,6 @@
 import { addDataPost } from '../controller/post-controller.js';
 import printPost from './post-view.js';
+import { currentUser } from '../model/auth-user.js';
 
 export default (dataPosts, dataUser) => {
   const homeView = `
@@ -33,7 +34,9 @@ export default (dataPosts, dataUser) => {
   mainELem.innerHTML = homeView;
   const containerPosts = mainELem.querySelector('#container-posts');
   dataPosts.forEach((post) => {
-    containerPosts.appendChild(printPost(post));
+    if (post.type === '1' || (post.idUser === currentUser().uid && post.type === '0')) {
+      containerPosts.appendChild(printPost(post));
+    }
   });
   const btnShare = mainELem.querySelector('button');
   btnShare.addEventListener('click', addDataPost);
