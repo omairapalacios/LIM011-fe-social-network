@@ -87,3 +87,10 @@ export const updateComment = (idComment, newTextComent) => {
   });
   return result;
 };
+export const deletelike = (idPost) => {
+  const incrementLikes = firebase.firestore.FieldValue.increment(-1);
+  const result = firebase.firestore().collection('posts').doc(idPost).update({
+    numlikes: incrementLikes,
+  });
+  return result;
+};

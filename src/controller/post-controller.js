@@ -5,6 +5,7 @@ import {
   addComment,
   countLikes,
   updateTypePost,
+  deletelike,
 } from '../model/user-post.js';
 import { currentUser } from '../model/auth-user.js';
 
@@ -109,8 +110,26 @@ export const eventAddComment = (event) => {
 export const eventCountLikes = (event) => {
   event.preventDefault();
   const btnLike = event.target;
+  console.log(btnLike);
   const idPost = btnLike.closest('.card-post').id;
+  console.log(idPost);
   countLikes(idPost)
+    .then((doc) => {
+      console.log(doc);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+export const eventDisLikes = (event) => {
+  event.preventDefault();
+  const btnDisLike = event.target;
+  console.log(btnDisLike);
+
+  const idPost = btnDisLike.closest('.card-post').id;
+  console.log(idPost);
+  deletelike(idPost)
     .then((doc) => {
       console.log(doc);
     })

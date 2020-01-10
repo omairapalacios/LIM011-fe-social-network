@@ -5,6 +5,7 @@ import {
   eventChangeTypePost,
   eventUpdatePost,
   eventAddComment,
+  eventDisLikes,
 } from '../controller/post-controller.js';
 
 import { showComments } from '../controller/comment-controller.js';
@@ -19,9 +20,18 @@ export default (postData) => {
       <textarea name='' id='text-post' disabled>${postData.post}</textarea>
     </div>
     <div class='footer-post'>
+    
+    <div class= 'button-likes'> 
       <button class='like-post btn-post'>
         <i class='fas fa-heart icon-general'><span class='span-like'>${postData.numlikes}</span></i>
       </button>
+      
+      <button class='deslike-post btn-post'>
+        <i class='fas fa-heart icon-general'><span class='span-like'>${postData.numlikes}</span></i>
+      </button>
+    </div>
+      
+
       <button class='update-post btn-post'>
         <i class='fas fa-edit icon-social icon-general'></i>
       </button>
@@ -70,8 +80,12 @@ export default (postData) => {
   const btnDelete = divElemPost.querySelector('.delete-post');
   btnDelete.addEventListener('click', eventDeletePost);
 
-  const btnLike = divElemPost.querySelector('.like-post');
-  btnLike.addEventListener('click', eventCountLikes);
+
+  const btnDesLike = divElemPost.querySelector('.like-post');
+  btnDesLike.addEventListener('click', eventCountLikes);
+
+  const btnLike = divElemPost.querySelector('.deslike-post');
+  btnLike.addEventListener('click', eventDisLikes);
 
   const select = divElemPost.querySelector('#type-post');
   select.value = postData.type;

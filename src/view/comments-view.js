@@ -3,7 +3,7 @@ import
 
 export default (comment) => {
   const commentView = `
-    <p class="comment-name-user">${comment.user}</p>
+    <p id='${comment.idUser}' class="comment-name-user">${comment.user}</p>
     <div class="body-comment ">
       <textarea id='text-comment' class="detail-comment" rows='5' placeholder='Ingrese comentario...' value=''>${comment.textComment}</textarea>
       <button class='update-comment btn-post'>

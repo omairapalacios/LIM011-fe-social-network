@@ -13,6 +13,7 @@ const configInitial = () => {
     measurementId: 'G-6J4CQYRREH',
   };
   firebase.initializeApp(firebaseConfig);
+
   init();
 };
 window.addEventListener('load', configInitial);
