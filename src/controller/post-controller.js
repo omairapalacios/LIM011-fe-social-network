@@ -5,6 +5,7 @@ import {
   addComment,
   countLikes,
   updateTypePost,
+  getAllComments,
 } from '../model/user-post.js';
 import { currentUser } from '../model/auth-user.js';
 
@@ -88,7 +89,7 @@ export const eventAddComment = (event) => {
   const postId = btnAddComment.closest('.card-post').id;
   const comment = btnAddComment.closest('.card-post').querySelector('#text-comment');
   const objComment = {
-    idPostComment: postId,
+    idPost: postId,
     textComment: comment.value,
     user: currentUser().displayName,
   };
@@ -130,4 +131,24 @@ export const eventChangeTypePost = (event) => {
         console.log(error);
       });
   }
+};
+
+export const eventGetAllComments = (event) => {
+  const btnGetAllComments = event.target;
+  const idPost = btnGetAllComments.closest('.card-post').id;
+  getAllComments()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        console.log(doc.id);
+        console.log(idPost);
+        console.log(doc.data().idPostComment);
+
+        if (doc.id === idPost) {
+          console.log(doc.data());
+        }
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 };

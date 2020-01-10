@@ -5,6 +5,7 @@ import {
   eventChangeTypePost,
   eventUpdatePost,
   eventAddComment,
+  eventGetAllComments,
 } from '../controller/post-controller.js';
 
 import { showComments } from '../controller/comment-controller.js';
@@ -42,10 +43,9 @@ export default (postData) => {
         <i class='far fa-paper-plane'></i>
       </button>
     </div>
-    <div class='comments ${postData.id}'> </div>
+    <p class='get-comments'> Ver comentarios... </p>
+    <div class='comments ${postData.id}'></div>
     </div>
-    
-
 `;
   const divElemPost = document.createElement('div');
   divElemPost.setAttribute('class', 'card-post');
@@ -74,6 +74,8 @@ export default (postData) => {
   select.value = postData.type;
   select.addEventListener('change', eventChangeTypePost);
 
+  const btnGetComments = divElemPost.querySelector('.get-comments');
+  btnGetComments.addEventListener('click', eventGetAllComments);
 
   return divElemPost;
 };

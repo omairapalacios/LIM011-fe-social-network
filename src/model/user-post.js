@@ -75,3 +75,8 @@ export const getComments = (idPost, callbackComment) => {
       callbackComment(arr);
     });
 };
+
+export const getAllComments = () => {
+  const result = firebase.firestore().collection('comments').get();
+  return result;
+};
