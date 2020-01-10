@@ -1,7 +1,7 @@
 import {
   eventShowPostToChange,
   eventDeletePost,
-  eventAddLikes,
+  addAndDeleteLikes,
   eventChangeTypePost,
   eventUpdatePost,
   eventAddComment,
@@ -71,7 +71,7 @@ export default (postData) => {
   btnDelete.addEventListener('click', eventDeletePost);
 
   const btnLike = divElemPost.querySelector('.like-post');
-  btnLike.addEventListener('click', eventAddLikes);
+  btnLike.addEventListener('click', addAndDeleteLikes);
 
   const select = divElemPost.querySelector('#type-post');
   select.value = postData.type;

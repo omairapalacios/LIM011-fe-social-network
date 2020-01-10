@@ -108,21 +108,19 @@ export const eventAddComment = (event) => {
   }
 };
 
-export const eventAddLikes = (event) => {
+export const addAndDeleteLikes = (event) => {
   event.preventDefault();
   const btnLike = event.target;
   const idPost = btnLike.closest('.card-post').id;
   getUserLike(idPost, currentUser().uid)
     .then((likes) => {
-      console.log(likes);
       if (!likes.empty) {
+        console.log('el usuario ya no puede dar like');
         likes.forEach((doclike) => {
-          console.log(doclike);
-          console.log(doclike.id);
           deleteLikes(doclike.id, idPost, currentUser().user);
         });
       } else {
-        console.log('like no existe');
+        console.log('el usuario puede dar like');
         addLikes(idPost, currentUser().uid, currentUser().displayName);
       }
     })
