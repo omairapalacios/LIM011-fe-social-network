@@ -1,7 +1,7 @@
 import {
   eventShowPostToChange,
   eventDeletePost,
-  eventCountLikes,
+  addAndDeleteLikes,
   eventChangeTypePost,
   eventUpdatePost,
   eventAddComment,
@@ -37,7 +37,7 @@ export default (postData) => {
     </div>
 
     <div class='container-comment hide'>
-    <div class='new-comment'>
+    <div class='new-comment detail-comment'>
       <textarea id='text-comment' rows='5' placeholder='Ingrese comentario...'></textarea>
       <button class='add-comment btn-post'>
         <i class='far fa-paper-plane'></i>
@@ -68,7 +68,7 @@ export default (postData) => {
   btnDelete.addEventListener('click', eventDeletePost);
 
   const btnLike = divElemPost.querySelector('.like-post');
-  btnLike.addEventListener('click', eventCountLikes);
+  btnLike.addEventListener('click', addAndDeleteLikes);
 
   const select = divElemPost.querySelector('#type-post');
   select.value = postData.type;
