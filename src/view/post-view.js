@@ -4,11 +4,8 @@ import {
   addAndDeleteLikes,
   eventChangeTypePost,
   eventUpdatePost,
-  eventAddComment,
-  eventGetAllComments,
 } from '../controller/post-controller.js';
-
-import { showComments } from '../controller/comment-controller.js';
+import { showComments, eventAddComment, eventGetAllComments } from '../controller/comment-controller.js';
 
 export default (postData) => {
   const postView = `
@@ -21,7 +18,7 @@ export default (postData) => {
     </div>
     <div class='footer-post'>
       <button class='like-post btn-post'>
-        <i class='fas fa-heart icon-general'><span class='span-like'>${postData.numlikes}</span></i>
+        <i class='fas fa-heart i-like icon-general'><span class='span-like'>${postData.numlikes}</span></i>
       </button>
       <button class='update-post btn-post'>
         <i class='fas fa-edit icon-social icon-general'></i>
