@@ -1,4 +1,4 @@
-import { updateProfile } from '../model/auth-user.js';
+import { eventUpdateProfile } from '../controller/profile-controller.js';
 
 export default (dataUser) => {
   const mainElem = document.createElement('main');
@@ -14,9 +14,9 @@ export default (dataUser) => {
               <input type='text' disabled class='input-text' id='u-email' value='${dataUser.email}'>
             <label>Ocupación: COMPRADOR-VENDEDOR</label>
               <input type='text' class='input-text' id='u-type' value='${dataUser.type}'>
-            <div class='container-button'>
-              <input type='submit' class='btn button-save' id='button-save' value='Guardar'>
-            </div>
+            
+              <button type='submit' class='btn button-save' id='button-save'> GUARDAR</button>
+ 
           </form>
         </div>
       </div>
@@ -25,6 +25,6 @@ export default (dataUser) => {
   mainElem.innerHTML = homeProfile;
 
   const btnUpdate = mainElem.querySelector('#button-save');
-  btnUpdate.addEventListener('click', updateProfile);
+  btnUpdate.addEventListener('click', eventUpdateProfile);
   return mainElem;
 };

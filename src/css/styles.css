@@ -230,7 +230,17 @@ p {
     resize: none;
   }
   .comment {
+    display: inline-block;
+    flex-direction: column;
+  }
+
+  .body-comment{
+    width: 100%;
     display: flex;
+  }
+
+  .comment-name-user{
+    width: 100%;
   }
 
   .detail-comment {
@@ -264,8 +274,9 @@ p {
 
 
   .add-comment {
-    padding: 23px 8px 0px 0px;
+    padding: 24px 8px 0px 0px;
   }
+
   .footer-new-post{
     height: auto;
     display: flex;
