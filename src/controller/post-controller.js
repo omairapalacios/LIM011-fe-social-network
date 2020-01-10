@@ -3,8 +3,10 @@ import {
   updatePost,
   deletePost,
   addComment,
-  countLikes,
+  addLikes,
+  getUserLike,
   updateTypePost,
+  deleteLikes,
 } from '../model/user-post.js';
 import { currentUser } from '../model/auth-user.js';
 
@@ -23,11 +25,12 @@ export const addDataPost = (event) => {
       console.error('Error adding document: ', error);
     });
 };
-
+  // eventShowPostToChange  ?
 export const eventShowPostToChange = (event) => {
   event.preventDefault();
   const btnShowPost = event.target;
   const newTextPost = btnShowPost.closest('.card-post').querySelector('#text-post');
+  // id?
   const userId = btnShowPost.closest('.card-post').querySelector('.user-post').id;
   const btnSave = btnShowPost.closest('.card-post').querySelector('.btn-save-change');
   const btnContSave = btnShowPost.closest('.card-post').querySelector('.update-post');
@@ -38,7 +41,7 @@ export const eventShowPostToChange = (event) => {
     btnSave.classList.remove('hidden');
   }
 };
-
+// modifica
 export const eventUpdatePost = (event) => {
   event.preventDefault();
   const btnUpdate = event.target;
@@ -83,6 +86,7 @@ export const eventDeletePost = (event) => {
 };
 
 export const eventAddComment = (event) => {
+  // agregar comentario db
   event.preventDefault();
   const btnAddComment = event.target;
   const postId = btnAddComment.closest('.card-post').id;
@@ -92,23 +96,33 @@ export const eventAddComment = (event) => {
     textComment: comment.value,
     user: currentUser().displayName,
   };
-  addComment(objComment)
-    .then((doc) => {
-      comment.value = '';
-      console.log('comentario agregado exitosamente', doc);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  if (comment.value !== '') {
+    addComment(objComment)
+      .then((doc) => {
+        comment.value = '';
+        console.log('comentario agregado exitosamente', doc);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 };
 
-export const eventCountLikes = (event) => {
+export const addAndDeleteLikes = (event) => {
   event.preventDefault();
   const btnLike = event.target;
   const idPost = btnLike.closest('.card-post').id;
-  countLikes(idPost)
-    .then((doc) => {
-      console.log(doc);
+  getUserLike(idPost, currentUser().uid)
+    .then((likes) => {
+      if (!likes.empty) {
+        console.log('el usuario ya no puede dar like');
+        likes.forEach((doclike) => {
+          deleteLikes(doclike.id, idPost, currentUser().user);
+        });
+      } else {
+        console.log('el usuario puede dar like');
+        addLikes(idPost, currentUser().uid, currentUser().displayName);
+      }
     })
     .catch((error) => {
       console.log(error);
