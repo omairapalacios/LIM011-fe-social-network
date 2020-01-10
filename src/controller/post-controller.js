@@ -3,8 +3,10 @@ import {
   updatePost,
   deletePost,
   addComment,
-  countLikes,
+  addLikes,
+  getUserLike,
   updateTypePost,
+  deleteLikes,
 } from '../model/user-post.js';
 import { currentUser } from '../model/auth-user.js';
 
@@ -106,13 +108,23 @@ export const eventAddComment = (event) => {
   }
 };
 
-export const eventCountLikes = (event) => {
+export const eventAddLikes = (event) => {
   event.preventDefault();
   const btnLike = event.target;
   const idPost = btnLike.closest('.card-post').id;
-  countLikes(idPost)
-    .then((doc) => {
-      console.log(doc);
+  getUserLike(idPost, currentUser().uid)
+    .then((likes) => {
+      console.log(likes);
+      if (!likes.empty) {
+        likes.forEach((doclike) => {
+          console.log(doclike);
+          console.log(doclike.id);
+          deleteLikes(doclike.id, idPost, currentUser().user);
+        });
+      } else {
+        console.log('like no existe');
+        addLikes(idPost, currentUser().uid, currentUser().displayName);
+      }
     })
     .catch((error) => {
       console.log(error);
