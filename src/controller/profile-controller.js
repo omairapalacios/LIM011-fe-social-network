@@ -3,7 +3,6 @@ import { currentUser, updateProfile } from '../model/auth-user.js';
 export const eventUpdateProfile = (event) => {
   event.preventDefault();
   console.log('hi');
-  
   const iduser = currentUser().uid;
   const newname = document.querySelector('#u-name');
   const newtype = document.querySelector('#u-type');
