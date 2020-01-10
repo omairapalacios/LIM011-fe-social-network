@@ -36,7 +36,7 @@ export default (postData) => {
     </div>
 
     <div class='container-comment hide'>
-    <div class='new-comment'>
+    <div class='new-comment detail-comment'>
       <textarea id='text-comment' rows='5' placeholder='Ingrese comentario...'></textarea>
       <button class='add-comment btn-post'>
         <i class='far fa-paper-plane'></i>
