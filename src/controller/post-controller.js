@@ -2,10 +2,10 @@ import {
   addPost,
   updatePost,
   deletePost,
-  addComment,
-  countLikes,
+  addLikes,
+  getUserLike,
   updateTypePost,
-  deletelike,
+  deleteLikes,
 } from '../model/user-post.js';
 import { currentUser } from '../model/auth-user.js';
 
@@ -84,54 +84,22 @@ export const eventDeletePost = (event) => {
   }
 };
 
-export const eventAddComment = (event) => {
-  // agregar comentario db
-  event.preventDefault();
-  const btnAddComment = event.target;
-  const postId = btnAddComment.closest('.card-post').id;
-  const comment = btnAddComment.closest('.card-post').querySelector('#text-comment');
-  const objComment = {
-    idPostComment: postId,
-    textComment: comment.value,
-    user: currentUser().displayName,
-  };
-  if (comment.value !== '') {
-    addComment(objComment)
-      .then((doc) => {
-        comment.value = '';
-        console.log('comentario agregado exitosamente', doc);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
-};
-
-export const eventCountLikes = (event) => {
+export const addAndDeleteLikes = (event) => {
   event.preventDefault();
   const btnLike = event.target;
-  console.log(btnLike);
   const idPost = btnLike.closest('.card-post').id;
-  console.log(idPost);
-  countLikes(idPost)
-    .then((doc) => {
-      console.log(doc);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
-
-export const eventDisLikes = (event) => {
-  event.preventDefault();
-  const btnDisLike = event.target;
-  console.log(btnDisLike);
-
-  const idPost = btnDisLike.closest('.card-post').id;
-  console.log(idPost);
-  deletelike(idPost)
-    .then((doc) => {
-      console.log(doc);
+  getUserLike(idPost, currentUser().uid)
+    .then((likes) => {
+      console.log(likes);
+      if (!likes.empty) {
+        console.log('el usuario ya no puede dar like');
+        likes.forEach((doclike) => {
+          deleteLikes(doclike.id, idPost, currentUser().user);
+        });
+      } else {
+        console.log('el usuario puede dar like');
+        addLikes(idPost, currentUser().uid, currentUser().displayName);
+      }
     })
     .catch((error) => {
       console.log(error);

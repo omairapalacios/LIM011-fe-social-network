@@ -395,8 +395,8 @@ p {
     padding-left: 4px;
   }
 
-  .like-post i{
-    color: #ff0000;
+  .i-dislike{
+    color: #808080;
   }
 
   .update-post i{
@@ -574,7 +574,7 @@ nav#superior ul li:nth-child(3) {
     padding-left: 4px;
   }
 
-  .like-post i{
+  .i-like{
     color: #ff0000;
   }
 

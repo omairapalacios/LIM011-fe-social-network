@@ -1,14 +1,11 @@
 import {
   eventShowPostToChange,
   eventDeletePost,
-  eventCountLikes,
+  addAndDeleteLikes,
   eventChangeTypePost,
   eventUpdatePost,
-  eventAddComment,
-  eventDisLikes,
 } from '../controller/post-controller.js';
-
-import { showComments } from '../controller/comment-controller.js';
+import { showComments, eventAddComment, eventGetAllComments } from '../controller/comment-controller.js';
 
 export default (postData) => {
   const postView = `
@@ -23,7 +20,7 @@ export default (postData) => {
     
     <div class= 'button-likes'> 
       <button class='like-post btn-post'>
-        <i class='fas fa-heart icon-general'><span class='span-like'>${postData.numlikes}</span></i>
+        <i class='fas fa-heart i-like icon-general'><span class='span-like'>${postData.numlikes}</span></i>
       </button>
       
       <button class='deslike-post btn-post'>
@@ -52,13 +49,9 @@ export default (postData) => {
         <i class='far fa-paper-plane'></i>
       </button>
     </div>
-    <div class='comments ${postData.id}'>
-    
-    
+    <p class='get-comments'> Ver comentarios... </p>
+    <div class='comments ${postData.id}'></div>
     </div>
-    </div>
-    
-
 `;
   const divElemPost = document.createElement('div');
   divElemPost.setAttribute('class', 'card-post');
@@ -80,17 +73,15 @@ export default (postData) => {
   const btnDelete = divElemPost.querySelector('.delete-post');
   btnDelete.addEventListener('click', eventDeletePost);
 
-
-  const btnDesLike = divElemPost.querySelector('.like-post');
-  btnDesLike.addEventListener('click', eventCountLikes);
-
-  const btnLike = divElemPost.querySelector('.deslike-post');
-  btnLike.addEventListener('click', eventDisLikes);
+  const btnLike = divElemPost.querySelector('.like-post');
+  btnLike.addEventListener('click', addAndDeleteLikes);
 
   const select = divElemPost.querySelector('#type-post');
   select.value = postData.type;
   select.addEventListener('change', eventChangeTypePost);
 
+  const btnGetComments = divElemPost.querySelector('.get-comments');
+  btnGetComments.addEventListener('click', eventGetAllComments);
 
   return divElemPost;
 };
