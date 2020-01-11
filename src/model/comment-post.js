@@ -4,7 +4,7 @@ export const addComment = (objComment) => {
 };
 
 export const getComments = (idPost, callbackComment) => {
-  firebase.firestore().collection('comments').where('idPostComment', '==', idPost)
+  firebase.firestore().collection('comments').where('idPost', '==', idPost)
     .onSnapshot((querySnapshot) => {
       const arr = [];
       querySnapshot.forEach((doc) => {
@@ -19,8 +19,8 @@ export const getComments = (idPost, callbackComment) => {
     });
 };
 
-export const getAllComments = () => {
-  const result = firebase.firestore().collection('comments').get();
+export const getAllComments = (idPost) => {
+  const result = firebase.firestore().collection('comments').where('idPost', '==', idPost).get();
   return result;
 };
 

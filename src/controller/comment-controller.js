@@ -64,16 +64,10 @@ export const eventUpdateComment = (event) => {
 export const eventGetAllComments = (event) => {
   const btnGetAllComments = event.target;
   const idPost = btnGetAllComments.closest('.card-post').id;
-  getAllComments()
-    .then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        console.log(doc.id);
-        console.log(idPost);
-        console.log(doc.data().idPostComment);
-
-        if (doc.id === idPost) {
-          console.log(doc.data());
-        }
+  getAllComments(idPost)
+    .then((abc) => {
+      abc.forEach((doc) => {
+        console.log(doc.data());
       });
     })
     .catch((error) => {
