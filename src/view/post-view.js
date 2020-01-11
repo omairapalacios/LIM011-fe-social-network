@@ -17,18 +17,9 @@ export default (postData) => {
       <textarea name='' id='text-post' disabled>${postData.post}</textarea>
     </div>
     <div class='footer-post'>
-    
-    <div class= 'button-likes'> 
       <button class='like-post btn-post'>
         <i class='fas fa-heart i-like icon-general'><span class='span-like'>${postData.numlikes}</span></i>
       </button>
-      
-      <button class='deslike-post btn-post'>
-        <i class='fas fa-heart icon-general'><span class='span-like'>${postData.numlikes}</span></i>
-      </button>
-    </div>
-      
-
       <button class='update-post btn-post'>
         <i class='fas fa-edit icon-social icon-general'></i>
       </button>
@@ -41,7 +32,6 @@ export default (postData) => {
         <option value='0'>Privado</option>
       </select>
     </div>
-
     <div class='container-comment hide'>
     <div class='new-comment detail-comment'>
       <textarea id='text-comment' rows='5' placeholder='Ingrese comentario...'></textarea>
