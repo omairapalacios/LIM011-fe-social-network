@@ -25,6 +25,7 @@ export const changeView = (hash) => {
             container.appendChild(components.home(dataPost, response.data()));
             dataPost.forEach((post) => {
               const callbackComment = (dataComment) => {
+                console.log(dataComment);
                 if (dataComment.length !== 0) {
                   dataComment.forEach((comment) => {
                     const containerComment = document.querySelector(`.${post.id}`);
