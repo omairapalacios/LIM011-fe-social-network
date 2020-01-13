@@ -16,7 +16,7 @@ export default (dataPosts, dataUser) => {
     </section>
     <section id='container-posts-general' class='container-posts-general'>
       <div class='card-new-post'>
-        <textarea name='' id='' placeholder='¿Hola, qué quieres compartir hoy?'></textarea>
+        <textarea name='' id='' placeholder='Comparte talento, técnica y pasión ...'></textarea>
         <div class='footer-new-post'>
           <i class='icon-general far fa-images'></i>
           <select name="" id="type-new-post" class="type-new-post type-post">

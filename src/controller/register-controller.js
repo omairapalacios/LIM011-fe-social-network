@@ -17,7 +17,7 @@ export default (event) => {
     registerUserEmail(email.value, password.value)
       .then((result) => {
         const redirectLogin = {
-          url: 'http://localhost:5000/',
+          url: 'https://maricruzj.github.io/LIM011-fe-social-network/src/',
         };
         result.user.sendEmailVerification(redirectLogin).then(() => {
           console.log('Para continuar por favor revise su correo el electronico y valide');
@@ -41,27 +41,22 @@ export default (event) => {
         if (errorCode === 'auth/weak-password') {
           msgError.innerHTML = 'La contraseña ingresada es debil, ingrese 6 o más caracteres';
           password.value = '';
-          password.className = 'error-color';
         } else if (errorCode === 'auth/email-already-in-use') {
           email.value = '';
-          email.className = 'error-color';
           msgError.innerHTML = ' El correo ingresado ya se encuentra registrado';
         } else if (errorCode === 'auth/invalid-email') {
           email.value = '';
-          email.className = 'error-color';
           msgError.innerHTML = 'el correo ingresado no es valido';
         }
       });
   } else {
-    email.className = 'error-color';
-    password.className = 'error-color';
     msgErrorEmail.innerHTML = 'Por favor ingrese un correo electrónico(*)';
     msgErrorPassword.innerHTML = 'Por favor ingrese una contraseña(*)';
   }
 };
 
 export const passwordShow = () => {
-  const tipo = document.querySelector('#password-register');
+  const tipo = document.querySelector('#password-');
   if (tipo.type === 'password') {
     tipo.type = 'text';
   } else {
