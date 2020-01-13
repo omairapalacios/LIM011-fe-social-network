@@ -17,7 +17,7 @@ export default (event) => {
     registerUserEmail(email.value, password.value)
       .then((result) => {
         const redirectLogin = {
-          url: 'https://maricruzj.github.io/LIM011-fe-social-network/src/',
+          url: 'http://localhost:5000',
         };
         result.user.sendEmailVerification(redirectLogin).then(() => {
           console.log('Para continuar por favor revise su correo el electronico y valide');
