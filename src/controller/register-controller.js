@@ -16,6 +16,7 @@ export default (event) => {
   if (email.value !== '' && password.value !== '') {
     registerUserEmail(email.value, password.value)
       .then((result) => {
+        console.log(result);
         const redirectLogin = {
           url: 'http://localhost:5000',
         };
