@@ -4,99 +4,121 @@ html {
   font-family: 'Poppins', sans-serif;
 }
 
-
-
 body {
   margin: 0;
   padding: 0;
 }
-nav#superior ul a {
-  display: block;
-  width: 19em;
-  border: 1px solid rgb(24, 92, 182);
-  padding: .3em 0;
-  text-align: center;
-  color: rgb(228, 236, 236);
-  background: rgb(118, 120, 239);
-  
- 
-}
 
-nav#superior ul a:hover {
-  background: #83706c;
-}
-
-.c-green{
+.c-green {
     color: rgb(64, 167, 33);
 }
 
+.c-orange {
+  color: #ff9800;
+}
+
+.container-errors {
+  margin-top: 20px;
+  margin-right: 10px;
+}
+
+.errors {
+  
+  font-size: 12px;
+  color: #ff0000;
+}
+
 a{
-  color: black;
   text-decoration: none;
   cursor: pointer;
 }
 
-
-@media (min-width: 320px){
-  main{
-    height: calc(100% - 54px);
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-    /* background-image: url('../img/cushion.jpg');
-    background-position-x: right;
-    background-position-y: inherit;
-    background-size: inherit; */
-  }
-
+@media (min-width: 320px){ 
+  
   /* Header */
 
-  nav#superior {
-    display: none;
-  }
-  button#menu:focus + nav#superior {
-    display: block;
-  }
- 
-
   header{
-    height: 100%;
+    height: 48px;
     width: 100%;
     background-color: #091f80;
- 
+    position: fixed;
+  }
+
+  ul{
+    top: 0;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style-type: disc;
+    background-color: #091f80;
   }
   
-  .muro > a, .profile-header > a{
+  li{
+    list-style: none;
+    width: 100%;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    cursor: pointer; 
+  }
+
+  .menu{
+    padding: 0px;
+    border: 0px;
+    text-align: left;
+  }
+
+  .menu i, .menu a{
+    padding-left: 16px;
     color: #ffffff;
   }
- 
-  .menu{
 
+  nav{
+    margin: 0;
+    padding: 0;
+    border: 0;
   }
 
   .icon-menu{
-    
+    list-style: none;
+    width: 100%;
+    height: 38px;
+    display: list-item;
+    cursor: pointer;  
+    padding-top: 10px;
+    font-size: 28px; 
+  }
+  
+  li:hover{
+    background-color: #ff9800;
+  }
+  
+  ul li a{
+    color: #ffffff;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    width: 100vw;
   }
 
-  .header-logo{
-
+  .ul-menu-mobile{
+    width: 100vw;
   }
 
-  .icon-logo{
-    height: 80px;
+  .ul-menu-desktop{
+    display: none;
   }
+  /* Main */
 
-  .log-out{
-
+  main{
+    height: calc(100% - 48px);
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
   }
-
-  .icon-log-out{
-  }
-
-  /* Login */
 
   .section-banner{
-    display: none;  
+    display: none;    
   }
 
   .section-main{
@@ -108,7 +130,6 @@ a{
     text-align: center;
     align-content: center;
     height: 100vh;
-    background-color: #ffffff;
     padding: 20px;
     box-sizing: border-box;
   }
@@ -131,7 +152,7 @@ a{
   }
 
   .input-text{
-    width: 90%;
+    width: 80%;
     height: 40px;
     border-radius: 16px;
     margin: 8px 0px;
@@ -141,13 +162,27 @@ a{
   }
 
   .btn{
-    background-color:#ff9800;
+    background-color:#063986;
     color: white;
     border-radius: 16px;
     margin-top: 8px;
     height: 40px;
     width: 60%;
     border-style: none;
+  }
+
+  .btn-social-net {
+    background: transparent;
+    border:transparent;
+  }
+
+  .btn-social-net img{
+    height: 35px;
+    border-radius: 50%;
+  }
+
+  textarea{
+    outline: none;
   }
 
   /* Home */
@@ -161,20 +196,78 @@ a{
     margin-right: 20px;
     margin-top: 0px;
     background-color: #ffffff;
+    padding-top: 48px;
+  }
+
+  .container-profile{
+    width: 100%;
+    height: auto;
+    padding: 4px;
+    box-sizing: border-box;
+    margin-right: 20px;
+    margin-top: 0px;
+    background-color: #ffffff;  
+    padding-top: 52px;  
+  }
+
+  .container-profile .user-photo{
+    margin: 0px;
+    height: 112px;
+    width: 112px;
+    border-radius: 50%;
   }
 
   .container-posts-general{
     width: 100%;
     height: auto;
-    padding: 24px 24px 0px 24px;
+    padding: 0px 24px 0px 24px;
     box-sizing: border-box;
     margin-top: 0px;
     background-color: #ffffff;
   }
 
+  .container-update-profile{
+    width: 100%;
+    height: auto;  
+    margin-top: 0px;
+    padding: 0px 10px;
+    box-sizing: border-box;
+  }
+
+  .form-profile{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    border: 1px solid #bebebe;
+    box-sizing: border-box;
+    padding: 0px 10px 10px;
+    border-radius: 8px;
+    background-color: #d6d6d6;
+  }
+
+  .form-profile h2{
+    width: 100%;
+    text-align: center;
+    margin: 4px 0px;
+  }
+  
+  .form-profile label{
+    width: 100%;
+    text-align: left;
+  }
+
+  .form-profile input{
+    width: 100%;
+    text-align: left;
+  }
+
+  .form-profile .container-button{
+    width: 100%;
+    text-align: center;
+  }
+
   .container-posts{
-    height: calc(100vh - 385px);
-    overflow-y: scroll;
+    height: calc(100vh - 348px);
   }
 
   .front{
@@ -185,17 +278,36 @@ a{
   .user-profile{
     height: auto;
     width: 100%;
-    display: flex;
+    display: flex;    
     justify-content: flex-start;
     align-items: center;
     align-content: center;
   }
 
-  .user-photo{
-    height: 100px;
-    width: 100px;
-    border-radius: 70%;
+  .container-profile .user-profile{
+    display: block;
+    width: 100%;
+    text-align: center;
   }
+
+  .user-profile span{
+    font-size: 16px;
+    margin-left: 15px;
+  }
+
+  .user-photo{
+    margin-left: 15px;
+    height: 65px;
+    width: 65px;
+    border-radius: 50%;
+  }
+  .user-photos{
+    margin-left: 15px;
+    height: 60%;
+    width: 50%;
+    border-radius: 50%;
+  }
+
 
   .detail-user{
     width: 70%;
@@ -217,15 +329,15 @@ a{
     width: auto;
     padding: 16px;
     margin-bottom: 8px;
-    border: 1px solid #bebebe;
-    border-radius: 4px;
+    border: 1px solid #969494;
+    background-color: #ffffff;  
+    border-radius: 8px;  
   }
 
   .card-new-post > textarea{
     height: 88px;
     width: calc(100% - 4px);
-    border: 1px solid #bebebe;
-    border-radius: 4px;
+    border: 1px solid #969494;
     padding: 8px 0px 0px 4px;
     outline: none;
     resize: none;
@@ -235,10 +347,79 @@ a{
     height: calc(100% - 8px);
     width: calc(100% - 4px);
     border: 0px;
-    padding: 0px;
     padding: 8px 0px 0px 4px;
     outline: none;
     resize: none;
+  }
+
+  .container-comment{
+    font-size: 14px;
+  }
+
+  .comment {
+    display: inline-block;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+
+  .body-comment{
+    width: 100%;
+    display: flex;
+  }
+
+  .get-comments{
+    width: 100%;
+    padding-left: 4px;
+    box-sizing: border-box;
+  }
+
+  .comment-name-user{
+    width: 100%;
+    padding-left: 4px;
+    box-sizing: border-box;
+    margin: 4px 0px 0px;
+    color: #000000;
+  }
+
+  .detail-comment, .body-comment {
+    display: flex;
+    width: calc(100% - 4px);
+    padding: 6px 0px 4px 4px;
+    resize: none;
+    justify-content: center;
+  }
+
+  .detail-comment > textarea, .body-comment > textarea  {
+    height: 34px;
+    width: calc(100% - 10px); 
+    resize: none;
+    padding: 15px 0px 0px 5px;
+    border-radius: 10px;
+  }
+
+  .body-comment, button {
+    border-style: none;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+    color: black ;
+  }
+
+
+  .detail-new-comment > textarea {
+    height: 34px;
+    width: calc(100% - 20px); 
+    resize: none;
+    padding: 15px 0px 0px 5px;
+    border-radius: 10px;
+    margin: 5px;
+  }
+  .comment {
+    display: flex;
+  }
+
+  .add-comment {
+    padding: 24px 8px 0px 0px;
   }
 
   .footer-new-post{
@@ -252,7 +433,7 @@ a{
     width: 100px;
     background-color:#ff9800;
     color: white;
-    border-radius: 16px;
+    border-radius: 4px;
     height: 18px;
     border-style: none;
     outline: none;
@@ -267,8 +448,8 @@ a{
     height: auto;
     width: calc(100% - 2px);
     margin-bottom: 16px;
-    border: 1px solid #bebebe;
-    border-radius: 4px;
+    border: 1px solid #969494;
+    border-radius: 8px;
   }
 
   .header-post{
@@ -278,11 +459,11 @@ a{
     padding: 0px 8px;
     justify-content: space-between;
     align-items: center;
-    background-color: #bebebe;
+    background-color: #d6d6d6;
     box-sizing: border-box;
-    border-radius: 4px 4px 0px 0px;
     border: 1px solid #bebebe;
     box-sizing: border-box;
+    border-radius: 8px 8px 0px 0px;
   }
 
   .detail-post{
@@ -296,10 +477,9 @@ a{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-color: #bebebe;
-    border-radius: 0px 0px 4px 4px;
-    border: 1px solid #bebebe;
+    background-color: #d6d6d6;
     box-sizing: border-box;
+    border-radius: 0px 0px 8px 8px;
   }
 
   .footer-post > .like-post{
@@ -312,10 +492,10 @@ a{
     outline: none;
     cursor: pointer;
     margin: 0px 8px;
+    color: #ff0000;
   }  
 
-  .footer-post > .update-post{
-    width: 28px;
+  .footer-post > .update-post, .footer-post > .comment-post, .add-comment {
     height: 100%;
     border-radius: 50%;
     border-style: none;
@@ -324,13 +504,14 @@ a{
     outline: none;
     cursor: pointer;
     margin-left: 8px;
+    color: black ;
   }
 
   .pass-eye{
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 90%;
+    width: 80%;
     height: 40px;
     border-radius: 16px;
     margin: 8px 0px;
@@ -341,6 +522,9 @@ a{
 
   .eye-class{
     padding-right: 8px;
+    color: rgb(63, 59, 59);
+    border: transparent;
+    background: transparent;
   }
 
   .input-password{
@@ -352,8 +536,8 @@ a{
     padding-left: 4px;
   }
 
-  .like-post i{
-    color: #ff0000;
+  .i-dislike{
+    color: #808080;
   }
 
   .update-post i{
@@ -365,24 +549,6 @@ a{
     height: calc(100vh - 106px);
   }
 
-  .form-profile{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-  }
-
-  .form-profile label{
-    width: 100%;
-    text-align: left;
-  }
-
-  .container-update-profile{
-    background-color: #ffffff;
-    border-radius: 8px;
-    padding: 26px;
-    text-align: center;
-  }
-
   .container-button{
     width: 100%;
   }
@@ -392,25 +558,12 @@ a{
   }
 
   .span-like{
-    font-size: 18px;
+    font-size: 14px;
     color: black;
     padding-left: 4px;
   }
 
-  .muro, .profile-header, .muro > a, .profile-header > a{
-    height: 54px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 25%;
-    cursor: pointer;
-  }
-
-  .muro:hover, .profile-header:hover{
-    background-color: #061555;
-  }
-
-  select{
+  .type-post{
     border-radius: 4px;
     background-color: #091f80;
     color: #ffffff;
@@ -432,35 +585,80 @@ a{
     display: none;
   }
 
-}
+  .select-ocupation{
+    width: 100%;
+    height: 40px;
+    border-radius: 16px;
+    margin: 8px 0px;
+    border: 1px solid #bebebe;
+    outline: none;
+    padding-left: 8px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+  }
 
+  .delete-post{
+    color: black;
+  }
+}
 
 @media (min-width: 768px){
 
-  button#menu {
-    display: none;
-}
-nav#superior {
-  display: block;
-}
-nav#superior ul {
+  /* Header */
+
+  ul{
     display: flex;
-    list-style: none;
-    margin: 0;
+    float: left;
+    width: 100%;
     padding: 0;
-}
-
-
-
-  main{
-    height: calc(100% - 54px);
+    margin: 0;
+    justify-content: space-evenly;
+    justify-items: center;
+  }
+  
+  li{
+    list-style: none;
+    width: 33.33%;
+    height: 48px;
+    border-left: 1px solid #1038eb;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  li:hover{
+    background-color: #ff9800;
+  }
+  
+  .ul-menu-desktop li a{
+    color: #ffffff;
+    height: 48px;
+    display: flex;
+    align-items: center;
     justify-content: center;
   }
 
-  
+  .menu{
+    display: none;
+  }
 
-  /* Header */
+  .ul-menu-desktop{
+    display: flex;
+  }
+
+  .ul-menu-mobile .sign-out{
+    display: none;
+  }
+
+  /* Main */
+
+  main{
+    height: calc(100% - 48px);
+    display: flex;
+    justify-content: center;
+  }
 
   /* Login */
 
@@ -490,11 +688,7 @@ nav#superior ul {
     background-color: #ffffff;
   }
 
-  .container-logo{
-
-  }
-
-  .icon-logo-main{
+ .icon-logo-main{
     height: 160px;
   }
 
@@ -530,7 +724,7 @@ nav#superior ul {
     padding-left: 4px;
   }
 
-  .like-post i{
+  .i-like{
     color: #ff0000;
   }
 
@@ -539,22 +733,14 @@ nav#superior ul {
     height: calc(100vh - 106px);
   }
 
-  .form-profile{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-  }
-
-  .form-profile label{
-    width: 100%;
-    text-align: left;
-  }
-
   .container-update-profile{
-    background-color: #ffffff;
+    width: 40%;
+    margin-top: 36px;
+    height: calc(100vh - 90px);
     border-radius: 8px;
-    padding: 26px;
-    text-align: center;
+    box-sizing: border-box;
+    padding: 0px;
+    padding-top: 48px;
   }
 
   .container-button{
@@ -566,25 +752,12 @@ nav#superior ul {
   }
 
   .span-like{
-    font-size: 18px;
+    font-size: 15px;
     color: black;
     padding-left: 4px;
   }
 
-  .muro, .profile-header, .muro > a, .profile-header > a{
-    height: 54px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 25%;
-    cursor: pointer;
-  }
-
-  .muro:hover, .profile-header:hover{
-    background-color: #061555;
-  }
-
-  select{
+  .type-post{
     border-radius: 4px;
     background-color: #091f80;
     color: #ffffff;
@@ -611,41 +784,47 @@ nav#superior ul {
 
 @media (min-width: 768px){
   main{
-    height: calc(100% - 54px);
+    height: calc(100% - 48px);
     display: flex;
     justify-content: center;
   }
 
-  
-
   /* Header */
 
+  
   /* Login */
 
   .section-banner{
     display: block;
     width: 60%;
-
+    background-image: linear-gradient(
+      rgba(183, 129, 6, 0.5),
+      rgba(146, 126, 68, 0.5)
+    ), url(../img/banner.jpeg)
+    
   }
 
   .container-banner{
-    height: 100vh;
-    display: flex;
+    height: 80%;
     justify-content: center;
     text-align: center;
     align-items: center;
+
   }
 
   .container-banner > p{
     font-size: 24px;
-    color: blue;
+    color: black;
   }
-
+  .name-user {
+    font-size: 14px;
+    margin-left: 5px;
+  }
+  
   .section-main{
     width: 40%;
     text-align: center;
     height: 100vh;
-    background-color: #ffffff;
   }
   .icon-logo-main{
     height: 160px;
@@ -661,7 +840,7 @@ nav#superior ul {
   }
 
   input{
-    width: 90%;
+    width: 100%;
     height: 40px;
     border-radius: 16px;
     margin: 8px 0px;
@@ -671,7 +850,7 @@ nav#superior ul {
   }
 
   .btn{
-    background-color:#ff9800;
+    background-color:#063986;
     color: white;
     border-radius: 16px;
     margin-top: 8px;
@@ -682,12 +861,13 @@ nav#superior ul {
 
   /* Home */
 
-  .profile{
+  .profile, .container-profile{
     width: 30%;
     margin-top: 36px;
     padding: 0px;
     height: 250px;
     border-radius: 8px;
+    padding-top: 48px;
   }
 
   .container-posts-general{
@@ -695,24 +875,42 @@ nav#superior ul {
     height: auto;
     padding: 0px;
     margin-top: 36px;
-    border-radius: 8px;
     background-color: transparent;
+    padding-top: 48px;
   }
 
   .container-posts{
-    height: calc(100vh - 273px);
+    height: calc(100vh - 256px);
     overflow-y: scroll;
   }
 
   .front{
-    background-color: #bebebe;
+    background-image: url('../img/banner.jpeg');
     display: block;
+    background-size: cover;
     border-radius: 8px 8px 0px 0px;
   }
 
   .user-profile{
+    width: auto;
     justify-content: center;
     padding: 4px;
+    background-color: #d6d6d6;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+  }
+
+
+  .container-profile .user-profile{
+    width: auto;
+    display: flex;
+    align-items: center;
+    align-content: center;    
+    justify-content: center;
+    padding: 4px;
+    background-color: #d6d6d6;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
   }
 
   .user-photo{
@@ -724,14 +922,24 @@ nav#superior ul {
     height: 120px;
     padding-left: 16px;
   }
+}
 
-  .card-new-post{
-    background-color: #ffffff;  
-    border-radius: 8px;  
+@media (min-width: 1024px) {
+  .btn {
+    width: 30%;
   }
 
+  p {
+    font-size: 15px;
+  }
+
+  .icon-general {
+    font-size: 17px;
+  }
+}
+
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -740,9 +948,13 @@ nav#superior ul {
 
 ::-webkit-scrollbar-thumb {
   background: #888;
+  border-radius: 8px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+.hide {
+  display: none;
 }

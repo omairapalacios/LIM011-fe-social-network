@@ -14,19 +14,4 @@ export const registerUserEmail = (email, password) => (
 
 export const signOut = () => firebase.auth().signOut();
 
-export const addUserData = (userId, userObj) => {
-  const result = firebase.firestore().collection('users').doc(userId).set(userObj);
-  return result;
-};
 export const currentUser = () => firebase.auth().currentUser;
-
-export const getUserData = () => firebase.firestore().collection('users').get();
-
-export const updatetypeProfile = (NewNameUser, NewtypeUser, newemail) => {
-  const user = currentUser();
-  firebase.firestore().collection('users').doc(user.uid).update({
-    displayName: NewNameUser,
-    typeUser: NewtypeUser,
-    email: newemail,
-  });
-};
