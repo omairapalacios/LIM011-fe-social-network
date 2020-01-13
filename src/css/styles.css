@@ -493,6 +493,7 @@ a{
     outline: none;
     cursor: pointer;
     margin: 0px 8px;
+    color: #ff0000;
   }  
 
   .footer-post > .update-post, .footer-post > .comment-post, .add-comment {
@@ -885,7 +886,7 @@ a{
   }
 
   .front{
-    background-image: url('../img/portada.jpg');
+    background-image: url('../img/banner.jpeg');
     display: block;
     background-size: cover;
     border-radius: 8px 8px 0px 0px;

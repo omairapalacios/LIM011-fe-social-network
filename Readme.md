@@ -6,12 +6,19 @@ La expresión cultural peruana no tiene límites !. Existen muchos artistas que 
 
 AKLLA, es un proyecto creado con el objetivo de compartir y promocionar el talento, técnica y pasión de artesanos peruanos ante los ojos del mundo.
 
+Puedes ver nuestra primera versión .[Aquí](https://omairapalacios.github.io/LIM011-fe-social-network/src/)
+
 ##### Usuarios:
 
 Aklla esta dirigido a 2 grandes grupos de Usuarios:
 - Aquellas personas que realizan artesanias y deseen compartir y promocionar sus mejores trabajos.
 - Aquellas personas quienes admiren y deseen adquirir algun trabajo artistico.
 
+##### Vistas:
+
+![mobile-login](https://github.com/omairapalacios/LIM011-fe-social-network/blob/omaira/src/img/mobile-login.png)
+
+![mobile-home](https://github.com/omairapalacios/LIM011-fe-social-network/blob/omaira/src/img/mobile-home.png)
 
 ##### Funcionalidad:
 
