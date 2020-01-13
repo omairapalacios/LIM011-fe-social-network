@@ -21,7 +21,9 @@ export const eventAddComment = (event) => {
   const objComment = {
     idPost: postId,
     textComment: comment.value,
+    idUser: currentUser().uid,
     user: currentUser().displayName,
+    date: new Date(),
   };
   if (comment.value !== '') {
     addComment(objComment)
@@ -39,26 +41,34 @@ export const eventAddComment = (event) => {
 export const eventDeleteComment = (event) => {
   const btnDeleteComment = event.target;
   const idComment = btnDeleteComment.closest('.comment').id;
-  deleteComment(idComment)
+  const idUserComment = btnDeleteComment.closest('.comment').querySelector('.comment-name-user').id; 
+  const idUserPost =  btnDeleteComment.closest('.card-post').querySelector('.user-post').id;  
+  if(currentUser().uid === idUserComment || currentUser().uid === idUserPost){
+   deleteComment(idComment)
     .then((doc) => {
       console.log('comentario eliminado', doc);
     })
     .catch((err) => {
       console.log(err);
-    });
+    });  
+  } 
 };
 
 export const eventUpdateComment = (event) => {
   const btnUpdateComment = event.target;
   const idComment = btnUpdateComment.closest('.comment').id;
   const textComment = btnUpdateComment.closest('.comment').querySelector('textarea');
-  updateComment(idComment, textComment.value)
-    .then((doc) => {
-      console.log('comentario editado', doc);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  const idUserComment = btnUpdateComment.closest('.comment').querySelector('.comment-name-user').id; 
+  const idUserPost =  btnUpdateComment.closest('.card-post').querySelector('.user-post').id; 
+  if(currentUser().uid === idUserComment || currentUser().uid === idUserPost){
+    updateComment(idComment, textComment.value)
+      .then((doc) => {
+        console.log('comentario editado', doc);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 };
 
 export const eventGetAllComments = (event) => {

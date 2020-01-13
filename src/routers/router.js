@@ -16,30 +16,31 @@ export const changeView = (hash) => {
       container.appendChild(components.register());
       break;
     case '#/home':
-    {
-      getUserData(currentUser().uid)
-        .then((response) => {
-          const callbackPost = (dataPost) => {
-            container.innerHTML = '';
-            container.appendChild(components.header());
-            container.appendChild(components.home(dataPost, response.data()));
-            dataPost.forEach((post) => {
-              const callbackComment = (dataComment) => {
-                console.log(dataComment);
-                if (dataComment.length !== 0) {
-                  dataComment.forEach((comment) => {
-                    const containerComment = document.querySelector(`.${post.id}`);
-                    containerComment.appendChild(components.comment(comment));
-                  });
-                }
-              };
-              getComments(post.id, callbackComment);
-            });
-          };
-          getPosts(callbackPost);
-        });
-      break;
-    }
+      {
+        getUserData(currentUser().uid)
+          .then((response) => {
+            const callbackPost = (dataPost) => {
+              container.innerHTML = '';
+              container.appendChild(components.header());
+              container.appendChild(components.home(dataPost, response.data()));
+              dataPost.forEach((post) => {
+                const callbackComment = (dataComment) => {
+                  const dataCommentSorted = dataComment.sort((a, b) => (a.date < b.date) ? 1 : -1);
+                  const containerComment = document.querySelector(`.comments-${post.id}`);
+                  if (dataCommentSorted.length > 0) {
+                    containerComment.innerHTML = '';
+                    dataCommentSorted.forEach((comment) => {                
+                      containerComment.appendChild(components.comment(comment));
+                    });
+                  }
+                };
+                getComments(post.id, callbackComment);
+              });
+            };
+            getPosts(callbackPost);
+          });
+        break;
+      }
     case '#/profile':
       getUserData(currentUser().uid)
         .then((response) => {

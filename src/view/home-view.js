@@ -3,6 +3,8 @@ import printPost from './post-view.js';
 import { currentUser } from '../model/auth-user.js';
 
 export default (dataPosts, dataUser) => {
+  console.log(dataUser);
+  
   const homeView = `
     <section class='profile'>
       <div class='front'></div>
@@ -19,7 +21,7 @@ export default (dataPosts, dataUser) => {
         <textarea name='' id='' placeholder='¿Hola, qué quieres compartir hoy?'></textarea>
         <div class='footer-new-post'>
           <i class='icon-general far fa-images'></i>
-          <select name="" id="type-new-post" class="type-new-post">
+          <select name="" id="type-new-post" class="type-new-post type-post">
             <option value="1">Público</option>
             <option value="0">Privado</option>
           </select>

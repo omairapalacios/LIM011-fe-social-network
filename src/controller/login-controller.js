@@ -1,5 +1,5 @@
 import {
-  signInUserEmail, signInUserFacebook, signInUserGoogle, signOut, addUserData,
+  signInUserEmail, signInUserFacebook, signInUserGoogle, signOut, addUserData, currentUser,
 } from '../model/auth-user.js';
 
 export const signInEmailEvent = (event) => {
@@ -45,12 +45,10 @@ export const signFacebookEvent = (event) => {
   signInUserFacebook()
     .then((result) => {
       const userId = result.user.uid;
-      const userType = 'Por favor edite su perfil...';
       const userObj = {
         displayName: result.user.displayName,
         photoURL: result.user.photoURL,
         email: result.user.email,
-        type: userType,
       };
       addUserData(userId, userObj);
       window.location.hash = '#/home';
@@ -69,12 +67,10 @@ export const signGoogleEvent = (event) => {
   signInUserGoogle()
     .then((result) => {
       const userId = result.user.uid;
-      const userType = 'Por favor edite su perfil...';
       const userObj = {
         displayName: result.user.displayName,
         photoURL: result.user.photoURL,
         email: result.user.email,
-        type: userType,
       };
       addUserData(userId, userObj);
       window.location.hash = '#/home';
@@ -85,10 +81,11 @@ export const signGoogleEvent = (event) => {
     });
 };
 
-export const signOutSesion = (event) => {
+export const signOutSesion = (event) => {  
   event.preventDefault();
   signOut()
-    .then(() => {
+    .then((doc) => {
+      console.log('Sesión cerrada', doc);      
       window.location.hash = '#/login';
     }).catch((error) => {
       const errorCode = error.code;

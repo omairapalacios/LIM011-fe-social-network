@@ -8,7 +8,6 @@ export const getComments = (idPost, callbackComment) => {
     .onSnapshot((querySnapshot) => {
       const arr = [];
       querySnapshot.forEach((doc) => {
-        console.log(doc.data());
         const obj = {
           id: doc.id,
           ...doc.data(),

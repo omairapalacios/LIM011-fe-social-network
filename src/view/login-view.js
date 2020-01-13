@@ -31,8 +31,8 @@ export default () => {
         <span class='errors' id='error-password'></span>
         <span class='errors' id='error-email'></span>
         <p>Ó bien ingresa con...</p>
-      <button id='btn-facebook' class='btn-social-net' type='submit'><img src="./img/icon-facebook.png" alt=""></button>
-      <button id='btn-google' class='btn-social-net' type='submit'><img src="./img/icon-google.png" alt=""></button>
+      <button id='btn-facebook' class='btn-social-net' type='submit'><img src="https://image.flaticon.com/icons/svg/733/733547.svg" alt=""></button>
+      <button id='btn-google' class='btn-social-net' type='submit'><img src="https://image.flaticon.com/icons/png/512/720/720255.png" alt=""></button>
       <p>¿No tienes una cuenta? <a href='#/register'>Regístrate</a></p>
       </form>`;
 
