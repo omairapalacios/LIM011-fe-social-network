@@ -1,32 +1,38 @@
-import { getUserProfile, eventChangeTypeUser } from '../controller/profile-controller.js';
+import { eventUpdateProfile } from '../controller/profile-controller.js';
 
-export default () => {
-  const mainElem = document.createElement('main');
-  const homeProfile = ` 
-      <div class="main-profile">  
-        <div class="container-update-profile">  
-          <h2 class="">Perfil</h2>           
-          <img class="user-photo" id='u-photo' src="https://icon-library.net/images/avatar-icon-png/avatar-icon-png-16.jpg">
-          <form class="form-profile">
-            <label>Nombre</label>
-              <input type="text" class='input-text' id="u-name">
-            <label>Email</label>
-              <input type="text" disabled   class='input-text' id="u-email">
-            <label>Ocupación: COMPRADOR-VENDEDOR</label>
-              <input type="text" class='input-text' id="u-ocupation">
-            <div class="container-button">
-              <input type="submit" class='btn button-save' id="button-save" value="Guardar">
-            </div>
-          </form>
-        </div>
+export default (dataUser) => {
+  const homeProfile = `  
+  <div class='container-profile'>
+      <div class='front'></div>
+      <div class='user-profile'>
+        <img src='${dataUser.photoURL}' alt='' id='user-photo' class='user-photo'>
       </div>
-      `;
+    </div>
+    <div class='container-update-profile'>
+      <form class='form-profile'>
+      <h2 class=''>Editar perfil</h2>
+        <label>Nombre:</label>
+        <input type='text' class='input-text' id='u-name' value='${dataUser.displayName}'>
+        <label>Email:</label>
+        <input type='text' disabled class='input-text' id='u-email' value='${dataUser.email}'>
+        <label>Ocupación:</label>
+        <select id="u-type" class="select-ocupation">
+          <option value="Comprador(a)">Comprador(a)</option>
+          <option value="Vendedor(a)">Vendedor(a)</option>
+        </select>
+        <label>País:</label>
+        <input id="u-country" type='text' class='input-text' id='u-email' value="${dataUser.country}">
+        <div class='container-button'>
+          <button type='submit' class='btn button-save' id='button-save'> GUARDAR</button>
+        </div>
+        </form>
+    </div class='container-update-profile'>
+  </div>`;
 
+  const mainElem = document.createElement('main');
   mainElem.innerHTML = homeProfile;
 
-  getUserProfile();
-
   const btnUpdate = mainElem.querySelector('#button-save');
-  btnUpdate.addEventListener('click', eventChangeTypeUser);
+  btnUpdate.addEventListener('click', eventUpdateProfile);
   return mainElem;
 };

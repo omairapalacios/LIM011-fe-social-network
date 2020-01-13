@@ -1,6 +1,10 @@
+/* eslint-disable no-console */
 import {
-  signInUserEmail, signInUserFacebook, signInUserGoogle, signOut, addUserData,
+  signInUserEmail, signInUserFacebook, signInUserGoogle, signOut,
 } from '../model/auth-user.js';
+import {
+  addUserData,
+} from '../model/user-firestore.js';
 
 export const signInEmailEvent = (event) => {
   event.preventDefault();
@@ -22,19 +26,14 @@ export const signInEmailEvent = (event) => {
         const errorCode = error.code;
         console.log(errorCode);
         if (errorCode === 'auth/invalid-email') {
-          email.className = 'error-color';
           msgError.innerHTML = 'El formato del correo electronico ingresado no es valido(*)';
         } else if (errorCode === 'auth/wrong-password') {
-          password.className = 'error-color';
           msgError.innerHTML = 'La contraseña ingresada es incorrecta(*)';
         } else if (errorCode === 'auth/user-not-found') {
-          email.className = 'error-color';
           msgError.innerHTML = 'El correo no se encuentra registrado(*)';
         }
       });
   } else {
-    email.className = 'error-color';
-    password.className = 'error-color';
     msgErrorEmail.innerHTML = 'Por favor ingrese un correo electrónico(*)';
     msgErrorPassword.innerHTML = 'Por favor ingrese una contraseña(*)';
   }
@@ -84,7 +83,8 @@ export const signGoogleEvent = (event) => {
 export const signOutSesion = (event) => {
   event.preventDefault();
   signOut()
-    .then(() => {
+    .then((doc) => {
+      console.log('Sesión cerrada', doc);
       window.location.hash = '#/login';
     }).catch((error) => {
       const errorCode = error.code;
