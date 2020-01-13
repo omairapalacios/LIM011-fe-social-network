@@ -9,7 +9,7 @@ import { showComments, eventAddComment, eventGetAllComments } from '../controlle
 
 export default (postData) => {
   const postView = `
-      <div class='header-post'>
+    <div class='header-post'>
       <span id='${postData.idUser}' class='user-post name-user'>Publicado por : ${postData.name}</span>
       <a href='http://' class='delete-post'><i class='fas fa-trash'></i></a>
     </div>

@@ -4,8 +4,10 @@ import { registerUserEmail } from '../model/auth-user.js';
 import { addUserData } from '../model/user-firestore.js';
 
 export default (event) => {
+  console.log(event);
   event.preventDefault();
   const btnRegister = event.target;
+  console.log(btnRegister);
   const email = btnRegister.closest('form').querySelector('input[type=email]');
   const password = btnRegister.closest('form').querySelector('input[type=password]');
   const nameUser = btnRegister.closest('form').querySelector('input[type=text]');
@@ -13,6 +15,8 @@ export default (event) => {
   const msgError = btnRegister.closest('form').querySelector('#error-message');
   const msgErrorEmail = btnRegister.closest('form').querySelector('#error-email');
   const msgErrorPassword = btnRegister.closest('form').querySelector('#error-password');
+  console.log(email);
+  console.log(password);
   if (email.value !== '' && password.value !== '') {
     registerUserEmail(email.value, password.value)
       .then((result) => {

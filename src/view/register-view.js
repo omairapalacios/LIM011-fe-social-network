@@ -32,7 +32,7 @@ export default () => {
   const mainElem = document.createElement('main');
   mainElem.className = 'viewRegister';
   mainElem.innerHTML = registerView;
-  const btnRegister = mainElem.querySelector('button');
+  const btnRegister = mainElem.querySelector('#btn-register');
   btnRegister.addEventListener('click', registerUserEmailEvent);
   const showPass = mainElem.querySelector('#btn-eye');
   showPass.addEventListener('click', passwordShow);
