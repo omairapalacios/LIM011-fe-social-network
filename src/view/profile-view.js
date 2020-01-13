@@ -1,14 +1,12 @@
 import { eventUpdateProfile } from '../controller/profile-controller.js';
 
-export default (dataUser) => {  
-  console.log(dataUser);
-  
+export default (dataUser) => {
   const homeProfile = `  
   <div class='container-profile'>
       <div class='front'></div>
       <div class='user-profile'>
         <img src='${dataUser.photoURL}' alt='' id='user-photo' class='user-photo'>
-       </div>
+      </div>
     </div>
     <div class='container-update-profile'>
       <form class='form-profile'>

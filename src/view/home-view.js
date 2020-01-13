@@ -3,8 +3,6 @@ import printPost from './post-view.js';
 import { currentUser } from '../model/auth-user.js';
 
 export default (dataPosts, dataUser) => {
-  console.log(dataUser);
-  
   const homeView = `
     <section class='profile'>
       <div class='front'></div>

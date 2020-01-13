@@ -40,7 +40,6 @@ export default () => {
   mainElem.className = 'viewLogin';
   mainElem.innerHTML = loginView;
 
-  // MANEJO DE DOM (eventos)
   const btnLogin = mainElem.querySelector('#btn-login');
   btnLogin.addEventListener('click', signInEmailEvent);
   const btnFacebook = mainElem.querySelector('#btn-facebook');

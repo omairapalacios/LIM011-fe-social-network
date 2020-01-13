@@ -1,6 +1,10 @@
+/* eslint-disable no-console */
 import {
-  signInUserEmail, signInUserFacebook, signInUserGoogle, signOut, addUserData, currentUser,
+  signInUserEmail, signInUserFacebook, signInUserGoogle, signOut,
 } from '../model/auth-user.js';
+import {
+  addUserData,
+} from '../model/user-firestore.js';
 
 export const signInEmailEvent = (event) => {
   event.preventDefault();
@@ -81,11 +85,11 @@ export const signGoogleEvent = (event) => {
     });
 };
 
-export const signOutSesion = (event) => {  
+export const signOutSesion = (event) => {
   event.preventDefault();
   signOut()
     .then((doc) => {
-      console.log('Sesión cerrada', doc);      
+      console.log('Sesión cerrada', doc);
       window.location.hash = '#/login';
     }).catch((error) => {
       const errorCode = error.code;
