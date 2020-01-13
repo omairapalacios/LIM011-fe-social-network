@@ -4,10 +4,8 @@ import {
   addAndDeleteLikes,
   eventChangeTypePost,
   eventUpdatePost,
-  eventAddComment,
 } from '../controller/post-controller.js';
-
-import { showComments } from '../controller/comment-controller.js';
+import { showComments, eventAddComment, eventGetAllComments } from '../controller/comment-controller.js';
 
 export default (postData) => {
   const postView = `
@@ -20,7 +18,7 @@ export default (postData) => {
     </div>
     <div class='footer-post'>
       <button class='like-post btn-post'>
-        <i class='fas fa-heart icon-general'><span class='span-like'>${postData.numlikes}</span></i>
+        <i class='fas fa-heart i-like icon-general'><span class='span-like'>${postData.numlikes}</span></i>
       </button>
       <button class='update-post btn-post'>
         <i class='fas fa-edit icon-social icon-general'></i>
@@ -34,7 +32,6 @@ export default (postData) => {
         <option value='0'>Privado</option>
       </select>
     </div>
-
     <div class='container-comment hide'>
     <div class='new-comment detail-comment'>
       <textarea id='text-comment' rows='5' placeholder='Ingrese comentario...'></textarea>
@@ -42,13 +39,9 @@ export default (postData) => {
         <i class='far fa-paper-plane'></i>
       </button>
     </div>
-    <div class='comments ${postData.id}'>
-    
-    
+    <p class='get-comments'> Ver más comentarios... </p>
+    <div class='comments-${postData.id}'></div>
     </div>
-    </div>
-    
-
 `;
   const divElemPost = document.createElement('div');
   divElemPost.setAttribute('class', 'card-post');
@@ -77,6 +70,8 @@ export default (postData) => {
   select.value = postData.type;
   select.addEventListener('change', eventChangeTypePost);
 
+  const btnGetComments = divElemPost.querySelector('.get-comments');
+  btnGetComments.addEventListener('click', eventGetAllComments);
 
   return divElemPost;
 };

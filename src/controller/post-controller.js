@@ -1,13 +1,13 @@
+/* eslint-disable no-alert */
+/* eslint-disable no-console */
 import {
   addPost,
   updatePost,
   deletePost,
-  addComment,
-  addLikes,
-  getUserLike,
   updateTypePost,
-  deleteLikes,
 } from '../model/user-post.js';
+
+import { addLikes, getUserLike, deleteLikes } from '../model/likes-post.js';
 import { currentUser } from '../model/auth-user.js';
 
 export const addDataPost = (event) => {
@@ -15,7 +15,16 @@ export const addDataPost = (event) => {
   const btnShare = event.target;
   const newPost = btnShare.closest('.card-new-post').querySelector('textarea');
   const typePost = btnShare.closest('.card-new-post').querySelector('select');
-  addPost(newPost.value, typePost.value)
+  const objectPost = {
+    post: newPost.value,
+    idUser: currentUser().uid,
+    name: currentUser().displayName,
+    email: currentUser().email,
+    date: new Date(),
+    numlikes: 0,
+    type: typePost.value,
+  };
+  addPost(objectPost)
     .then((docRef) => {
       window.location.hash = '#/home';
       newPost.value = '';
@@ -85,35 +94,13 @@ export const eventDeletePost = (event) => {
   }
 };
 
-export const eventAddComment = (event) => {
-  // agregar comentario db
-  event.preventDefault();
-  const btnAddComment = event.target;
-  const postId = btnAddComment.closest('.card-post').id;
-  const comment = btnAddComment.closest('.card-post').querySelector('#text-comment');
-  const objComment = {
-    idPostComment: postId,
-    textComment: comment.value,
-    user: currentUser().displayName,
-  };
-  if (comment.value !== '') {
-    addComment(objComment)
-      .then((doc) => {
-        comment.value = '';
-        console.log('comentario agregado exitosamente', doc);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
-};
-
 export const addAndDeleteLikes = (event) => {
   event.preventDefault();
   const btnLike = event.target;
   const idPost = btnLike.closest('.card-post').id;
   getUserLike(idPost, currentUser().uid)
     .then((likes) => {
+      console.log(likes);
       if (!likes.empty) {
         console.log('el usuario ya no puede dar like');
         likes.forEach((doclike) => {

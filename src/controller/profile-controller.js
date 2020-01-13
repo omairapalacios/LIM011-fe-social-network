@@ -1,16 +1,14 @@
-import { currentUser, updateProfile } from '../model/auth-user.js';
+/* eslint-disable no-console */
+import { currentUser } from '../model/auth-user.js';
+import { updateProfile } from '../model/user-firestore.js';
 
 export const eventUpdateProfile = (event) => {
   event.preventDefault();
-  console.log('hi');
-  
   const iduser = currentUser().uid;
   const newname = document.querySelector('#u-name');
   const newtype = document.querySelector('#u-type');
-
-  console.log(iduser, newtype.value, newname.value);
-
-  updateProfile(iduser, newtype.value, newname.value)
+  const newcountry = document.querySelector('#u-country').value;
+  updateProfile(iduser, newtype.value, newname.value, newcountry)
     .then((doc) => {
       window.location.hash = '#/profile';
       console.log('perfil actualizado', doc);
