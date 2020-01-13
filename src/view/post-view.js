@@ -39,8 +39,8 @@ export default (postData) => {
         <i class='far fa-paper-plane'></i>
       </button>
     </div>
-    <p class='get-comments'> Ver comentarios... </p>
-    <div class='comments ${postData.id}'></div>
+    <p class='get-comments'> Ver más comentarios... </p>
+    <div class='comments-${postData.id}'></div>
     </div>
 `;
   const divElemPost = document.createElement('div');

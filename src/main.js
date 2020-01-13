@@ -2,7 +2,6 @@ import { init } from './routers/index.js';
 
 const configInitial = () => {
   const firebaseConfig = {
-
     apiKey: 'AIzaSyBzjNMWg4J7_a319uC-76A5NigM_f_JN9o',
     authDomain: 'my-first-blog-fb.firebaseapp.com',
     databaseURL: 'https://my-first-blog-fb.firebaseio.com',
