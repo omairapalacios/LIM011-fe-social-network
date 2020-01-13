@@ -8,8 +8,24 @@ body {
   margin: 0;
   padding: 0;
 }
-.c-green{
+
+.c-green {
     color: rgb(64, 167, 33);
+}
+
+.c-orange {
+  color: #ff9800;
+}
+
+.container-errors {
+  margin-top: 20px;
+  margin-right: 10px;
+}
+
+.errors {
+  
+  font-size: 12px;
+  color: #ff0000;
 }
 
 a{
@@ -147,7 +163,7 @@ a{
   }
 
   .btn{
-    background-color:#ff9800;
+    background-color:#063986;
     color: white;
     border-radius: 16px;
     margin-top: 8px;
@@ -477,6 +493,7 @@ a{
     outline: none;
     cursor: pointer;
     margin: 0px 8px;
+    color: #ff0000;
   }  
 
   .footer-post > .update-post, .footer-post > .comment-post, .add-comment {
@@ -834,7 +851,7 @@ a{
   }
 
   .btn{
-    background-color:#ff9800;
+    background-color:#063986;
     color: white;
     border-radius: 16px;
     margin-top: 8px;
@@ -870,8 +887,8 @@ a{
 
   .front{
     background-image: url('../img/banner.jpeg');
-    background-size: contain;
     display: block;
+    background-size: cover;
     border-radius: 8px 8px 0px 0px;
   }
 
