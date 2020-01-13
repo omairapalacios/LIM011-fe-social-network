@@ -1,5 +1,6 @@
 import { components } from '../utils/util-view.js';
-import { getUserData, currentUser } from '../model/auth-user.js';
+import { currentUser } from '../model/auth-user.js';
+import { getUserData } from '../model/user-firestore.js';
 import { getPosts } from '../model/user-post.js';
 import { getComments } from '../model/comment-post.js';
 

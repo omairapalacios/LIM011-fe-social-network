@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 import { changeView } from './router.js';
 
 export const init = () => {

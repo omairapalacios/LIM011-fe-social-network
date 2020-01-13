@@ -1,14 +1,12 @@
 import { eventUpdateProfile } from '../controller/profile-controller.js';
 
 export default (dataUser) => {
-  console.log(dataUser);
-
   const homeProfile = `  
   <div class='container-profile'>
       <div class='front'></div>
       <div class='user-profile'>
         <img src='${dataUser.photoURL}' alt='' id='user-photo' class='user-photo'>
-       </div>
+      </div>
     </div>
     <div class='container-update-profile'>
       <form class='form-profile'>
@@ -23,7 +21,7 @@ export default (dataUser) => {
           <option value="Vendedor(a)">Vendedor(a)</option>
         </select>
         <label>País:</label>
-        <input id="u-country" type='text' class='input-text' id='u-email' value="${dataUser.country}">
+        <input id="u-country" type='text' class='input-text' id='u-email' value="">
         <div class='container-button'>
           <button type='submit' class='btn button-save' id='button-save'> GUARDAR</button>
         </div>
