@@ -63,10 +63,10 @@ describe('Register user', () => {
 
 describe('Current User', () => {
   it('Should show current user', () => {
-    signInUserEmail('lizbethjaico@gmail.com', '123456')
+    signInUserEmail('omairapalacios95@gmail.com', '123456')
       .then(() => {
         const user = currentUser();
-        expect(user.email).toBe('lizbethjaico@gmail.com');
+        expect(user.email).toBe('omairapalacios95@gmail.com');
       });
   });
 });

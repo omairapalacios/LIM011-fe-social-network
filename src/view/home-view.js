@@ -18,12 +18,8 @@ export default (dataPosts, dataUser) => {
       <div class='card-new-post'>
         <textarea name='' id='' placeholder='¿Hola, qué quieres compartir hoy?'></textarea>
         <div class='footer-new-post'>
-        <div>
-        <label for="file" class='far fa-images'>
-        <input type="file" id="file" name="file" class='hide'>
-        </label>
-      </div>
-          <select name="" id="type-new-post" class="type-new-post">
+          <i class='icon-general far fa-images'></i>
+          <select name="" id="type-new-post" class="type-new-post type-post">
             <option value="1">Público</option>
             <option value="0">Privado</option>
           </select>

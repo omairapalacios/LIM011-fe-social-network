@@ -26,9 +26,11 @@ export const changeView = (hash) => {
             container.appendChild(components.home(dataPost, response.data()));
             dataPost.forEach((post) => {
               const callbackComment = (dataComment) => {
-                if (dataComment.length !== 0) {
-                  dataComment.forEach((comment) => {
-                    const containerComment = document.querySelector(`.${post.id}`);
+                const dataCommentSorted = dataComment.sort((a, b) => ((a.date < b.date) ? 1 : -1));
+                const containerComment = document.querySelector(`.comments-${post.id}`);
+                if (dataCommentSorted.length > 0) {
+                  containerComment.innerHTML = '';
+                  dataCommentSorted.forEach((comment) => {
                     containerComment.appendChild(components.comment(comment));
                   });
                 }
