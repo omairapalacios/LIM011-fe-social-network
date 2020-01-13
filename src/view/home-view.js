@@ -34,6 +34,7 @@ export default (dataPosts, dataUser) => {
   mainELem.innerHTML = homeView;
   const containerPosts = mainELem.querySelector('#container-posts');
   dataPosts.forEach((post) => {
+    // publico: 1 ---- publico : 0
     if (post.type === '1' || (post.idUser === currentUser().uid && post.type === '0')) {
       containerPosts.appendChild(printPost(post));
     }
