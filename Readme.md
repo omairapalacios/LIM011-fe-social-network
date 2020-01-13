@@ -18,8 +18,6 @@ Aklla esta dirigido a 2 grandes grupos de Usuarios:
 
 ![mobile-login](https://github.com/omairapalacios/LIM011-fe-social-network/blob/omaira/src/img/mobile-login.png)
 
-![mobile-home](https://github.com/omairapalacios/LIM011-fe-social-network/blob/omaira/src/img/mobile-home.png)
-
 ##### Funcionalidad:
 
 Nuestros usuarios para esta primera versión de Aklla podrán:
