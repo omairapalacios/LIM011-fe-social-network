@@ -302,6 +302,13 @@ a{
     width: 65px;
     border-radius: 50%;
   }
+  .user-photos{
+    margin-left: 15px;
+    height: 60%;
+    width: 50%;
+    border-radius: 50%;
+  }
+
 
   .detail-user{
     width: 70%;
