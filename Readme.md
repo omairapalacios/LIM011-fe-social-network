@@ -13,6 +13,9 @@ Aklla esta dirigido a 2 grandes grupos de Usuarios:
 - Aquellas personas quienes admiren y deseen adquirir algun trabajo artistico.
 
 
+
+
+
 ##### Funcionalidad:
 
 Nuestros usuarios para esta primera versión de Aklla podrán:
