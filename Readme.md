@@ -6,6 +6,30 @@ La expresión cultural peruana no tiene límites !. Existen muchos artistas que 
 
 AKLLA, es un proyecto creado con el objetivo de compartir y promocionar el talento, técnica y pasión de artesanos peruanos ante los ojos del mundo.
 
+##### Usuarios:
+
+Aklla esta dirigido a 2 grandes grupos de Usuarios:
+- Aquellas personas que realizan artesanias y deseen compartir y promocionar sus mejores trabajos.
+- Aquellas personas quienes admiren y deseen adquirir algun trabajo artistico.
+
+
+##### Funcionalidad:
+
+Nuestros usuarios para esta primera versión de Aklla podrán:
+
+* Crear una cuenta con email y password válidos para poder iniciar sesion e ingresar a Aklla.
+
+* Iniciar sesión con su cuenta de Google o Facebook para ingresar a Aklla sin necesidad de crear una cuenta de email válido.
+
+* Crear, guardar, modificar en el mismo lugar (in place) y eliminar una publicación (post), asimismo elegir si lo publicado será privado o público.
+
+* Podrá ver los post públicos y privados que han creado hasta ese momento, desde el más reciente hasta el más antiguo, así como también tendrá la opción de poder cambiar la configuración de privacidad de sus post.
+
+* Podrá dar y quitar like en el post que desee, asi como poder escribir, guardar, editar o eliminar comentarios en una publicación.
+
+* Podrá visualizar los datos de su perfil creado y editarlos.
+
+***
 
 ####  Objetivos de aprendizaje
 
