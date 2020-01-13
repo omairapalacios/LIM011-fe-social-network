@@ -1,4 +1,6 @@
-import { currentUser, updateProfile } from '../model/auth-user.js';
+/* eslint-disable no-console */
+import { currentUser } from '../model/auth-user.js';
+import { updateProfile } from '../model/user-firestore.js';
 
 export const eventUpdateProfile = (event) => {
   event.preventDefault();

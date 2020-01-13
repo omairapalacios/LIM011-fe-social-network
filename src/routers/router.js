@@ -1,5 +1,6 @@
 import { components } from '../utils/util-view.js';
-import { getUserData, currentUser } from '../model/auth-user.js';
+import { currentUser } from '../model/auth-user.js';
+import { getUserData } from '../model/user-firestore.js';
 import { getPosts } from '../model/user-post.js';
 import { getComments } from '../model/comment-post.js';
 
@@ -25,7 +26,6 @@ export const changeView = (hash) => {
             container.appendChild(components.home(dataPost, response.data()));
             dataPost.forEach((post) => {
               const callbackComment = (dataComment) => {
-                console.log(dataComment);
                 if (dataComment.length !== 0) {
                   dataComment.forEach((comment) => {
                     const containerComment = document.querySelector(`.${post.id}`);

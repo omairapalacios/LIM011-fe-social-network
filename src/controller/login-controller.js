@@ -1,6 +1,10 @@
+/* eslint-disable no-console */
 import {
-  signInUserEmail, signInUserFacebook, signInUserGoogle, signOut, addUserData,
+  signInUserEmail, signInUserFacebook, signInUserGoogle, signOut,
 } from '../model/auth-user.js';
+import {
+  addUserData,
+} from '../model/user-firestore.js';
 
 export const signInEmailEvent = (event) => {
   event.preventDefault();

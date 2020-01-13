@@ -1,5 +1,10 @@
 import {
-  signInUserEmail, signInUserGoogle, signInUserFacebook, signOut,
+  signInUserEmail,
+  signInUserGoogle,
+  signInUserFacebook,
+  registerUserEmail,
+  signOut,
+  currentUser,
 } from '../src/model/auth-user.js';
 
 
@@ -47,4 +52,21 @@ describe('Sign out user', () => {
     .then((user) => {
       expect(user).toBe(undefined);
     }));
+});
+
+describe('Register user', () => {
+  it('Debería registrar un usuario', () => registerUserEmail('lizbethjaico@gmail.com', '123456')
+    .then((user) => {
+      expect(user.isAnonymous).toBe(false);
+    }));
+});
+
+describe('Current User', () => {
+  it('Should show current user', () => {
+    signInUserEmail('lizbethjaico@gmail.com', '123456')
+      .then(() => {
+        const user = currentUser();
+        expect(user.email).toBe('lizbethjaico@gmail.com');
+      });
+  });
 });

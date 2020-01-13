@@ -1,12 +1,13 @@
+/* eslint-disable no-alert */
+/* eslint-disable no-console */
 import {
   addPost,
   updatePost,
   deletePost,
-  addLikes,
-  getUserLike,
   updateTypePost,
-  deleteLikes,
 } from '../model/user-post.js';
+
+import { addLikes, getUserLike, deleteLikes } from '../model/likes-post.js';
 import { currentUser } from '../model/auth-user.js';
 
 export const addDataPost = (event) => {
@@ -14,7 +15,16 @@ export const addDataPost = (event) => {
   const btnShare = event.target;
   const newPost = btnShare.closest('.card-new-post').querySelector('textarea');
   const typePost = btnShare.closest('.card-new-post').querySelector('select');
-  addPost(newPost.value, typePost.value)
+  const objectPost = {
+    post: newPost.value,
+    idUser: currentUser().uid,
+    name: currentUser().displayName,
+    email: currentUser().email,
+    date: new Date(),
+    numlikes: 0,
+    type: typePost.value,
+  };
+  addPost(objectPost)
     .then((docRef) => {
       window.location.hash = '#/home';
       newPost.value = '';
