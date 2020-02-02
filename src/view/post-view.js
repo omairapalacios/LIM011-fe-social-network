@@ -9,38 +9,38 @@ import { showComments, eventAddComment, eventGetAllComments } from '../controlle
 
 export default (postData) => {
   const postView = `
-    <div class='header-post'>
-      <span id='${postData.idUser}' class='user-post name-user'>Publicado por : ${postData.name}</span>
-      <a href='http://' class='delete-post'><i class='fas fa-trash'></i></a>
+    <div class="header-post">
+      <span id="${postData.idUser}" class="user-post name-user">Publicado por : ${postData.name}</span>
+      <a href="http://" class="delete-post"><i class="fas fa-trash"></i></a>
     </div>
-    <div class='detail-post'>
-      <textarea name='' id='text-post' disabled>${postData.post}</textarea>
+    <div class="detail-post">
+      <textarea name="" id="text-post" disabled>${postData.post}</textarea>
     </div>
-    <div class='footer-post'>
-      <button class='like-post btn-post'>
-        <i class='fas fa-heart i-like icon-general'><span class='span-like'>${postData.numlikes}</span></i>
+    <div class="footer-post">
+      <button class="like-post btn-post">
+        <i class="fas fa-heart i-like icon-general"><span class="span-like">${postData.numlikes}</span></i>
       </button>
-      <button class='update-post btn-post'>
-        <i class='fas fa-edit icon-social icon-general'></i>
+      <button class="update-post btn-post">
+        <i class="fas fa-edit icon-social icon-general"></i>
       </button>
-      <button class='show-comments btn-post'>
-        <i class='fas fa-comments icon-social icon-general'></i>
+      <button class="show-comments btn-post">
+        <i class="fas fa-comments icon-social icon-general"></i>
       </button>
-      <span class='btn-save-change hidden'>Guardar Cambios</span>
-      <select name='' id='type-post' class='type-post'>
-        <option value='1'>Público</option>
-        <option value='0'>Privado</option>
+      <span class="btn-save-change hidden">Guardar Cambios</span>
+      <select name="" id="type-post" class="type-post">
+        <option value="1">Público</option>
+        <option value="0">Privado</option>
       </select>
     </div>
-    <div class='container-comment hide'>
-    <div class='new-comment detail-comment'>
-      <textarea id='text-comment' rows='5' placeholder='Ingrese comentario...'></textarea>
-      <button class='add-comment btn-post'>
-        <i class='far fa-paper-plane'></i>
+    <div class="container-comment hide">
+    <div class="new-comment detail-comment">
+      <textarea id="text-comment" rows="5" placeholder="Ingrese comentario..."></textarea>
+      <button class="add-comment btn-post">
+        <i class="far fa-paper-plane"></i>
       </button>
     </div>
-    <p class='get-comments'> Ver más comentarios... </p>
-    <div class='comments-${postData.id}'></div>
+    <p class="get-comments"> Ver más comentarios... </p>
+    <div class="comments-${postData.id}"></div>
     </div>
 `;
   const divElemPost = document.createElement('div');

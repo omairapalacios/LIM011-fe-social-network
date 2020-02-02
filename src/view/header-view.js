@@ -7,29 +7,29 @@ export default () => {
     <button id="menu" class="menu">
         <i class="icon-menu fas fa-bars"></i>
         <ul class="ul-menu-mobile hide">      
-          <li class='home'>
-            <a class="nav-container-link" href='#/home'> MURO</a>
+          <li class="home">
+            <a class="nav-container-link" href="#/home"> MURO</a>
           </li>
-          <li class='profile-heade'>
-            <a  class="nav-container-link" href='#/profile'> PERFIL</a>
+          <li class="profile-heade">
+            <a  class="nav-container-link" href="#/profile"> PERFIL</a>
           </li>
-          <li class='sign-out-mobile'>
+          <li class="sign-out-mobile">
             <a class="nav-container-link">SALIR
-              <i id='sign-out' class="icon-log-out fas fa-sign-out-alt"></i>
+              <i id="sign-out" class="icon-log-out fas fa-sign-out-alt"></i>
             </a>
           </li>
         </ul>
     </button>
     <ul class="ul-menu-desktop">      
-      <li class='home'>
-        <a class="nav-container-link" href='#/home'> MURO</a>
+      <li class="home">
+        <a class="nav-container-link" href="#/home"> MURO</a>
       </li>
-      <li class='profile-heade'>
-        <a  class="nav-container-link" href='#/profile'> PERFIL</a>
+      <li class="profile-heade">
+        <a  class="nav-container-link" href="#/profile"> PERFIL</a>
       </li>
-      <li class='sign-out-desktop'>
+      <li class="sign-out-desktop">
         <a class="nav-container-link">
-          <i id='sign-out' class="icon-log-out fas fa-sign-out-alt"></i>
+          <i id="sign-out" class="icon-log-out fas fa-sign-out-alt"></i>
         </a>
       </li>
     </ul>

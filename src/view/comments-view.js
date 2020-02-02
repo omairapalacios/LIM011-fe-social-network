@@ -5,12 +5,12 @@ export default (comment) => {
   const commentView = `
     <p id="${comment.idUser}" class="comment-name-user">${comment.user}:</p>
     <div class="body-comment ">
-      <textarea id='text-comment' class="detail-comment" rows='5' placeholder='Ingrese comentario...' value=''>${comment.textComment}</textarea>
-      <button class='update-comment btn-post'>
-          <i class='fas fa-edit icon-social icon-general'></i>
+      <textarea id="text-comment" class="detail-comment" rows="5" placeholder="Ingrese comentario..." value="">${comment.textComment}</textarea>
+      <button class="update-comment btn-post">
+          <i class="fas fa-edit icon-social icon-general"></i>
       </button>
-      <button class='delete-comment btn-post'>
-          <i class='fas fa-trash'></i>
+      <button class="delete-comment btn-post">
+          <i class="fas fa-trash"></i>
       </button>
     </div>  
   `;

@@ -92,8 +92,8 @@ a{
   li:hover{
     background-color: #ff9800;
   }
-  
-  ul li a{
+
+  .menu a ul li a{
     color: #ffffff;
     height: 48px;
     display: flex;
@@ -211,12 +211,12 @@ a{
   }
 
   .container-profile .user-photo{
-    margin: 0px;
-    height: 112px;
-    width: 112px;
+    margin-left: 15px;
+    height: 65px;
+    width: 65px;
     border-radius: 50%;
   }
-
+  
   .container-posts-general{
     width: 100%;
     height: auto;
@@ -261,8 +261,8 @@ a{
     text-align: left;
   }
 
-  .form-profile .container-button{
-    width: 100%;
+  .form-profile .container-button {
+    width: 100%;  
     text-align: center;
   }
 
@@ -295,12 +295,6 @@ a{
     margin-left: 15px;
   }
 
-  .user-photo{
-    margin-left: 15px;
-    height: 65px;
-    width: 65px;
-    border-radius: 50%;
-  }
   .user-photos{
     margin-left: 15px;
     height: 60%;
@@ -414,9 +408,6 @@ a{
     border-radius: 10px;
     margin: 5px;
   }
-  .comment {
-    display: flex;
-  }
 
   .add-comment {
     padding: 24px 8px 0px 0px;
@@ -462,7 +453,6 @@ a{
     background-color: #d6d6d6;
     box-sizing: border-box;
     border: 1px solid #bebebe;
-    box-sizing: border-box;
     border-radius: 8px 8px 0px 0px;
   }
 
@@ -547,10 +537,6 @@ a{
   .main-profile{
     padding: 26px;
     height: calc(100vh - 106px);
-  }
-
-  .container-button{
-    width: 100%;
   }
 
   .button-save{
@@ -688,7 +674,7 @@ a{
     background-color: #ffffff;
   }
 
- .icon-logo-main{
+  .icon-logo-main{
     height: 160px;
   }
 
