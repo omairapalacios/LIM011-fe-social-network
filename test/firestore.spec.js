@@ -46,37 +46,31 @@ const objectPost = {
 };
 
 describe('addPost', () => {
-  it('deberia agregar un post', done => addPost(objectPost).then(() => {
+  it('should add a post', done => addPost(objectPost).then(() => {
     const callback = (post) => {
-      const result = post.find(elem => elem.post === 'probando mocks 2');
-      expect(result.post).toBe('probando mocks 2');
+      const result = post.find(elem => elem.post === 'testing mocks 2');
+      expect(result.post).toBe('testing mocks 2');
       done();
     };
     getPosts(callback);
   }));
-});
 
-describe('getPost', () => {
-  it('deberia retornar un post', done => getPosts((data) => {
+  it('should get a post', done => getPosts((data) => {
     const result = data.filter(elem => elem.idUser === 'user001');
     expect(result).toHaveLength(1);
     done();
   }));
-});
 
-describe('updatePost', () => {
-  it('deberia retornar un post', done => updatePost('post001', 'modificando mocks').then(() => {
+  it('should update a post', done => updatePost('post001', 'modify mocks').then(() => {
     const callback = (post) => {
-      const result = post.find(elem => elem.post === 'modificando mocks');
-      expect(result.post).toBe('modificando mocks');
+      const result = post.find(elem => elem.post === 'modify mocks');
+      expect(result.post).toBe('modify mocks');
       done();
     };
     getPosts(callback);
   }));
-});
 
-describe('delete post', () => {
-  it('deberia retornar un post', done => deletePost('post002').then(() => {
+  it('should delete a post', done => deletePost('post002').then(() => {
     const callback = (post) => {
       const result = post.find(elem => elem.id === 'post002');
       expect(result).toBe(undefined);
@@ -84,10 +78,8 @@ describe('delete post', () => {
     };
     getPosts(callback);
   }));
-});
 
-describe('updatePosttype', () => {
-  it('deberia retornar un post', done => updateTypePost('post001', '0').then(() => {
+  it('should update post type', done => updateTypePost('post001', '0').then(() => {
     const callback = (post) => {
       const result = post.find(elem => elem.type === '0');
       expect(result.type).toBe('0');
