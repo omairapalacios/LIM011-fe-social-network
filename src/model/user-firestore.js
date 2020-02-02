@@ -3,14 +3,13 @@ export const addUserData = (userId, userObj) => {
   return result;
 };
 
-export const Data = idUser => firebase.firestore().collection('users').doc(idUser).get();
+export const getUserData = idUser => firebase.firestore().collection('users').doc(idUser).get();
 
-export const updateProfile = (idProfile, newTextProfileType, newTextProfileName, newaboutme,
+export const updateProfile = (idProfile, newTextProfileType, newTextProfileName,
   newcountry) => {
   const result = firebase.firestore().collection('users').doc(idProfile).update({
     displayName: newTextProfileName,
-    type: newTextProfileType,
-    aboutme: newaboutme,
+    typeUser: newTextProfileType,
     country: newcountry,
   });
   return result;

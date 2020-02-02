@@ -55,6 +55,7 @@ export const eventDeleteComment = (event) => {
   }
 };
 
+
 export const eventUpdateComment = (event) => {
   const btnUpdateComment = event.target;
   const idComment = btnUpdateComment.closest('.comment').id;

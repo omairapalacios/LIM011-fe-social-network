@@ -32,7 +32,6 @@ export default (postData) => {
         <option value='0'>Privado</option>
       </select>
     </div>
-
     <div class='container-comment hide'>
     <div class='new-comment detail-comment'>
       <textarea id='text-comment' rows='5' placeholder='Ingrese comentario...'></textarea>

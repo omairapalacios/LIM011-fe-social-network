@@ -25,6 +25,9 @@ export default () => {
             <i id='btn-eye' class='fas fa-unlock-alt icon-general'></i>
           </button>
         </div>
+        
+
+        
         <button id='btn-login' class='btn btn-general' type='submit'>INGRESAR</button>
         <div class='container-errors'>
           <span class='errors' id='error-email'></span>

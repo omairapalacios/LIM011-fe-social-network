@@ -21,7 +21,7 @@ export default (dataUser) => {
           <option value="Vendedor(a)">Vendedor(a)</option>
         </select>
         <label>País:</label>
-        <input id="u-country" type='text' class='input-text' id='u-email' value="${dataUser.country}">
+        <input id="u-country" type='text' class='input-text' id='u-email' value="">
         <div class='container-button'>
           <button type='submit' class='btn button-save' id='button-save'> GUARDAR</button>
         </div>

@@ -18,8 +18,10 @@ export default () => {
             <i id='btn-eye' class='fas fa-unlock-alt icon-general'></i>
           </button>
         </div>
-        <div class='container-errors'>
-        <span class='errors' id='error-email'></span>
+        <select  class='input-text'  id = "typeUser" >
+        <option  value = "COMPRADOR(A)" >COMPRADOR(A) </option>
+        <option  value = "VENDEDOR(A)" > VENDEDOR(A) </ option>
+        </select>
         <span class='errors' id='error-message'></span>
         <span class='errors' id='error-password'></span>
         <span class='errors' id='error-email'></span>
