@@ -46,6 +46,7 @@ const objectPost = {
 };
 
 describe('addPost', () => {
+
   it('deberia agregar un post', done => addPost(objectPost).then(() => {
     const callback = (post) => {
       const result = post.find(elem => elem.post === 'probando mocks 2');

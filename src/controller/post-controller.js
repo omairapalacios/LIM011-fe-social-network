@@ -24,12 +24,14 @@ export const addDataPost = (event) => {
     numlikes: 0,
     type: typePost.value,
   };
+  const fn = (docRef) => {
+    window.location.hash = '#/home';
+    newPost.value = '';
+    console.log('Document written with ID: ', docRef.id);
+  };
+
   addPost(objectPost)
-    .then((docRef) => {
-      window.location.hash = '#/home';
-      newPost.value = '';
-      console.log('Document written with ID: ', docRef.id);
-    })
+    .then(fn)
     .catch((error) => {
       console.error('Error adding document: ', error);
     });
