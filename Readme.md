@@ -16,7 +16,7 @@ Aklla esta dirigido a 2 grandes grupos de Usuarios:
 
 ##### Vistas:
 
-![mobile-login](https://github.com/omairapalacios/LIM011-fe-social-network/blob/omaira/src/img/mobile-login.png)
+![img-project](https://github.com/omairapalacios/LIM011-fe-social-network/blob/gh-pages/src/img/redsocial.png)
 
 ##### Funcionalidad:
 
