@@ -343,6 +343,7 @@ a{
   }
   .text-post {
     display: flex;
+    margin: 10px;
     font-size: 14px;
     align-items: center;
     flex-direction: column;
@@ -463,7 +464,9 @@ a{
     width: 100% ;
     height: 48px;
     display: flex;
+    flex-direction: column;
     padding: 0px 8px;
+    font-size: 10px;
     justify-content: space-between;
     align-items: center;
     background-color: #d6d6d6;
@@ -901,7 +904,10 @@ a{
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
   }
-
+  .header-post{
+    display: flex;
+    font-size: 12px;
+  }
 
   .container-profile .user-profile{
     width: auto;
@@ -933,6 +939,12 @@ a{
     width: 30%;
   }
 
+  .header-post{
+    display: flex;
+    font-size: 13px;
+    flex-direction: row;
+  }
+
   p {
     font-size: 15px;
   }
@@ -940,7 +952,13 @@ a{
   .icon-general {
     font-size: 17px;
   }
+  .detail-post .img-post {
+    height: 300px;
+    width: 500px;
+    margin: 10px;
+  }
 }
+
 
 ::-webkit-scrollbar {
   width: 8px;

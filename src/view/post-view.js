@@ -12,10 +12,13 @@ export default (postData) => {
   const postView = `
     <div class="header-post">
       <span id="${postData.idUser}" class="user-post name-user">Publicado por : ${postData.name}</span>
+      <div>
+      <span class="user-post "> ${postData.date}</span>
       <a href="http://" class="delete-post"><i class="fas fa-trash"></i></a>
+      </div>  
     </div>
     <div class="detail-post">
-      <div name="" class="text-post" disabled>${postData.post} ${postData.urlImg !== '' ? `<img class="img-post" src="${postData.urlImg}">` : ''}</div>
+      <div name="" class="text-post" contentEditable="false">${postData.post} ${postData.urlImg !== '' ? `<img class="img-post" src="${postData.urlImg}">` : ''}</div>
     </div>
     <div class="footer-post">
       <button class="like-post btn-post">

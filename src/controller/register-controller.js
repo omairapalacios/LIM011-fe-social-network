@@ -31,7 +31,7 @@ export default (event) => {
             displayName: nameUser.value,
             photoURL: 'https://image.flaticon.com/icons/svg/149/149071.svg',
             email: result.user.email,
-            typeUser: typeUser.value,
+            typeUser: typeUser.value || '',
           };
           addUserData(userId, userObj);
           window.location.hash = '#/login';

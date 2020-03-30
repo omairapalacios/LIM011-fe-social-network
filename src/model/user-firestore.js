@@ -7,6 +7,8 @@ export const getUserData = idUser => firebase.firestore().collection('users').do
 
 export const updateProfile = (idProfile, newTextProfileType, newTextProfileName,
   newcountry) => {
+    console.log(newTextProfileType);
+    console.log(newTextProfileName);
   const result = firebase.firestore().collection('users').doc(idProfile).update({
     displayName: newTextProfileName,
     typeUser: newTextProfileType,

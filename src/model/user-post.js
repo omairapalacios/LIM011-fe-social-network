@@ -1,4 +1,7 @@
 
+import { getDatePostandComment } from '../utils/util-date.js';
+
+const date = new Date();
 export const addPost = (newPost, typePost, user, nameUser, emailUser, url) => {
   const db = firebase.firestore();
   const result = db.collection('posts').add({
@@ -6,7 +9,7 @@ export const addPost = (newPost, typePost, user, nameUser, emailUser, url) => {
     idUser: user,
     name: nameUser,
     email: emailUser,
-    date: new Date(),
+    date: getDatePostandComment(date),
     numlikes: 0,
     type: typePost,
     urlImg: url,

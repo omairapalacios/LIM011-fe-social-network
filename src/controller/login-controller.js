@@ -48,6 +48,7 @@ export const signFacebookEvent = (event) => {
         displayName: result.user.displayName,
         photoURL: result.user.photoURL,
         email: result.user.email,
+        typeUser: 'Vendedor (a)',
       };
       addUserData(userId, userObj);
       window.location.hash = '#/home';
@@ -70,6 +71,7 @@ export const signGoogleEvent = (event) => {
         displayName: result.user.displayName,
         photoURL: result.user.photoURL,
         email: result.user.email,
+        typeUser: 'Vendedor',
       };
       addUserData(userId, userObj);
       window.location.hash = '#/home';

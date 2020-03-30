@@ -10,7 +10,7 @@ export default (dataPosts, dataUser) => {
         <img src="${dataUser.photoURL}" alt="" id="user-photo" class="user-photo">
         <div class="detail-user">
           <span id="user-name" class="name-user">${dataUser.displayName}</span>
-          <span id="user-type">Vendedor(a)</span>
+          <div>${dataUser.typeUser === '' ? '<span id="user-type">Vendedor(a)</span>' : `<span id="user-type">${dataUser.typeUser}</span>`}</div>
         </div>
       </div>
     </section>

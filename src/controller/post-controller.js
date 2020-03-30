@@ -49,19 +49,18 @@ export const addDataPost = (event) => {
           console.error('Error adding document: ', error);
         }));
   }
-
 };
   // eventShowPostToChange  ?
 export const eventShowPostToChange = (event) => {
   event.preventDefault();
   const btnShowPost = event.target;
-  const newTextPost = btnShowPost.closest('.card-post').querySelector('#text-post');
+  const newTextPost = btnShowPost.closest('.card-post').querySelector('.text-post');
   const userId = btnShowPost.closest('.card-post').querySelector('.user-post').id;
   console.log(userId);
   const btnSave = btnShowPost.closest('.card-post').querySelector('.btn-save-change');
   const btnContSave = btnShowPost.closest('.card-post').querySelector('.update-post');
   if (currentUser().uid === userId) {
-    newTextPost.disabled = false;
+    newTextPost.contentEditable = true;
     btnShowPost.style.display = 'none';
     btnContSave.style.display = 'none';
     btnSave.classList.remove('hidden');
@@ -72,12 +71,12 @@ export const eventUpdatePost = (event) => {
   event.preventDefault();
   const btnUpdate = event.target;
   const postId = btnUpdate.closest('.card-post').id;
-  const newTextPost = btnUpdate.closest('.card-post').querySelector('#text-post');
+  const newTextPost = btnUpdate.closest('.card-post').querySelector('.text-post');
   const btnSave = btnUpdate.closest('.card-post').querySelector('.btn-save-change');
   const iconUpdate = btnUpdate.closest('.card-post').querySelector('.icon-social');
   const btnUpdatePost = btnUpdate.closest('.card-post').querySelector('.update-post');
 
-  newTextPost.disabled = true;
+  newTextPost.contentEditable = true;
   btnUpdate.style.display = 'block';
   iconUpdate.style.display = 'block';
   btnUpdatePost.style.display = 'block';
