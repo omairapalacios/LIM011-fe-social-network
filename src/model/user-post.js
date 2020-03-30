@@ -1,7 +1,16 @@
 
-export const addPost = (objPost) => {
+export const addPost = (newPost, typePost, user, nameUser, emailUser, url) => {
   const db = firebase.firestore();
-  const result = db.collection('posts').add(objPost);
+  const result = db.collection('posts').add({
+    post: newPost,
+    idUser: user,
+    name: nameUser,
+    email: emailUser,
+    date: new Date(),
+    numlikes: 0,
+    type: typePost,
+    urlImg: url,
+  });
   return result;
 };
 

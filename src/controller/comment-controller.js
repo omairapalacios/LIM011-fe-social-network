@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import {
   deleteComment,
   updateComment,
@@ -14,7 +13,6 @@ export const showComments = (event) => {
 };
 
 export const eventAddComment = (event) => {
-  // agregar comentario db
   event.preventDefault();
   const btnAddComment = event.target;
   const postId = btnAddComment.closest('.card-post').id;
@@ -54,7 +52,6 @@ export const eventDeleteComment = (event) => {
       });
   }
 };
-
 
 export const eventUpdateComment = (event) => {
   const btnUpdateComment = event.target;

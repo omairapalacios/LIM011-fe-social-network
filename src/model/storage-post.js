@@ -1,5 +1,5 @@
-export const upImage = (file) => {
-  const postImageRef = firebase.storage().ref().child(`images/${file.name}`);
-  return postImageRef.put(file)
+export const uploadImage = (image) => {
+  const storageRef = firebase.storage().ref(`images/${image.name}`);
+  return storageRef.put(image)
     .then(snapshot => snapshot.ref.getDownloadURL());
 };

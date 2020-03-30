@@ -9,13 +9,19 @@ import {
 
 import { addLikes, getUserLike, deleteLikes } from '../model/likes-post.js';
 import { currentUser } from '../model/auth-user.js';
+import { uploadImage } from '../model/storage-post.js';
 
 export const addDataPost = (event) => {
   event.preventDefault();
   const btnShare = event.target;
-  const newPost = btnShare.closest('.card-new-post').querySelector('textarea');
-  const typePost = btnShare.closest('.card-new-post').querySelector('select');
-  const objectPost = {
+  let newPost = btnShare.closest('.card-new-post').querySelector('textarea').value;
+  const typePost = btnShare.closest('.card-new-post').querySelector('select').value;
+  const image = btnShare.closest('.card-new-post').querySelector('#upload-image');
+  console.log(image);
+  const idUser = currentUser().uid;
+  const nameUser = currentUser().displayName;
+  const emailUser = currentUser().email;
+  /*  const objectPost = {
     post: newPost.value,
     idUser: currentUser().uid,
     name: currentUser().displayName,
@@ -23,18 +29,27 @@ export const addDataPost = (event) => {
     date: new Date(),
     numlikes: 0,
     type: typePost.value,
-  };
+  }; */
   const fn = (docRef) => {
     window.location.hash = '#/home';
-    newPost.value = '';
+    newPost = '';
     console.log('Document written with ID: ', docRef.id);
   };
+  if (image.files[0] === undefined) {
+    addPost(newPost, typePost, idUser, nameUser, emailUser, '')
+      .then(fn)
+      .catch((error) => {
+        console.error('Error adding document: ', error);
+      });
+  } else {
+    uploadImage(image.files[0])
+      .then(url => addPost(newPost, typePost, idUser, nameUser, emailUser, url)
+        .then(fn)
+        .catch((error) => {
+          console.error('Error adding document: ', error);
+        }));
+  }
 
-  addPost(objectPost)
-    .then(fn)
-    .catch((error) => {
-      console.error('Error adding document: ', error);
-    });
 };
   // eventShowPostToChange  ?
 export const eventShowPostToChange = (event) => {

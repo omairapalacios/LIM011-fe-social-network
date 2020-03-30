@@ -5,6 +5,7 @@ import {
   eventChangeTypePost,
   eventUpdatePost,
 } from '../controller/post-controller.js';
+
 import { showComments, eventAddComment, eventGetAllComments } from '../controller/comment-controller.js';
 
 export default (postData) => {
@@ -14,7 +15,7 @@ export default (postData) => {
       <a href="http://" class="delete-post"><i class="fas fa-trash"></i></a>
     </div>
     <div class="detail-post">
-      <textarea name="" id="text-post" disabled>${postData.post}</textarea>
+      <div name="" class="text-post" disabled>${postData.post} ${postData.urlImg !== '' ? `<img class="img-post" src="${postData.urlImg}">` : ''}</div>
     </div>
     <div class="footer-post">
       <button class="like-post btn-post">
